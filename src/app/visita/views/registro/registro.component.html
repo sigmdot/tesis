@@ -5,16 +5,17 @@
     </div>
     <div class="col-12 p-0 w-100 d-flex justify-content-center">
         <div class="col-10 border h-100">
-            <mat-horizontal-stepper linear #stepper>
-                <mat-step [stepControl]="">
+            <mat-horizontal-stepper #stepper>
+                <mat-step>
                     <ng-template matStepLabel>Tus datos de registro</ng-template>
                     <app-formulario-uno></app-formulario-uno>
                 </mat-step>
-                <mat-step [stepControl]="">
+                <mat-step>
                     <ng-template matStepLabel>Tus datos de usuario</ng-template>
+                    <app-formulario-uno></app-formulario-uno>
                     
                 </mat-step>
-                <mat-step [stepControl]="">
+                <mat-step>
                     <ng-template matStepLabel>Sube una foto</ng-template>
                     
                 </mat-step>

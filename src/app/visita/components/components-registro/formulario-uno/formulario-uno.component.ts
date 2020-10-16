@@ -11,5 +11,7 @@ export class FormularioUnoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  validacionFormularioUno(){
+    console.log('Validado');
+  }
 }

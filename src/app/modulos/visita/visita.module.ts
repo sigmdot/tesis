@@ -16,6 +16,10 @@ import { InfoFeaturesComponent } from 'src/app/components/components-landing/inf
 import { FormularioUnoComponent } from 'src/app/components/components-registro/formulario-uno/formulario-uno.component';
 
 
+//Angular material
+
+import {MatStepperModule} from '@angular/material/stepper';
+
 @NgModule({
   declarations: [
     LandingComponent,
@@ -28,7 +32,8 @@ import { FormularioUnoComponent } from 'src/app/components/components-registro/f
   ],
   imports: [
     VisitaRoutingModule,
-    CommonModule
+    CommonModule,
+    MatStepperModule
   ]
 })
 export class VisitaModule { }

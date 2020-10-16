@@ -15,11 +15,11 @@ import { InfoFeaturesComponent } from 'src/app/visita/components/components-land
 // Componentes Registro
 import { FormularioUnoComponent } from 'src/app/visita/components/components-registro/formulario-uno/formulario-uno.component';
 import { FormularioDosComponent } from './components/components-registro/formulario-dos/formulario-dos.component';
+import { FormularioTresComponent } from './components/components-registro/formulario-tres/formulario-tres.component';
 
 // Angular material
 import { MatStepperModule } from '@angular/material/stepper';
 import { VisitaComponent } from './visita.component';
-import { FormularioTresComponent } from './components/components-registro/formulario-tres/formulario-tres.component';
 
 @NgModule({
   declarations: [

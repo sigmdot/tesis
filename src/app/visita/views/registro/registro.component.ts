@@ -11,5 +11,8 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  // tslint:disable-next-line: typedef
+  finalizarRegistro(){
+    console.log('Registro finalizado usuario falso creado');
+  }
 }

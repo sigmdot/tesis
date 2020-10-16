@@ -7,10 +7,11 @@ import { HomeComponent } from './views/home/home.component';
 import { HistorialUsuarioComponent } from './views/historial-usuario/historial-usuario.component';
 import { PerfilUsuarioComponent } from './views/perfil-usuario/perfil-usuario.component';
 import { ListaAvisosComponent } from './components/components-home/lista-avisos/lista-avisos.component';
+import { TarjetaAvisoComponent } from './components/components-home/tarjeta-aviso/tarjeta-aviso.component';
 
 
 @NgModule({
-  declarations: [UsuarioComponent, HomeComponent, HistorialUsuarioComponent, PerfilUsuarioComponent, ListaAvisosComponent],
+  declarations: [UsuarioComponent, HomeComponent, HistorialUsuarioComponent, PerfilUsuarioComponent, ListaAvisosComponent, TarjetaAvisoComponent],
   imports: [
     CommonModule,
     UsuarioRoutingModule

@@ -10,12 +10,15 @@ import { ListaAvisosComponent } from './components/components-home/lista-avisos/
 import { TarjetaAvisoComponent } from './components/components-home/tarjeta-aviso/tarjeta-aviso.component';
 import { MapaHomeComponent } from './components/components-home/mapa-home/mapa-home.component';
 
+// Core module
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [UsuarioComponent, HomeComponent, HistorialUsuarioComponent, PerfilUsuarioComponent, ListaAvisosComponent, TarjetaAvisoComponent, MapaHomeComponent],
   imports: [
     CommonModule,
-    UsuarioRoutingModule
+    UsuarioRoutingModule,
+    CoreModule
   ]
 })
 export class UsuarioModule { }

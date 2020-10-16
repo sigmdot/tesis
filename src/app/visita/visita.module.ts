@@ -17,10 +17,15 @@ import { FormularioUnoComponent } from 'src/app/visita/components/components-reg
 import { FormularioDosComponent } from './components/components-registro/formulario-dos/formulario-dos.component';
 import { FormularioTresComponent } from './components/components-registro/formulario-tres/formulario-tres.component';
 
+// Componentes Login
+import { FormularioLoginComponent } from './components/components-login/formulario-login/formulario-login.component';
+
 // Angular material
 import { MatStepperModule } from '@angular/material/stepper';
 import { VisitaComponent } from './visita.component';
-import { FormularioLoginComponent } from './components/components-login/formulario-login/formulario-login.component';
+
+// Core module
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,8 @@ import { FormularioLoginComponent } from './components/components-login/formular
   imports: [
     VisitaRoutingModule,
     CommonModule,
-    MatStepperModule
+    MatStepperModule,
+    CoreModule
   ]
 })
 export class VisitaModule { }

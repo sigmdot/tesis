@@ -9,7 +9,7 @@ const routes: Routes = [{
   component: LandingComponent
 },
 {
-  path: 'Login',
+  path: 'login',
   component: LoginComponent
 },
 {

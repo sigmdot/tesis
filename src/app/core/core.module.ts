@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+// Firebase
+import { FirebaseModule } from './modules/firebase/firebase.module'
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    FirebaseModule
   ]
 })
 export class CoreModule { }

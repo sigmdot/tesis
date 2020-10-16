@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Iconos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LandingComponent } from './views/landing/landing.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegistroComponent } from './views/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent
+    LandingComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

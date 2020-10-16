@@ -1,0 +1,21 @@
+<form class="w-100">
+    <div class="form-group text-center">
+        <h5>Subir una foto</h5>
+        <input type='file' (change)="onSelectFile($event)" id="upload" required>
+    </div>
+    <div class="d-flex justify-content-center mb-2" *ngIf="url != null">
+        <img class="rounded img-thumbnail" [src]="url" height="400" width="400">
+    </div>
+    <div class="jumbotron jumbotron-fluid rounded py-2">
+        <div class="container">
+          <h5 class="display-5">Tips para una buena foto</h5>
+          <ul class="p-2">
+              <li>Tú cara debe verse en la totalidad, por lo tanto prefiere foto donde se vea tú cara de cerca</li>
+              <li>La presentación de tú perfil es tuya, evita que salga otra persona además de tí en la foto</li>
+              <li>No elegir selfie</li>
+              <li>Elige una foto reciente</li>
+              <li>Por último, sonreir suaviza las expresiones en tú rostro lo que genera confianza en quien ve tú perfil </li>
+          </ul>
+        </div>
+    </div>
+</form>

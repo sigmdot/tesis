@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LandingComponent } from 'src/app/views/landing/landing.component';
-import { LoginComponent } from 'src/app/views/login/login.component';
-import { RegistroComponent } from 'src/app/views/registro/registro.component';
+import { LandingComponent } from 'src/app/visita/views/landing/landing.component';
+import { LoginComponent } from 'src/app/visita/views/login/login.component';
+import { RegistroComponent } from 'src/app/visita/views/registro/registro.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,7 +13,7 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: 'Registro',
+  path: 'registro',
   component: RegistroComponent
 }];
 

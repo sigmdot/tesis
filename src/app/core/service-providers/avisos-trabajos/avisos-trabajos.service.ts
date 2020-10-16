@@ -20,6 +20,7 @@ export class AvisosTrabajosService {
 
   // tslint:disable-next-line: typedef
   public getAvisoByStatus(estado: string){
+    // tslint:disable-next-line: whitespace
     return this.firestoreSvc.snapshotCollection<any>(null,'avisosTrabajos', ref => ref.where('estado', '==', estado));
   }
 

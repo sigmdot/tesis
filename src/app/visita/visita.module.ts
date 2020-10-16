@@ -14,11 +14,10 @@ import { InfoFeaturesComponent } from 'src/app/visita/components/components-land
 
 // Componentes Registro
 import { FormularioUnoComponent } from 'src/app/visita/components/components-registro/formulario-uno/formulario-uno.component';
-
+import { FormularioDosComponent } from './components/components-registro/formulario-dos/formulario-dos.component';
 
 // Angular material
-
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { VisitaComponent } from './visita.component';
 
 @NgModule({
@@ -30,7 +29,8 @@ import { VisitaComponent } from './visita.component';
     BarraNavegacionComponent,
     InfoFeaturesComponent,
     FormularioUnoComponent,
-    VisitaComponent
+    VisitaComponent,
+    FormularioDosComponent
   ],
   imports: [
     VisitaRoutingModule,

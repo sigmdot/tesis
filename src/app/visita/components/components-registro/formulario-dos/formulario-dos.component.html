@@ -1,0 +1,28 @@
+<div class="h-100 w-100">
+    <form autocomplete="on">
+        <div class="w-100 bg-light p-3 text-center">
+            Acá recopilaremos datos necesarios para gestionar tú cuenta los cuales son: <strong>correo, contraseña y rut</strong>
+        </div>
+        <div class="form-group">
+            <label for="correoInput">Correo electronico</label>
+            <input type="email" class="form-control" id="correoInput">
+        </div>
+        <div class="form-group">
+            <label for="correoConfInput">Confirmar correo electronico</label>
+            <input type="email" class="form-control" id="correoConfInput" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="passInput">Contraseña</label>
+            <input type="password" class="form-control" id="passInput">
+        </div>
+        <div class="form-group">
+            <label for="passConfInput">Confirmar contraseña</label>
+            <input type="password" class="form-control" id="passConfInput">
+        </div>
+        <div class="form-group">
+            <label for="RutInput">RUT</label>
+            <input type="text" class="form-control" id="RutInput">
+        </div>
+        <button type="button" matStepperNext class="btn btn-primary" (click)="validacionFormularioUno()">Siguiente!</button>
+    </form>
+</div>

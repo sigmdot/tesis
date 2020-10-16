@@ -8,10 +8,11 @@ import { HistorialUsuarioComponent } from './views/historial-usuario/historial-u
 import { PerfilUsuarioComponent } from './views/perfil-usuario/perfil-usuario.component';
 import { ListaAvisosComponent } from './components/components-home/lista-avisos/lista-avisos.component';
 import { TarjetaAvisoComponent } from './components/components-home/tarjeta-aviso/tarjeta-aviso.component';
+import { MapaHomeComponent } from './components/components-home/mapa-home/mapa-home.component';
 
 
 @NgModule({
-  declarations: [UsuarioComponent, HomeComponent, HistorialUsuarioComponent, PerfilUsuarioComponent, ListaAvisosComponent, TarjetaAvisoComponent],
+  declarations: [UsuarioComponent, HomeComponent, HistorialUsuarioComponent, PerfilUsuarioComponent, ListaAvisosComponent, TarjetaAvisoComponent, MapaHomeComponent],
   imports: [
     CommonModule,
     UsuarioRoutingModule

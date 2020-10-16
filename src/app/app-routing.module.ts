@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'desktop',
     loadChildren: () => import('./usuario/usuario.module').then(module => module.UsuarioModule)
+  },
+  {
+    path: 'home',
+    redirectTo: '/desktop/home'
   }
 ];
 

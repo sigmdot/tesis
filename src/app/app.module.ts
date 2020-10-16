@@ -6,16 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Iconos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LandingComponent } from './views/landing/landing.component';
-import { LoginComponent } from './views/login/login.component';
-import { RegistroComponent } from './views/registro/registro.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LandingComponent,
-    LoginComponent,
-    RegistroComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,7 @@ import { FormularioTresComponent } from './components/components-registro/formul
 // Angular material
 import { MatStepperModule } from '@angular/material/stepper';
 import { VisitaComponent } from './visita.component';
+import { FormularioLoginComponent } from './components/components-login/formulario-login/formulario-login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { VisitaComponent } from './visita.component';
     FormularioUnoComponent,
     VisitaComponent,
     FormularioDosComponent,
-    FormularioTresComponent
+    FormularioTresComponent,
+    FormularioLoginComponent
   ],
   imports: [
     VisitaRoutingModule,

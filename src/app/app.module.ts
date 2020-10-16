@@ -7,12 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Iconos
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-//Core
-import { CoreModule } from 'src/app/core/core.module';
+// Core
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent  
+    AppComponent
   ],
   imports: [
     BrowserModule,

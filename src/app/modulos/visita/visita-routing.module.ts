@@ -13,7 +13,7 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: 'Registro',
+  path: 'registro',
   component: RegistroComponent
 }];
 

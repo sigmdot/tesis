@@ -6,19 +6,21 @@ import { VisitaRoutingModule } from './visita-routing.module';
 import { LandingComponent } from 'src/app/views/landing/landing.component';
 import { LoginComponent } from 'src/app/views/login/login.component';
 import { RegistroComponent } from 'src/app/views/registro/registro.component';
-//Componentes Landing
+
+// Componentes Landing
 import { BannerComponent } from 'src/app/components/components-landing/banner/banner.component';
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    VisitaRoutingModule,
+  declarations: [
     LandingComponent,
     LoginComponent,
     RegistroComponent,
     BannerComponent
+  ],
+  imports: [
+    VisitaRoutingModule,
+    CommonModule
   ]
 })
 export class VisitaModule { }

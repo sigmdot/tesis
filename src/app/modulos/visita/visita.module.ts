@@ -12,6 +12,9 @@ import { BannerComponent } from 'src/app/components/components-landing/banner/ba
 import { BarraNavegacionComponent } from 'src/app/components/components-landing/barra-navegacion/barra-navegacion.component';
 import { InfoFeaturesComponent } from 'src/app/components/components-landing/info-features/info-features.component';
 
+// Componentes Registro
+import { FormularioUnoComponent } from 'src/app/components/components-registro/formulario-uno/formulario-uno.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { InfoFeaturesComponent } from 'src/app/components/components-landing/inf
     RegistroComponent,
     BannerComponent,
     BarraNavegacionComponent,
-    InfoFeaturesComponent
+    InfoFeaturesComponent,
+    FormularioUnoComponent
   ],
   imports: [
     VisitaRoutingModule,

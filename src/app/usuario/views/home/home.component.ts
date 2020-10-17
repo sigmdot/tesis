@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  trabajos: any[];
-  constructor(private trabajoSvc$: AvisosTrabajosService) { }
+export class HomeComponent implements OnInit, OnDestroy {
+  trabajos$: Observable<any[]>;
+  suscripcionTrabajos: Subscription;
+  avisosLista: any[];
+  constructor(private trabajoSvc: AvisosTrabajosService) {
+    this.trabajos$ = this.trabajoSvc.getAllAvisos();
+   }
+
 
   ngOnInit(): void {
-     this.trabajoSvc$.getAllAvisos().subscribe(avisos => this.trabajos = avisos);
-     console.log(this.trabajos);
+    this.suscripcionTrabajos = this.trabajos$.subscribe(trabajos => this.avisosLista = trabajos);
+    console.log(this.avisosLista);
+  }
+
+  ngOnDestroy(): void {
+    this.suscripcionTrabajos.unsubscribe();
   }
 
 }

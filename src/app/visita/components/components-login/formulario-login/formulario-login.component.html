@@ -1,4 +1,4 @@
-<form class="p-4">
+<form class="p-4" [formGroup]="formLogin">
     <div class="form-group">
         <label for="correoLoginInput">Correo electronico</label>
         <input type="email" class="form-control" id="correoLoginInput" required>
@@ -10,7 +10,7 @@
         <small>¿Olvidaste tú contraseña?</small>
     </div>
     <div class="form-groyp">
-        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        <button type="submit" class="btn btn-primary w-100" (click)="login()">Entrar</button>
         <button class="btn btn-secondary w-100 mt-2" routerLink="/">Volver</button>
     </div>
 </form>

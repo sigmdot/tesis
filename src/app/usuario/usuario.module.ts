@@ -12,8 +12,12 @@ import { ListaAvisosComponent } from './components/components-home/lista-avisos/
 import { TarjetaAvisoComponent } from './components/components-home/tarjeta-aviso/tarjeta-aviso.component';
 import { MapaHomeComponent } from './components/components-home/mapa-home/mapa-home.component';
 
+// Componentes generales
+import { FixNavbarComponent } from './components/components-general/fix-navbar/fix-navbar.component';
+
 // Core module
 import { CoreModule } from '@core/core.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,11 +27,13 @@ import { CoreModule } from '@core/core.module';
      PerfilUsuarioComponent,
      ListaAvisosComponent,
      TarjetaAvisoComponent,
-     MapaHomeComponent
+     MapaHomeComponent,
+     FixNavbarComponent
     ],
   imports: [
     CommonModule,
     UsuarioRoutingModule,
+    FontAwesomeModule,
     CoreModule
   ]
 })

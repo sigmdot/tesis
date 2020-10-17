@@ -13,4 +13,16 @@ export class ListaAvisosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
+  filtrarAvisos(distancia: number){
+    const avisos: AvisoTrabajo[] = null;
+    // tslint:disable-next-line: prefer-for-of
+    for (let index = 0; index < this.lista.length; index++) {
+      if (this.lista[index].distancia <= distancia){
+        avisos.push(this.lista[index]);
+      }
+    }
+    return avisos;
+  }
+
 }

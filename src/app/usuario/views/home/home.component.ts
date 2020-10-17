@@ -10,9 +10,9 @@ import { AvisoTrabajo } from '@model/aviso-trabajo.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  trabajos$: Observable<AvisoTrabajo[]>;
-  /* suscripcionTrabajos: Subscription;
-  avisosLista: any[]; */
+  trabajos$: Observable<AvisoTrabajo[]> = null;
+  centroMapa: number[] = [-70.689409, -33.518071];
+
   constructor(private trabajoSvc: AvisosTrabajosService) {
     this.trabajos$ = this.trabajoSvc.getAllAvisos();
   }
@@ -28,6 +28,18 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
       return avisosTrabajos;
     }) );
+  }
+
+  // tslint:disable-next-line: typedef
+  obtenerMiUbicacion(){
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.centroMapa = [position.coords.longitude, position.coords.latitude];
+      });
+      console.log(this.centroMapa);
+    } else {
+      alert('La geolocalización parece no estar disponible en tú navegador :(');
+    }
   }
 
   // tslint:disable-next-line: typedef

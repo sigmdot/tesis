@@ -14,8 +14,8 @@ const routes: Routes = [
   {
     path: 'desktop',
     loadChildren: () => import('./usuario/usuario.module').then(module => module.UsuarioModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLanding }
+    /* canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLanding } */
   },
   {
     path: 'home',

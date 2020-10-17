@@ -21,7 +21,7 @@ export class FirestoreService {
 
     return col.snapshotChanges().pipe(map(snap => {
       return snap.map(doc => {
-        console.log(doc.payload.doc.data());
+        /* console.log(doc.payload.doc.data()); */
         return doc.payload.doc.data() as type;
       });
     }));

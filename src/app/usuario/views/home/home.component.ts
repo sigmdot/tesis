@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 
 @Component({
   selector: 'app-home',
@@ -8,21 +10,33 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  trabajos$: Observable<any[]>;
-  suscripcionTrabajos: Subscription;
-  avisosLista: any[];
+  trabajos$: Observable<AvisoTrabajo[]>;
+  /* suscripcionTrabajos: Subscription;
+  avisosLista: any[]; */
   constructor(private trabajoSvc: AvisosTrabajosService) {
     this.trabajos$ = this.trabajoSvc.getAllAvisos();
-   }
+  }
 
 
   ngOnInit(): void {
-    this.suscripcionTrabajos = this.trabajos$.subscribe(trabajos => this.avisosLista = trabajos);
-    console.log(this.avisosLista);
+    /* this.suscripcionTrabajos = this.trabajos$.subscribe(trabajos => this.avisosLista = trabajos); */
+    /* console.log(this.avisosLista); */
+    this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
+      // tslint:disable-next-line: prefer-for-of
+      for (let index = 0; index < avisosTrabajos.length; index++) {
+        avisosTrabajos[index].distancia = this._calcularKm(avisosTrabajos[index].ubicacion);
+      }
+      return avisosTrabajos;
+    }) );
+  }
+
+  // tslint:disable-next-line: typedef
+  private _calcularKm(ubicacion: number[]): number{
+    return 5;
   }
 
   ngOnDestroy(): void {
-    this.suscripcionTrabajos.unsubscribe();
+    /* this.suscripcionTrabajos.unsubscribe(); */
   }
 
 }

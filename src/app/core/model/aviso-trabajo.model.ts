@@ -1,5 +1,3 @@
-import { Interface } from "readline";
-
 export interface AvisoTrabajo{
     id?: string;
     nombreAviso: string;

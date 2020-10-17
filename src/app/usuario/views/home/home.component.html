@@ -13,6 +13,6 @@
         </div>
     </div>
     <div class="col-3 border h-100">
-        <app-lista-avisos></app-lista-avisos>
+        <app-lista-avisos [lista]="(trabajos$ | async)"></app-lista-avisos>
     </div>
 </div>

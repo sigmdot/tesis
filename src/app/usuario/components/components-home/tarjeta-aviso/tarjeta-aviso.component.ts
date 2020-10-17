@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 
 @Component({
   selector: 'app-tarjeta-aviso',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tarjeta-aviso.component.css']
 })
 export class TarjetaAvisoComponent implements OnInit {
-
+  @Input() aviso: AvisoTrabajo;
   constructor() { }
 
   ngOnInit(): void {

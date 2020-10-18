@@ -1,0 +1,7 @@
+#estudios-estilo{
+    height: 100%;
+    background-color: #F7F2FE;
+}
+#listaEstudio::-webkit-scrollbar {
+    display: none;
+  }

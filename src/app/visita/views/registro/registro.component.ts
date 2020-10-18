@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { FormularioDosComponent } from '@visita/components/components-registro/formulario-dos/formulario-dos.component';
 import { FormularioTresComponent } from '@visita/components/components-registro/formulario-tres/formulario-tres.component';
 import { FormularioUnoComponent } from '@visita/components/components-registro/formulario-uno/formulario-uno.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registro',
@@ -10,8 +12,8 @@ import { FormularioUnoComponent } from '@visita/components/components-registro/f
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  toast: any;
+  constructor(private router: Router, private authSvc: FireauthService, private toastr: ToastrService) { }
 
   @ViewChild(FormularioUnoComponent) pasoUno: FormularioUnoComponent;
   @ViewChild(FormularioDosComponent) pasoDos: FormularioDosComponent;
@@ -32,13 +34,38 @@ export class RegistroComponent implements OnInit {
     return this.pasoTres ? this.pasoTres.formFoto : null;
   }
 
+  // tslint:disable-next-line: typedef
+  finalizarRegistro() {
+    console.log('Form uno');
+    console.log(this.FormpasoUno);
+    console.log('Form dos');
+    console.log(this.FormpasoDos);
+    console.log('Form tres');
+    console.log(this.FormpasoTres);
+    if (this.FormpasoTres.value.file !== null) {
+      this.authSvc.createUserEmailPass(this.FormpasoUno.value.correo, this.FormpasoUno.value.pass).then((user) => {
+        console.log(user);
+        console.log(user.user.uid);
+        /* this.userCollSvc.createUser(user.user.uid, this.FormpasoDos); */
+        /* this.uploaderStorage.upload(user.user.uid, this.FormpasoTres.value.file); */
+        this.toast = this.toastr.success('Ha sido creada tú cuenta con exito', 'Cuenta creada', {
+          timeOut: 5000
+        });
+        if (this.toast.onHidden){
+          this.router.navigate(['/home']);
+        }
+      }).catch(e => {
+        console.log('ERROR', e);
+      });
+    }
+    else {
+      this.toastr.warning('Se necesita de una foto');
+    }
+  }
+
 
 
   ngOnInit(): void {
-  }
-  // tslint:disable-next-line: typedef
-  finalizarRegistro(){
-    console.log('Registro finalizado usuario falso creado');
   }
   // tslint:disable-next-line: typedef
   backToLanding(){

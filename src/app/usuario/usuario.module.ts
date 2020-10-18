@@ -31,6 +31,7 @@ import { MapaDetallesAvisoComponent } from './components/components-historial/ma
 import { TarjetaAvisoTrabajoActivoComponent } from './components/components-historial/tarjeta-aviso-trabajo-activo/tarjeta-aviso-trabajo-activo.component';
 import { ListaPostuladosComponent } from './components/components-historial/lista-postulados/lista-postulados.component';
 import { ConfirmacionBajaComponent } from './components/components-historial/confirmacion-baja/confirmacion-baja.component';
+import { TarjetaPostuladoComponent } from './components/components-historial/tarjeta-postulado/tarjeta-postulado.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ConfirmacionBajaComponent } from './components/components-historial/con
     MapaDetallesAvisoComponent,
     TarjetaAvisoTrabajoActivoComponent,
     ListaPostuladosComponent,
-    ConfirmacionBajaComponent
+    ConfirmacionBajaComponent,
+    TarjetaPostuladoComponent
   ],
   imports: [
     CommonModule,

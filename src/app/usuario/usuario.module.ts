@@ -33,6 +33,7 @@ import { ListaPostuladosComponent } from './components/components-historial/list
 import { ConfirmacionBajaComponent } from './components/components-historial/confirmacion-baja/confirmacion-baja.component';
 import { TarjetaPostuladoComponent } from './components/components-historial/tarjeta-postulado/tarjeta-postulado.component';
 import { PerfilDatosUnoComponent } from './components/components-perfil/perfil-datos-uno/perfil-datos-uno.component';
+import { PerfilDatosDosComponent } from './components/components-perfil/perfil-datos-dos/perfil-datos-dos.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { PerfilDatosUnoComponent } from './components/components-perfil/perfil-d
     ListaPostuladosComponent,
     ConfirmacionBajaComponent,
     TarjetaPostuladoComponent,
-    PerfilDatosUnoComponent
+    PerfilDatosUnoComponent,
+    PerfilDatosDosComponent
   ],
   imports: [
     CommonModule,

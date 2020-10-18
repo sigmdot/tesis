@@ -1,15 +1,32 @@
 <div class="container-fluid border p-0" style="height: 100vh; padding-top: 50px !important;">
-    <div class="col-12 p-0 row m-0 border h-75">
-        <div class="col-6 p-0 h-100 border">
-            <div class="col-12 p-0 w-100 text-center" id="texto-lista" style="height: 6%;">
+    <div class="col-12 row m-0 h-75">
+        <div class="col-6 p-0 h-100">
+            <div class="col-12 p-0 w-100 text-center border rounded-top" id="texto-lista" style="height: 6%;">
                 <h5>Lista trabajos solicitados</h5>
             </div>
-            <div class="col-12 border p-0" style="height: 94%;">
+            <div class="col-12 p-0" style="height: 94%;">
                 <app-lista-historial></app-lista-historial>
             </div>
         </div>
-        <div class="col-6 h-100 border"></div>
+        <div class="col-6 h-100">
+            <div class="col-12 h-50 p-0">
+                <div class="col-12 p-0 w-100 text-center border rounded-top" id="texto-lista" style="height: 10%;">
+                    <h5>Lista trabajos realizados</h5>
+                </div>
+                <div class="col-12 p-0" style="height: 90%;">
+                    <app-lista-historial></app-lista-historial>
+                </div>
+            </div>
+            <div class="col-12 h-50 p-0">
+                <div class="col-12 p-0 w-100 text-center border rounded-top" id="texto-lista" style="height: 10%;">
+                    <h5>Lista trabajos postulados</h5>
+                </div>
+                <div class="col-12 p-0" style="height: 90%;">
+                    <app-lista-historial></app-lista-historial>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-12 p-2 border h-25" id="contenedorTarjetaTrabajoActivo">
+    <div class="col-12 border h-25" id="contenedorTarjetaTrabajoActivo">
     </div>
 </div>

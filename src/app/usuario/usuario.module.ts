@@ -28,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TarjetaListaHistorialComponent } from './components/components-historial/tarjeta-lista-historial/tarjeta-lista-historial.component';
 import { DetalleAvisoHistorialComponent } from './components/components-historial/detalle-aviso-historial/detalle-aviso-historial.component';
 import { MapaDetallesAvisoComponent } from './components/components-historial/mapa-detalles-aviso/mapa-detalles-aviso.component';
+import { TarjetaAvisoTrabajoActivoComponent } from './components/components-historial/tarjeta-aviso-trabajo-activo/tarjeta-aviso-trabajo-activo.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MapaDetallesAvisoComponent } from './components/components-historial/ma
     ListaHistorialComponent,
     TarjetaListaHistorialComponent,
     DetalleAvisoHistorialComponent,
-    MapaDetallesAvisoComponent
+    MapaDetallesAvisoComponent,
+    TarjetaAvisoTrabajoActivoComponent
   ],
   imports: [
     CommonModule,

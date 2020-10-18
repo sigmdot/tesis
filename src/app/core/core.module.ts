@@ -15,7 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     FormsModule,
     FirebaseModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FirebaseModule
   ],
   providers: [AvisosTrabajosService]
 })

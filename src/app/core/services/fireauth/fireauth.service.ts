@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,20 @@ export class FireauthService {
     return this.af.currentUser;
   }
 
+  // tslint:disable-next-line: typedef
   logOut(){
     return this.af.signOut();
+  }
+
+  // tslint:disable-next-line: typedef
+  getUserAuth(){
+    return this.af.authState.pipe(first()).toPromise();
+  }
+  
+
+  // tslint:disable-next-line: typedef
+  getToken(){
+    return this.af.idToken;
   }
 
 }

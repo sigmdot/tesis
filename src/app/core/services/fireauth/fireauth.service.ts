@@ -14,13 +14,17 @@ export class FireauthService {
   }
 
   // tslint:disable-next-line: typedef
-  createUserEmailPass(email: string, pass: string){
-    return this.af.createUserWithEmailAndPassword(email, pass);
+  createUserEmailPass(emailUser: string, passUser: string){
+    return this.af.createUserWithEmailAndPassword(emailUser, passUser);
   }
 
   // tslint:disable-next-line: typedef
   getCurrentUser(){
     return this.af.currentUser;
+  }
+
+  logOut(){
+    return this.af.signOut();
   }
 
 }

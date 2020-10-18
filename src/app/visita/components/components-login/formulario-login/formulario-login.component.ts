@@ -1,5 +1,7 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {FireauthService} from '@core/services/fireauth/fireauth.service';
 
 @Component({
@@ -9,15 +11,21 @@ import {FireauthService} from '@core/services/fireauth/fireauth.service';
 })
 export class FormularioLoginComponent implements OnInit {
 
-  constructor(private authSvc:FireauthService) { }
+  constructor(private authSvc: FireauthService, private router: Router) { }
   formLogin: FormGroup = new FormGroup({
-    correo: new FormControl('', [Validators.required,]),
-    pass: new FormControl('', Validators.minLength(7))  
+    correo: new FormControl('', Validators.required),
+    pass: new FormControl('', Validators.required)  
   });
-  ngOnInit(): void {
+  ngOnInit(  ): void {
   }
+  // tslint:disable-next-line: typedef
   login(){
-    /* this.authSvc.loginEmailPass(this.formLogin.value.email, this.formLogin.value.pass).then(e => console.log(e)); */
+    const email = this.formLogin.value.correo
+    const pass = this.formLogin.value.pass;
+    this.authSvc.loginEmailPass(email, pass).then((e)=>{
+      console.log(e);
+      this.router.navigateByUrl('/desktop/home');
+    });
   }
 
 }

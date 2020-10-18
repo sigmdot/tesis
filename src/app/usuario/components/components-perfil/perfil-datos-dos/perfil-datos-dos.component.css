@@ -1,0 +1,6 @@
+#aboutmetext{
+    background-color: #F7F2FE;
+}
+#aboutMeTextThis::-webkit-scrollbar {
+    display: none;
+}

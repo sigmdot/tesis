@@ -1,0 +1,16 @@
+#profile-data1{
+    height: 98%;
+    width: 100%;
+    background-color: #F7F2FE;
+}
+
+#profileNamePic{
+    height: 40%;
+}
+#listaPropiedades{
+    height: 60%; 
+    overflow-y: scroll;
+}
+#listaPropiedades::-webkit-scrollbar {
+    display: none;
+}

@@ -1,8 +1,4 @@
 <div id="listahistorial" class="w-100 rounded">
-    <app-tarjeta-lista-historial></app-tarjeta-lista-historial>
-    <app-tarjeta-lista-historial></app-tarjeta-lista-historial>
-    <app-tarjeta-lista-historial></app-tarjeta-lista-historial>
-    <app-tarjeta-lista-historial></app-tarjeta-lista-historial>
-    <app-tarjeta-lista-historial></app-tarjeta-lista-historial>
-    <app-tarjeta-lista-historial></app-tarjeta-lista-historial>
+    <app-tarjeta-lista-historial *ngFor="let indice of arrayOne(8);let i = index" [aviso]="i" (emisorIndice)="capturarIndice($event)" ></app-tarjeta-lista-historial>
+    <app-detalle-aviso-historial [avisoDetalle]="indice"></app-detalle-aviso-historial>
 </div>

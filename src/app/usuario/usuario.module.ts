@@ -27,6 +27,7 @@ import { CoreModule } from '@core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TarjetaListaHistorialComponent } from './components/components-historial/tarjeta-lista-historial/tarjeta-lista-historial.component';
 import { DetalleAvisoHistorialComponent } from './components/components-historial/detalle-aviso-historial/detalle-aviso-historial.component';
+import { MapaDetallesAvisoComponent } from './components/components-historial/mapa-detalles-aviso/mapa-detalles-aviso.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { DetalleAvisoHistorialComponent } from './components/components-historia
     FixNavbarComponent,
     ListaHistorialComponent,
     TarjetaListaHistorialComponent,
-    DetalleAvisoHistorialComponent
+    DetalleAvisoHistorialComponent,
+    MapaDetallesAvisoComponent
   ],
   imports: [
     CommonModule,

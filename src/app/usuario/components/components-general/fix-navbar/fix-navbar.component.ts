@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { faHome, faClock, faPlus, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-fix-navbar',
@@ -12,9 +14,12 @@ export class FixNavbarComponent implements OnInit {
   faUser = faUser;
   faSignOutAlt = faSignOutAlt;
 
-  constructor() { }
+  constructor(private authSvc: FireauthService, private router:Router) { }
 
   ngOnInit(): void {
+  }
+  signOut(){
+    this.authSvc.logOut().then(()=>{this.router.navigate(['/'])});
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-dos',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario-dos.component.css']
 })
 export class FormularioDosComponent implements OnInit {
-  opcionesRegion =[
+  formDatosPersonales = new FormGroup({
+    nombres: new FormControl('', Validators.required),
+    apellidos: new FormControl('', Validators.required),
+    region: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required),
+    sobreMi: new FormControl('', Validators.required)
+  });
+  opcionesRegion = [
     {
       value: 1,
       name: 'I - Tarapacá'
@@ -50,8 +58,9 @@ export class FormularioDosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  validacionFormularioDos(){
-    console.log('Validacion segundo formulario');
+  // tslint:disable-next-line: typedef
+  validacionFormularioDos() {
+    console.log(this.formDatosPersonales.value);
   }
 
 }

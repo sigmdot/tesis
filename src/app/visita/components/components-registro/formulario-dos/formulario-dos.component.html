@@ -1,5 +1,5 @@
 <div class="h-100 w-100">
-    <form autocomplete="on">
+    <form autocomplete="on" [formGroup]="formDatosPersonales">
         <div class="w-100 bg-light p-3 text-center">
             Acá recopilaremos datos necesarios para crear un perfil sobre tí, como tus <strong>nombres, apellidos, tú región , tu telefono y
             una pequeña descripción sobre tí </strong>( es sumamente importante, puesto que esta descripción permitirá a las
@@ -7,25 +7,25 @@
         </div>
         <div class="form-group">
             <label for="nombresInput">Nombres</label>
-            <input type="text" class="form-control" id="nombresInput" placeholder="Primer y segundo Nombre" required>
+            <input type="text" class="form-control" id="nombresInput" formControlName="nombres" placeholder="Primer y segundo Nombre" required>
         </div>
         <div class="form-group">
             <label for="apellidosInput">Apellidos</label>
-            <input type="text" class="form-control" id="apellidosInput" placeholder="Primer y segundo Apellido" required>
+            <input type="text" class="form-control" id="apellidosInput" formControlName="apellidos" placeholder="Primer y segundo Apellido" required>
         </div>
         <div class="form-group">
             <label for="regionInput">Región</label>
-            <select class="form-control" id="exampleFormControlSelect1" required>
+            <select class="form-control" id="exampleFormControlSelect1" formControlName="region" required>
                 <option *ngFor="let region of opcionesRegion" [ngValue]="region.value"> {{region.name}} </option>
             </select>
         </div>
         <div class="form-group">
             <label for="telefonoInput">Telefono</label>
-            <input type="text" class="form-control" id="telefonoInput" placeholder="+569 12345678" required>
+            <input type="text" class="form-control" id="telefonoInput" formControlName="telefono" placeholder="+569 12345678" required>
         </div>
         <div class="form-group">
             <label for="descSobreMiInput">Descripción sobre tí</label>
-            <textarea class="form-control" id="descSobreMiInput" rows="5" id="descSobreMiInput"></textarea>
+            <textarea class="form-control" id="descSobreMiInput" formControlName="sobreMi" rows="5" id="descSobreMiInput"></textarea>
         </div>
         <button type="button" matStepperNext class="btn btn-primary"
             (click)="validacionFormularioDos()">Siguiente!</button>

@@ -31,7 +31,7 @@ export class MapaDetallesAvisoComponent implements OnInit, OnChanges {
         });
       }
       else {
-        this.map.flyTo({
+        this.mapaDetalleHistorial.flyTo({
           center: [-71.599994, -33.049800],
           speed: 0.9
         });

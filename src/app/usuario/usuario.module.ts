@@ -34,6 +34,7 @@ import { ConfirmacionBajaComponent } from './components/components-historial/con
 import { TarjetaPostuladoComponent } from './components/components-historial/tarjeta-postulado/tarjeta-postulado.component';
 import { PerfilDatosUnoComponent } from './components/components-perfil/perfil-datos-uno/perfil-datos-uno.component';
 import { PerfilDatosDosComponent } from './components/components-perfil/perfil-datos-dos/perfil-datos-dos.component';
+import { PerfilDatosTresComponent } from './components/components-perfil/perfil-datos-tres/perfil-datos-tres.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { PerfilDatosDosComponent } from './components/components-perfil/perfil-d
     ConfirmacionBajaComponent,
     TarjetaPostuladoComponent,
     PerfilDatosUnoComponent,
-    PerfilDatosDosComponent
+    PerfilDatosDosComponent,
+    PerfilDatosTresComponent
   ],
   imports: [
     CommonModule,

@@ -39,16 +39,8 @@ export class RegistroComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   finalizarRegistro() {
-    console.log('Form uno');
-    console.log(this.FormpasoUno);
-    console.log('Form dos');
-    console.log(this.FormpasoDos);
-    console.log('Form tres');
-    console.log(this.FormpasoTres);
     if (this.FormpasoTres.value.file !== null) {
       this.authSvc.createUserEmailPass(this.FormpasoUno.value.correo, this.FormpasoUno.value.pass).then((user) => {
-        console.log(user);
-        console.log(user.user.uid);
         const userData = (this.FormpasoDos.value) as Usuario;
         this.userColleSvc.createUsuario(userData, user.user.uid);
         this.userColleSvc.setFotoUsuario(user.user.uid, 'https://pm1.narvii.com/7070/578b809be0725cbb7cc63735cbb4155e1ed9f80ar1-775-646v2_hq.jpg');

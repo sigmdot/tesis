@@ -11,12 +11,16 @@ export class CollecionUsuariosService {
   // tslint:disable-next-line: typedef
   public getAllUsuario(){
     // any remplazarlo por modelo
-    return this.firestoreSvc.snapshotCollection<any>(null, 'usuarios');
+    return this.firestoreSvc.snapshotCollection<any>('usuarios');
   }
 
   // tslint:disable-next-line: typedef
-  public getAviso(id: string){
-    return this.firestoreSvc.snapshotDocument<any>(null, `usuarios/${id}`);
+  public getUsuario(id: string){
+    return this.firestoreSvc.snapshotDocument<any>(`usuarios/${id}`);
+  }
+
+  public createUsuario(usuario: Usuario){
+    return this.firestoreSvc.addDocument('usuarios',usuario.id,usuario);
   }
 
 }

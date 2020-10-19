@@ -50,8 +50,9 @@ export class FirestoreService {
     return this.angularFirestore.doc(path).delete();
   }
 
-  public updateDocument<type>(path: string, data: Partial<type>): Promise<void> {
+  public updateDocument<type>(path: string, data: Partial<type>): Promise<void> { // Aca en path se traspasa el camino completo
     return this.angularFirestore.doc<Partial<type>>(path).update(data);
   }
+
 
 }

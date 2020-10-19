@@ -43,7 +43,8 @@ export class RegistroComponent implements OnInit {
       this.authSvc.createUserEmailPass(this.FormpasoUno.value.correo, this.FormpasoUno.value.pass).then((user) => {
         const userData = (this.FormpasoDos.value) as Usuario;
         this.userColleSvc.createUsuario(userData, user.user.uid);
-        this.userColleSvc.setRut(user.user.uid,this.FormpasoUno.value.rut);
+        this.userColleSvc.setRut(user.user.uid, this.FormpasoUno.value.rut);
+        this.userColleSvc.setEmail(user.user.uid, user.user.email);
         this.userColleSvc.setFotoUsuario(user.user.uid, 'https://pm1.narvii.com/7070/578b809be0725cbb7cc63735cbb4155e1ed9f80ar1-775-646v2_hq.jpg'); // then dps de subir la imagen
         this.toast = this.toastr.success('Ha sido creada tú cuenta con exito', 'Cuenta creada', {
           timeOut: 5000

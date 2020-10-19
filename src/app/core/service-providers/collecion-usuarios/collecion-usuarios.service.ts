@@ -35,4 +35,8 @@ export class CollecionUsuariosService {
     return this.firestoreSvc.updateDocument(`usuarios/${id}`,{rut: data});
   }
 
+  public setEmail(id: string, data: string){
+    return this.firestoreSvc.updateDocument(`usuarios/${id}`,{correo: data});
+  }
+
 }

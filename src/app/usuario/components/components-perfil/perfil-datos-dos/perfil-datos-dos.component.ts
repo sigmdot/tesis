@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./perfil-datos-dos.component.css']
 })
 export class PerfilDatosDosComponent implements OnInit {
-  @Input() info : string;
+  @Input() info: string;
   constructor() { }
 
   ngOnInit(): void {

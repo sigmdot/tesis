@@ -19,7 +19,7 @@ export class TrabajosCollecionService {
   }
 
   // tslint:disable-next-line: typedef
-  public getTrabajosUsuarios(id: string){
+  public getTrabajosUsuariosTrabajador(id: string){
     return this.firestoreSvc.snapshotCollection<any>('trabajos', ref => ref.where('idUsuarioTrabajador', '==', id));
   }
 

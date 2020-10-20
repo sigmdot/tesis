@@ -5,7 +5,7 @@
                 <h5>Lista trabajos solicitados</h5>
             </div>
             <div class="col-12 p-0" style="height: 94%;">
-                <app-lista-historial></app-lista-historial>
+                <app-lista-historial [lista]="(trabajosSolicitado$ | async)"></app-lista-historial>
             </div>
         </div>
         <div class="col-6 h-100">
@@ -14,7 +14,7 @@
                     <h5>Lista trabajos realizados</h5>
                 </div>
                 <div class="col-12 p-0" style="height: 90%;">
-                    <app-lista-historial></app-lista-historial>
+                    <app-lista-historial [lista]="( trabajosRealizado$ | async )"></app-lista-historial>
                 </div>
             </div>
             <div class="col-12 h-50 p-0">
@@ -22,7 +22,7 @@
                     <h5>Lista trabajos postulados</h5>
                 </div>
                 <div class="col-12 p-0" style="height: 90%;">
-                    <app-lista-historial></app-lista-historial>
+                    <app-lista-historial [lista]="( avisosPostulado$ | async)"></app-lista-historial>
                 </div>
             </div>
         </div>

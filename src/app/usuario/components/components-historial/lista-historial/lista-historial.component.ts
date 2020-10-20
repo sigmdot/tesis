@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-lista-historial',
   templateUrl: './lista-historial.component.html',
   styleUrls: ['./lista-historial.component.css']
 })
-export class ListaHistorialComponent implements OnInit {
+export class ListaHistorialComponent implements OnInit, OnChanges {
+  @Input() lista: any;
   indice;
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
   arrayOne(n: number): any[] {
     return Array(n);
   }

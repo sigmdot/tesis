@@ -1,1 +1,38 @@
-<p>detalles-historial-postulados works!</p>
+<div class="modal fade" id="modalDetalleHistorialPostulados" tabindex="-1" aria-labelledby="modalDetalleHistorialPostulados" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row m-0 rounded">
+            <div class="col-12 text-center">
+              <h4> {{nombre}}  </h4>
+            </div>
+            <div class="col-12 p-0 mb-2">
+              <div class="rounded w-100 border row m-0 p-0" style="height:20vh;">
+                <div class="col-4 p-0 h-100">
+                  <img class="w-100 h-100" [src]="foto">
+                </div>
+                <div class="col h-100" style="overflow-y: scroll;">
+                  <span>
+                    {{desc}}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- mapa -->
+            <div class="col-12 p-0" style="height: 50vh;">
+              <app-mapa-detalle-historial-postulados [centroMapa]="ubicacion"></app-mapa-detalle-historial-postulados>
+            </div>
+            <div class="col-12 p-0 mt-2" style="height: 8vh;">
+              <div class="alert alert-primary w-100 h-100">
+                Este aviso inicio el
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

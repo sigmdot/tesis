@@ -1,1 +1,16 @@
-<p>tarjeta-historial-postulados works!</p>
+<div id="tarjetaHistorial" class="w-100 row m-0 mb-2">
+    <div class="col-2 p-2 h-100">
+        <img [src]="foto" class="w-100 h-100" style="height: 90%;">
+    </div>
+    <div class="col-5 p-2 h-100 row m-0 w-100">
+        <div class="col-12 p-0 h-50 w-100" style="overflow: hidden; text-overflow: ellipsis;">
+            <span style="font-size: medium; font-weight: bold;"> {{postulacion.nombreAviso}} </span>
+        </div>
+        <div class="col-12 p-0 h-50">
+            <span>Estado : <strong> {{postulacion.estado}} </strong></span>
+        </div>
+    </div>
+    <div class="col-5 p-0 h-100 my-auto d-flex align-items-center px-2">
+        <button type="button" (click)="emitirIndiceTrabajosPostulados()" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalDetalleHistorialPostulados">Ver detalle</button>
+    </div>
+</div>

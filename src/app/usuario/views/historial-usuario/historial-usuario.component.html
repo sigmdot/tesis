@@ -22,6 +22,7 @@
                     <h5>Lista trabajos postulados</h5>
                 </div>
                 <div class="col-12 p-0" style="height: 90%;">
+                    <app-lista-trabajos-postulados [listaPostulados]="(avisosPostulado$ | async)"></app-lista-trabajos-postulados>
                 </div>
             </div>
         </div>

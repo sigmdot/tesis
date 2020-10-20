@@ -1,1 +1,4 @@
-<p>lista-trabajos-postulados works!</p>
+<div id="listahistorialRealizados" class="w-100 rounded">
+    <app-tarjeta-historial-postulados *ngFor="let postulacion of listaPostulados;let i = index" [postulacion]="postulacion" [indice]="i" (emisorIndicePostulados)="capturarIndiceRealizado($event)"></app-tarjeta-historial-postulados>
+    <app-detalles-historial-postulados [postulado]="postulacSellec"></app-detalles-historial-postulados>
+</div>

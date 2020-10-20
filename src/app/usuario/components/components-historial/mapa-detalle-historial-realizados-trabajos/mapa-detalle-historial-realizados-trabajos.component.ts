@@ -20,7 +20,7 @@ export class MapaDetalleHistorialRealizadosTrabajosComponent implements OnInit, 
       if (this.mapaDetalleHistorialRealizados == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaDetalleHistorialRealizados = new Mapboxgl.Map({
-          container: 'mapaHistorialBoxRealizados',
+          container: 'mapaHistorialBoxPostulados',
           style: 'mapbox://styles/mapbox/streets-v11',
           center: changes.centroMapa.currentValue, // cambiar
           zoom: 18

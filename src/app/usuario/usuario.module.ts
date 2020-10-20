@@ -39,6 +39,7 @@ import { PerfilDatosDosComponent } from './components/components-perfil/perfil-d
 import { PerfilDatosTresComponent } from './components/components-perfil/perfil-datos-tres/perfil-datos-tres.component';
 import { TarjetaDatoUsuarioComponent } from './components/components-perfil/tarjeta-dato-usuario/tarjeta-dato-usuario.component';
 import { TarjetaComentarioComponent } from './components/components-perfil/tarjeta-comentario/tarjeta-comentario.component';
+import { ModalDetalleComentarioComponent } from './components/components-perfil/modal-detalle-comentario/modal-detalle-comentario.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { TarjetaComentarioComponent } from './components/components-perfil/tarje
     PerfilDatosDosComponent,
     PerfilDatosTresComponent,
     TarjetaDatoUsuarioComponent,
-    TarjetaComentarioComponent
+    TarjetaComentarioComponent,
+    ModalDetalleComentarioComponent
   ],
   imports: [
     CommonModule,

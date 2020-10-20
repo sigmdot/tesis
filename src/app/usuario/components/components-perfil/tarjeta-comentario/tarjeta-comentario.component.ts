@@ -19,6 +19,7 @@ export class TarjetaComentarioComponent implements OnInit {
     if (this.comentario.nota < 3){
       this.iconComentario = faThumbsDown;
     }
+    // tslint:disable-next-line: triple-equals
     if (this.comentario.nota == 3){
       this.iconComentario = faSignLanguage;
     }

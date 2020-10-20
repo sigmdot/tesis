@@ -36,6 +36,8 @@ export class PerfilUsuarioComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
     this.comentariosSubscription.unsubscribe();
+    console.log('Me borre');
+    
   }
 
   // tslint:disable-next-line: typedef

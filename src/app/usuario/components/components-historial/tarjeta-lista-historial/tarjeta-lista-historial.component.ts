@@ -11,11 +11,12 @@ export class TarjetaListaHistorialComponent implements OnInit, OnChanges {
   @Input() aviso: any;
   @Input() tipo: string;
   @Output() emisorIndice = new EventEmitter<any>();
+  @Output() tipoAvisoEmisor = new EventEmitter<any>();
   objeto = {
     nombre : null,
     foto : null,
     estado: null
-  }
+  };
 
   constructor(private usuarioColleSvc: CollecionUsuariosService, private avisoColleSvc: AvisosTrabajosService) { }
 
@@ -28,29 +29,36 @@ export class TarjetaListaHistorialComponent implements OnInit, OnChanges {
     if (this.tipo == 'aviso'){
       this.objeto.nombre = this.aviso.nombreAviso;
       this.objeto.estado = this.aviso.estado;
-      this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador).subscribe(e=>{
+      this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador).subscribe(e => {
         console.log(e.foto);
         this.objeto.foto = e.foto;
       });
     }
+    // tslint:disable-next-line: triple-equals
     if (this.tipo == 'trabajo'){
-      this.avisoColleSvc.getAviso(this.aviso.idAvisoAsociado).subscribe(e=>{
+      this.avisoColleSvc.getAviso(this.aviso.idAvisoAsociado).subscribe(e => {
         this.objeto.nombre = e.nombreAviso;
-      })
+      });
       this.objeto.estado = this.aviso.estado;
-      this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioEmpleador).subscribe(e=>{
+      this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioEmpleador).subscribe(e => {
         this.objeto.foto = e.foto;
-      })
+      });
 
-      
     }
   }
 
   // tslint:disable-next-line: typedef
   emitirIndice(){
     this.emisorIndice.emit(this.aviso);
+    this.tipoAvisoEmisor.emit(this.tipo);
+
+  }
+  // tslint:disable-next-line: typedef
+  emitirTipo(){
+    this.tipoAvisoEmisor.emit(this.tipo);
   }
 
-  
+
+
 
 }

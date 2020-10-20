@@ -7,6 +7,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class DetalleAvisoHistorialComponent implements OnInit, OnChanges {
   @Input() avisoDetalle: any;
+  @Input() tipoAvisoADetallar: string;
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);

@@ -8,19 +8,22 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 export class ListaHistorialComponent implements OnInit, OnChanges {
   @Input() lista: any;
   @Input() tipo: string;
-  indice;
+  avisoTrasmitido;
+  tipoAvisoTrasmitido;
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
-  arrayOne(n: number): any[] {
-    return Array(n);
-  }
   ngOnInit(): void {
   }
-  capturarIndice(indice: any){
-    console.log(indice);
-    this.indice = indice;
+  // tslint:disable-next-line: typedef
+  capturarAviso(aviso: any){
+    this.avisoTrasmitido = aviso;
+  }
+
+  // tslint:disable-next-line: typedef
+  capturarTipo(tipo: string){
+    this.tipoAvisoTrasmitido = tipo;
   }
 
 }

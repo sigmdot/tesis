@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Comentario } from '@core/model/comentario.model';
 
 @Component({
   selector: 'app-perfil-datos-tres',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil-datos-tres.component.css']
 })
 export class PerfilDatosTresComponent implements OnInit {
-
+  @Input() comentarios: Comentario[];
   constructor() { }
 
   ngOnInit(): void {

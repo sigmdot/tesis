@@ -25,7 +25,9 @@ import { CoreModule } from '@core/core.module';
 
 // Fontawesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+// tslint:disable-next-line: max-line-length
 import { TarjetaListaHistorialComponent } from './components/components-historial/tarjeta-lista-historial/tarjeta-lista-historial.component';
+// tslint:disable-next-line: max-line-length
 import { DetalleAvisoHistorialComponent } from './components/components-historial/detalle-aviso-historial/detalle-aviso-historial.component';
 import { MapaDetallesAvisoComponent } from './components/components-historial/mapa-detalles-aviso/mapa-detalles-aviso.component';
 import { TarjetaAvisoTrabajoActivoComponent } from './components/components-historial/tarjeta-aviso-trabajo-activo/tarjeta-aviso-trabajo-activo.component';
@@ -35,7 +37,6 @@ import { TarjetaPostuladoComponent } from './components/components-historial/tar
 import { PerfilDatosUnoComponent } from './components/components-perfil/perfil-datos-uno/perfil-datos-uno.component';
 import { PerfilDatosDosComponent } from './components/components-perfil/perfil-datos-dos/perfil-datos-dos.component';
 import { PerfilDatosTresComponent } from './components/components-perfil/perfil-datos-tres/perfil-datos-tres.component';
-import { TarjetaComentariosComponent } from './components/components-perfil/tarjeta-comentarios/tarjeta-comentarios.component';
 import { TarjetaDatoUsuarioComponent } from './components/components-perfil/tarjeta-dato-usuario/tarjeta-dato-usuario.component';
 import { TarjetaComentarioComponent } from './components/components-perfil/tarjeta-comentario/tarjeta-comentario.component';
 
@@ -60,7 +61,6 @@ import { TarjetaComentarioComponent } from './components/components-perfil/tarje
     PerfilDatosUnoComponent,
     PerfilDatosDosComponent,
     PerfilDatosTresComponent,
-    TarjetaComentariosComponent,
     TarjetaDatoUsuarioComponent,
     TarjetaComentarioComponent
   ],

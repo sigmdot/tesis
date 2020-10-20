@@ -1,3 +1,4 @@
 <div id="listahistorialRealizados" class="w-100 rounded">
-
+    <app-tarjeta-historial-realizados *ngFor="let trabajo of listaTrabajoRealizados;let i = index" [trabajo]="trabajo" [indice]="i" (emitirIndiceRealizado)="capturarIndiceRealizado($event)"></app-tarjeta-historial-realizados>
+    <app-detalles-historial-realizados [trabajoDetalle]="trabajoSelecc"></app-detalles-historial-realizados>
 </div>

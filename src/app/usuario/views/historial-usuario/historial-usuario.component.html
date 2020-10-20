@@ -14,7 +14,7 @@
                     <h5>Lista trabajos realizados</h5>
                 </div>
                 <div class="col-12 p-0" style="height: 90%;">
-                    <app-lista-trabajos-realizados></app-lista-trabajos-realizados>
+                    <app-lista-trabajos-realizados [listaTrabajoRealizados]="(trabajosRealizado$ | async)"></app-lista-trabajos-realizados>
                 </div>
             </div>
             <div class="col-12 h-50 p-0">

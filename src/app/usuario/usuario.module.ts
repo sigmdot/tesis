@@ -43,6 +43,7 @@ import { ModalDetalleComentarioComponent } from './components/components-perfil/
 import { ListaTrabajosRealizadosComponent } from './components/components-historial/lista-trabajos-realizados/lista-trabajos-realizados.component';
 import { TarjetaHistorialRealizadosComponent } from './components/components-historial/tarjeta-historial-realizados/tarjeta-historial-realizados.component';
 import { DetallesHistorialRealizadosComponent } from './components/components-historial/detalles-historial-realizados/detalles-historial-realizados.component';
+import { MapaDetalleHistorialRealizadosTrabajosComponent } from './components/components-historial/mapa-detalle-historial-realizados-trabajos/mapa-detalle-historial-realizados-trabajos.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DetallesHistorialRealizadosComponent } from './components/components-hi
     ModalDetalleComentarioComponent,
     ListaTrabajosRealizadosComponent,
     TarjetaHistorialRealizadosComponent,
-    DetallesHistorialRealizadosComponent
+    DetallesHistorialRealizadosComponent,
+    MapaDetalleHistorialRealizadosTrabajosComponent
   ],
   imports: [
     CommonModule,

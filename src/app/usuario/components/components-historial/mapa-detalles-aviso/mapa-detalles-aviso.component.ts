@@ -37,6 +37,8 @@ export class MapaDetallesAvisoComponent implements OnInit, OnChanges {
         el.style.height = '40px';
         this.markerWork = new Mapboxgl.Marker(el).setLngLat(changes.centroMapaDetalle.currentValue)
           .addTo(this.mapaDetalleHistorial); // cambiar
+        console.log(this.mapaDetalleHistorial);
+        
       }
       else {
         this.mapaDetalleHistorial.flyTo({

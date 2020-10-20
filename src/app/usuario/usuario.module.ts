@@ -41,6 +41,8 @@ import { TarjetaDatoUsuarioComponent } from './components/components-perfil/tarj
 import { TarjetaComentarioComponent } from './components/components-perfil/tarjeta-comentario/tarjeta-comentario.component';
 import { ModalDetalleComentarioComponent } from './components/components-perfil/modal-detalle-comentario/modal-detalle-comentario.component';
 import { ListaTrabajosRealizadosComponent } from './components/components-historial/lista-trabajos-realizados/lista-trabajos-realizados.component';
+import { TarjetaHistorialRealizadosComponent } from './components/components-historial/tarjeta-historial-realizados/tarjeta-historial-realizados.component';
+import { DetallesHistorialRealizadosComponent } from './components/components-historial/detalles-historial-realizados/detalles-historial-realizados.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { ListaTrabajosRealizadosComponent } from './components/components-histor
     TarjetaDatoUsuarioComponent,
     TarjetaComentarioComponent,
     ModalDetalleComentarioComponent,
-    ListaTrabajosRealizadosComponent
+    ListaTrabajosRealizadosComponent,
+    TarjetaHistorialRealizadosComponent,
+    DetallesHistorialRealizadosComponent
   ],
   imports: [
     CommonModule,

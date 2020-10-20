@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class FormularioTresComponent implements OnInit {
   url: string | ArrayBuffer;
   formFoto = new FormGroup({
-    file: new FormControl(null, Validators.required)
+    foto: new FormControl(null, Validators.required)
   });
 
   // tslint:disable-next-line: variable-name
@@ -25,14 +25,14 @@ export class FormularioTresComponent implements OnInit {
         this.toastr.warning('Sube un archivo de imagen permitido porfavor');
         this._elementRef.nativeElement.querySelector(`#upload`).value = '';
         this.formFoto.patchValue({
-          file: null
+          foto: null
         });
         this.url = null;
         return;
       }
       const reader = new FileReader();
       this.formFoto.patchValue({
-        file: event.target.files[0]
+        foto: event.target.files[0]
       });
       reader.readAsDataURL(event.target.files[0]); // read file as data url
 

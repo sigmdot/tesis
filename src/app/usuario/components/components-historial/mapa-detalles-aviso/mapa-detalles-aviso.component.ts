@@ -19,14 +19,15 @@ export class MapaDetallesAvisoComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    if ((changes.centroMapaDetalle.currentValue !== undefined) && (changes.centroMapaDetalle.currentValue !== null)) {
+    // tslint:disable-next-line: triple-equals
+    if ((changes.centroMapaDetalle.currentValue != undefined) && (changes.centroMapaDetalle.currentValue != null)) {
       console.log('Llegue acá', changes.centroMapaDetalle.currentValue);
       if (this.mapaDetalleHistorial == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaDetalleHistorial = new Mapboxgl.Map({
           container: 'mapaHistorialBox',
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [-71.599994, -33.049800], // cambiar
+          center: changes.centroMapaDetalle.currentValue, // cambiar
           zoom: 18
         });
         const el = document.createElement('marker');
@@ -34,18 +35,21 @@ export class MapaDetallesAvisoComponent implements OnInit, OnChanges {
         el.style.backgroundImage = 'url(https://i.ibb.co/DzHgDmg/workIcon.png)';
         el.style.width = '20px';
         el.style.height = '40px';
-        this.markerWork = new Mapboxgl.Marker(el).setLngLat([-71.599994, -33.049800]) 
+        this.markerWork = new Mapboxgl.Marker(el).setLngLat(changes.centroMapaDetalle.currentValue)
           .addTo(this.mapaDetalleHistorial); // cambiar
+        console.log(this.mapaDetalleHistorial);
+        
       }
       else {
         this.mapaDetalleHistorial.flyTo({
-          center: [-71.599994, -33.049800],
+          center: changes.centroMapaDetalle.currentValue,
           speed: 0.9
         });
 
       }
     }
   }
+  // tslint:disable-next-line: typedef
   reAjustar() {
     if (this.mapaDetalleHistorial !== null) {
       this.mapaDetalleHistorial.resize();

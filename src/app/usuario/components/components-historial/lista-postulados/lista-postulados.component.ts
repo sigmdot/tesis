@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 
 @Component({
   selector: 'app-lista-postulados',
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-postulados.component.css']
 })
 export class ListaPostuladosComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

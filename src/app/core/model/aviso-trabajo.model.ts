@@ -6,5 +6,6 @@ export interface AvisoTrabajo{
     idUsuarioPosteador: string;
     ubicacion: number[];
     distancia?: number;
-    postulados?: string[];
+    usuariosPostulados?: string[];
+    estado?: string;
 }

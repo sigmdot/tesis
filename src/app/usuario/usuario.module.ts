@@ -44,6 +44,10 @@ import { ListaTrabajosRealizadosComponent } from './components/components-histor
 import { TarjetaHistorialRealizadosComponent } from './components/components-historial/tarjeta-historial-realizados/tarjeta-historial-realizados.component';
 import { DetallesHistorialRealizadosComponent } from './components/components-historial/detalles-historial-realizados/detalles-historial-realizados.component';
 import { MapaDetalleHistorialRealizadosTrabajosComponent } from './components/components-historial/mapa-detalle-historial-realizados-trabajos/mapa-detalle-historial-realizados-trabajos.component';
+import { MapaDetalleHistorialPostuladosComponent } from './components/components-historial/mapa-detalle-historial-postulados/mapa-detalle-historial-postulados.component';
+import { DetallesHistorialPostuladosComponent } from './components/components-historial/detalles-historial-postulados/detalles-historial-postulados.component';
+import { TarjetaHistorialPostuladosComponent } from './components/components-historial/tarjeta-historial-postulados/tarjeta-historial-postulados.component';
+import { ListaTrabajosPostuladosComponent } from './components/components-historial/lista-trabajos-postulados/lista-trabajos-postulados.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +76,11 @@ import { MapaDetalleHistorialRealizadosTrabajosComponent } from './components/co
     ListaTrabajosRealizadosComponent,
     TarjetaHistorialRealizadosComponent,
     DetallesHistorialRealizadosComponent,
-    MapaDetalleHistorialRealizadosTrabajosComponent
+    MapaDetalleHistorialRealizadosTrabajosComponent,
+    MapaDetalleHistorialPostuladosComponent,
+    DetallesHistorialPostuladosComponent,
+    TarjetaHistorialPostuladosComponent,
+    ListaTrabajosPostuladosComponent
   ],
   imports: [
     CommonModule,

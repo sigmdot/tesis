@@ -8,4 +8,6 @@ export interface Usuario{
     region: string;
     telefono: string;
     sobreMi: string;
+    rut: string;
+    correo?: string;
 }

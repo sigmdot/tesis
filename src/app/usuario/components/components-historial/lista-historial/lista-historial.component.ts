@@ -7,6 +7,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class ListaHistorialComponent implements OnInit, OnChanges {
   @Input() lista: any;
+  @Input() tipo: string;
   indice;
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {

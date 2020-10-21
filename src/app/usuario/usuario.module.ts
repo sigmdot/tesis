@@ -48,6 +48,7 @@ import { MapaDetalleHistorialPostuladosComponent } from './components/components
 import { DetallesHistorialPostuladosComponent } from './components/components-historial/detalles-historial-postulados/detalles-historial-postulados.component';
 import { TarjetaHistorialPostuladosComponent } from './components/components-historial/tarjeta-historial-postulados/tarjeta-historial-postulados.component';
 import { ListaTrabajosPostuladosComponent } from './components/components-historial/lista-trabajos-postulados/lista-trabajos-postulados.component';
+import { CrearAvisoComponent } from './components/components-general/crear-aviso/crear-aviso.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ListaTrabajosPostuladosComponent } from './components/components-histor
     MapaDetalleHistorialPostuladosComponent,
     DetallesHistorialPostuladosComponent,
     TarjetaHistorialPostuladosComponent,
-    ListaTrabajosPostuladosComponent
+    ListaTrabajosPostuladosComponent,
+    CrearAvisoComponent
   ],
   imports: [
     CommonModule,

@@ -57,7 +57,10 @@ export class RegistroComponent implements OnInit {
       }).catch(e => {
         console.log('ERROR', e);
         if (e.code === 'auth/email-already-in-use') {
-          this.toastr.warning('Se encuentra registrado el usuario');
+          this.toastr.warning('El correo ya se encuentra usado');
+        }
+        else{
+          this.toastr.warning('Ha ocurrido un error');
         }
       });
     }

@@ -29,6 +29,7 @@ export class DetallesHistorialRealizadosComponent implements OnInit, OnChanges {
         this.nombre = e.nombreAviso;
         this.desc = e.descAviso;
         this.ubicacion = e.ubicacion;
+        console.log(this.ubicacion);
       });
     }
   }

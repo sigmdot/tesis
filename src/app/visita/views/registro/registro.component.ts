@@ -5,7 +5,7 @@ import { FormularioDosComponent } from '@visita/components/components-registro/f
 import { FormularioTresComponent } from '@visita/components/components-registro/formulario-tres/formulario-tres.component';
 import { FormularioUnoComponent } from '@visita/components/components-registro/formulario-uno/formulario-uno.component';
 import { ToastrService } from 'ngx-toastr';
-import {CollecionUsuariosService} from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
 import { Usuario } from '@core/model/usuario.model';
 
 @Component({
@@ -28,18 +28,20 @@ export class RegistroComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  get FormpasoDos(){
+  get FormpasoDos() {
     return this.pasoDos ? this.pasoDos.formDatosPersonales : null;
   }
 
   // tslint:disable-next-line: typedef
-  get FormpasoTres(){
+  get FormpasoTres() {
     return this.pasoTres ? this.pasoTres.formFoto : null;
   }
 
   // tslint:disable-next-line: typedef
   finalizarRegistro() {
-    if (this.FormpasoTres.value.file !== null) {
+    console.log(this.FormpasoTres.value.foto);
+
+    if (this.FormpasoTres.value.foto !== null) {
       this.authSvc.createUserEmailPass(this.FormpasoUno.value.correo, this.FormpasoUno.value.pass).then((user) => {
         const userData = (this.FormpasoDos.value) as Usuario;
         this.userColleSvc.createUsuario(userData, user.user.uid);
@@ -49,11 +51,14 @@ export class RegistroComponent implements OnInit {
         this.toast = this.toastr.success('Ha sido creada tú cuenta con exito', 'Cuenta creada', {
           timeOut: 5000
         });
-        if (this.toast.onHidden){
+        if (this.toast.onHidden) {
           this.router.navigate(['/home']);
         }
       }).catch(e => {
         console.log('ERROR', e);
+        if (e.code === 'auth/email-already-in-use') {
+          this.toastr.warning('Se encuentra registrado el usuario');
+        }
       });
     }
     else {
@@ -66,7 +71,7 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
   // tslint:disable-next-line: typedef
-  backToLanding(){
+  backToLanding() {
     this.router.navigate(['/']);
   }
 }

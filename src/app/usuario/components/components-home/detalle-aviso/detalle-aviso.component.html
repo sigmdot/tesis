@@ -1,1 +1,26 @@
-<p>detalle-aviso works!</p>
+<div class="modal fade" id="modalDetalleAviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="seleccionado != null">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body row m-0">
+          <div class="col-12 p-0">
+            <h4> {{seleccionado.nombreAviso}} </h4>
+          </div>
+          <div class="col-12 p-0 row m-0" style="height: 10vh;">
+            <div class="col-4 p-0 text-center h-100">
+              <img [src]="image" class="w-100 h-100">
+            </div>
+            <div class="col-8 p-0 text-center h-100" style="overflow-y: scroll;">
+              <p> {{seleccionado.descAviso}} </p>
+            </div>
+          </div>
+          <div class="col-12 p-0 row m-0">
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

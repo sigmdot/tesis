@@ -52,6 +52,7 @@ import { ListaTrabajosPostuladosComponent } from './components/components-histor
 import { CrearAvisoComponent } from './components/components-general/crear-aviso/crear-aviso.component';
 import { MapaCrearAvisoComponent } from './components/components-general/mapa-crear-aviso/mapa-crear-aviso.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DetalleAvisoComponent } from './components/components-home/detalle-aviso/detalle-aviso.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     TarjetaHistorialPostuladosComponent,
     ListaTrabajosPostuladosComponent,
     CrearAvisoComponent,
-    MapaCrearAvisoComponent
+    MapaCrearAvisoComponent,
+    DetalleAvisoComponent
   ],
   imports: [
     CommonModule,

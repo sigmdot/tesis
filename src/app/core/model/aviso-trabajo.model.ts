@@ -2,7 +2,7 @@ export interface AvisoTrabajo{
     id?: string;
     nombreAviso: string;
     descAviso: string;
-    fechaCreacion: Date;
+    fechaCreacion: any;
     idUsuarioPosteador: string;
     ubicacion: number[];
     distancia?: number;

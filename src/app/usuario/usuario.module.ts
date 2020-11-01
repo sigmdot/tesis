@@ -53,6 +53,7 @@ import { CrearAvisoComponent } from './components/components-general/crear-aviso
 import { MapaCrearAvisoComponent } from './components/components-general/mapa-crear-aviso/mapa-crear-aviso.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DetalleAvisoComponent } from './components/components-home/detalle-aviso/detalle-aviso.component';
+import { MapaDetalleAvisoLaboralComponent } from './components/components-home/mapa-detalle-aviso-laboral/mapa-detalle-aviso-laboral.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { DetalleAvisoComponent } from './components/components-home/detalle-avis
     ListaTrabajosPostuladosComponent,
     CrearAvisoComponent,
     MapaCrearAvisoComponent,
-    DetalleAvisoComponent
+    DetalleAvisoComponent,
+    MapaDetalleAvisoLaboralComponent
   ],
   imports: [
     CommonModule,

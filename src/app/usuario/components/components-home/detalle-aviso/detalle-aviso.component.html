@@ -1,7 +1,7 @@
 <div class="modal fade" id="modalDetalleAviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="seleccionado != null">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-body row m-0">
+        <div class="modal-body row m-0 w-100">
           <div class="col-12 p-0">
             <h4> {{seleccionado.nombreAviso}} </h4>
           </div>
@@ -13,8 +13,13 @@
               <p> {{seleccionado.descAviso}} </p>
             </div>
           </div>
-          <div class="col-12 p-0 row m-0">
-            
+          <div class="col-12 p-0 mt-2">
+            <div class="alert alert-secondary" role="alert">
+              Fecha de creación: {{seleccionado.fechaCreacion.toDate() | date:'dd LLLL yyyy' }}
+            </div>
+          </div>
+          <div class="col-12 p-0 w-100" style="height: 45vh;">
+            <app-mapa-detalle-aviso-laboral class="w-100" [ubicacion]="seleccionado.ubicacion"></app-mapa-detalle-aviso-laboral>
           </div>
         </div>
         <div class="modal-footer">

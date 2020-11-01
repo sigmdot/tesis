@@ -1,6 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import { FireauthService } from '@core/services/fireauth/fireauth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-detalle-aviso',
@@ -9,8 +13,18 @@ import { CollecionUsuariosService } from '@core/service-providers/collecion-usua
 })
 export class DetalleAvisoComponent implements OnInit, OnChanges {
   @Input() seleccionado: AvisoTrabajo;
+  usuarioid: string;
   image: string;
-  constructor(private userColle: CollecionUsuariosService) { }
+  constructor(
+    private userColle: CollecionUsuariosService,
+    private avisoTrabajoSvc: AvisosTrabajosService,
+    private authSvc: FireauthService,
+    private toastr: ToastrService
+    ) {
+    this.getUserFnc().then(e=>{
+      this.usuarioid = e.uid;
+    });
+  }
   ngOnChanges(changes: SimpleChanges): void {
     if ((changes.seleccionado.currentValue !== null) && (changes.seleccionado.currentValue !== undefined) ){
       this.userColle.getUsuario(this.seleccionado.idUsuarioPosteador).subscribe(e => {
@@ -20,7 +34,16 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+  }
+  postularse(){
+    this.avisoTrabajoSvc.actualizarPostulados(this.seleccionado.id, this.usuarioid).then(e=>{
+      this.toastr.success('Postulado con éxito');
+    })
+  }
 
+  async getUserFnc(){
+    const usuario = await this.authSvc.getUserAuth();
+    return usuario;
   }
 
 

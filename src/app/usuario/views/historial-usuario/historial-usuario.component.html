@@ -1,1 +1,33 @@
-<p>historial-usuario works!</p>
+<div class="container-fluid border p-0" style="height: 100vh; padding-top: 50px !important;">
+    <div class="col-12 row m-0 h-75">
+        <div class="col-6 p-0 h-100">
+            <div class="col-12 p-0 w-100 text-center border rounded-top" id="texto-lista" style="height: 6%;">
+                <h5>Lista trabajos solicitados</h5>
+            </div>
+            <div class="col-12 p-0" style="height: 94%;">
+                <app-lista-historial [lista]="(trabajosSolicitado$ | async)"></app-lista-historial>
+            </div>
+        </div>
+        <div class="col-6 h-100">
+            <div class="col-12 h-50 p-0">
+                <div class="col-12 p-0 w-100 text-center border rounded-top" id="texto-lista" style="height: 10%;">
+                    <h5>Lista trabajos realizados</h5>
+                </div>
+                <div class="col-12 p-0" style="height: 90%;">
+                    <app-lista-trabajos-realizados [listaTrabajoRealizados]="(trabajosRealizado$ | async)"></app-lista-trabajos-realizados>
+                </div>
+            </div>
+            <div class="col-12 h-50 p-0">
+                <div class="col-12 p-0 w-100 text-center border rounded-top" id="texto-lista" style="height: 10%;">
+                    <h5>Lista trabajos postulados</h5>
+                </div>
+                <div class="col-12 p-0" style="height: 90%;">
+                    <app-lista-trabajos-postulados [listaPostulados]="(avisosPostulado$ | async)"></app-lista-trabajos-postulados>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 h-25 p-0 pt-2">
+        <app-tarjeta-aviso-trabajo-activo></app-tarjeta-aviso-trabajo-activo>
+    </div>
+</div>

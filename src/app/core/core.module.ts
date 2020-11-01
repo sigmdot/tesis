@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FirebaseModule } from './modules/firebase/firebase.module';
 // Service - Providers
 import { AvisosTrabajosService } from './service-providers/avisos-trabajos/avisos-trabajos.service';
+// Font-awesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [],
@@ -12,7 +15,10 @@ import { AvisosTrabajosService } from './service-providers/avisos-trabajos/aviso
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FirebaseModule
+    FirebaseModule,
+    FontAwesomeModule,
+    FirebaseModule,
+    ToastrModule.forRoot()
   ],
   providers: [AvisosTrabajosService]
 })

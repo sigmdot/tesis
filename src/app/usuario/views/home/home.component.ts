@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   private _calcularKm(ubicacion: number[]): number{
     return 5;
   }
-
   ngOnDestroy(): void {
     /* this.suscripcionTrabajos.unsubscribe(); */
   }

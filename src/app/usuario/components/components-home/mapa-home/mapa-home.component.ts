@@ -60,6 +60,7 @@ export class MapaHomeComponent implements OnInit, OnChanges {
             el.style.backgroundImage = 'url(https://i.ibb.co/DzHgDmg/workIcon.png)';
             el.style.width = '20px';
             el.style.height = '40px';
+            console.log(e);
             const oneMarker = new Mapboxgl.Marker(el).setLngLat(e.ubicacion)
               .addTo(this.map);
             this.Marcadores.push(oneMarker);
@@ -84,6 +85,8 @@ export class MapaHomeComponent implements OnInit, OnChanges {
             el.style.backgroundSize = '100%';
             el.style.width = '20px';
             el.style.height = '40px';
+            console.log(e.ubicacion);
+
             const oneMarker = new Mapboxgl.Marker(el).setLngLat(e.ubicacion).addTo(this.map);
             this.Marcadores.push(oneMarker);
 

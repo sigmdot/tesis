@@ -1,0 +1,38 @@
+<div class="modal fade" id="modalCrearAviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row m-0 rounded">
+            <div class="col-12 text-center">
+              <h4>Crea un aviso!</h4>
+            </div>
+            <form [formGroup]="formularioCreacion" class="w-100">
+              <div class="col-12 p-0 mb-2">
+                <div class="w-100 bg-light">
+                  <h5>Ponle un titulo al aviso!</h5>
+                </div>
+                <input class="form-control" formControlName="nombreAviso">
+              </div>
+              <div class="col-12 p-0 mb-2">
+                <div class="w-100 bg-light">
+                  <h5>Describe tú problema</h5>
+                </div>
+                <textarea class="form-control" id="descProblema" rows="3" formControlName="desc"></textarea>
+              </div>
+            </form>
+            <!-- mapa -->
+            <div class="col-12 p-0" style="height: 50vh;">
+              <app-mapa-crear-aviso [centroEnviado]="mapaObtenerCentro"></app-mapa-crear-aviso>
+            </div>
+            <div class="col-12 p-0">
+              <button class="btn btn-warning w-100" (click)="obtenerMiUbicacion()">Obtener tú ubicación</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary">Close</button>
+          <button type="button" class="btn btn-primary" (click)="crearAviso()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

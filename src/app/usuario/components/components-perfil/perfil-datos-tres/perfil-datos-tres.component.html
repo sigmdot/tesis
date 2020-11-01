@@ -1,0 +1,11 @@
+<div id="estudios-estilo" class="px-2 shadow-sm">
+    <div class="col-12 p-0 row m-0" style="height: 15%;">
+        <div class="col-2 p-2 text-center">
+            <button class="btn btn-secondary w-100">?</button>
+        </div>
+        <h1 class="col-10 p-0 text-center">Comentarios</h1>
+    </div>
+    <div class="col-12 p-0 m-0" id="listaEstudio" style="height: 83%; overflow-y: scroll;">
+        <app-tarjeta-comentario [comentario]="comentario" *ngFor="let comentario of comentarios"></app-tarjeta-comentario>
+    </div>
+</div>

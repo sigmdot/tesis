@@ -1,0 +1,20 @@
+<div class="row m-0 bg-dark" id="navegacion">
+    <div class="col p-0 border-right h-100"> <button class="btn btn-dark w-100 h-100 text-center" routerLink="/desktop/home">
+            <fa-icon [icon]="faHome"> </fa-icon>
+        </button> </div>
+    <div class="col p-0 border-right h-100"> <button class="btn btn-dark w-100 h-100 text-center" routerLink="/desktop/historial">
+            <fa-icon [icon]="faClock"></fa-icon>
+        </button> </div>
+    <div class="col p-1 border-right text-center h-100" > 
+        <button class="btn btn-warning w-50 h-100 text-white" data-toggle="modal" data-target="#modalCrearAviso">
+            <fa-icon [icon]="faPlus"></fa-icon>
+        </button>
+    </div>
+    <div class="col p-0 border-right h-100" routerLink="/desktop/perfil"> <button class="btn btn-dark w-100 h-100 text-center">
+            <fa-icon [icon]="faUser"></fa-icon>
+        </button> </div>
+    <div class="col p-0 h-100"> <button class="btn btn-dark w-100 h-100 text-center" (click)="signOut()">
+            <fa-icon [icon]="faSignOutAlt"></fa-icon>
+        </button> </div>
+</div>
+<app-crear-aviso></app-crear-aviso>

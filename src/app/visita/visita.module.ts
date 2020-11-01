@@ -26,6 +26,8 @@ import { VisitaComponent } from './visita.component';
 
 // Core module
 import { CoreModule } from '@core/core.module';
+// Formulario import
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CoreModule } from '@core/core.module';
     VisitaRoutingModule,
     CommonModule,
     MatStepperModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class VisitaModule { }

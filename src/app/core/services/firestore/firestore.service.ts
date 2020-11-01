@@ -1,7 +1,7 @@
 import { Injectable, Type } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn } from '@angular/fire/firestore';
+import { Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction, DocumentSnapshot, QueryFn } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -10,36 +10,48 @@ export class FirestoreService {
 
   constructor(private angularFirestore: AngularFirestore) { }
 
-  public snapshotCollection<type>(collection?: AngularFirestoreCollection, id?: string, queryFn?: QueryFn): Observable<type[]> {
-    let col: AngularFirestoreCollection;
-
-    // tslint:disable-next-line: triple-equals
-    if ((collection != null)) {
-      col = collection;
-    }
-    else { col = this.angularFirestore.collection(id, queryFn); }
-
-    return col.snapshotChanges().pipe(map(snap => {
-      return snap.map(doc => {
-        /* console.log(doc.payload.doc.data()); */
-        return doc.payload.doc.data() as type;
-      });
-    }));
+  public creatId(): string {
+    return this.angularFirestore.createId();
   }
 
-  public snapshotDocument<type>(document?: AngularFirestoreDocument, id?: string): Observable<any> {
-    let doc: AngularFirestoreDocument;
+  // tslint:disable-next-line: typedef
+  public stringFormat(string: string) {
+    return string
+      .trim()
+      .toLowerCase()
+  }
 
-    // tslint:disable-next-line: triple-equals
-    if (document != null) {
-      doc = document;
-    }
-    else { doc = this.angularFirestore.doc(id); }
+  public snapshotCollection<type>(path?: string, queryFn?: QueryFn): Observable<type[]> {
+    const collection: AngularFirestoreCollection<type> = this.angularFirestore.collection<type>(path, queryFn);
+    return collection.snapshotChanges()
+      .pipe(map((snapshot: DocumentChangeAction<type>[]) => {
+        let data: type[] = snapshot.map((doc: DocumentChangeAction<type>) => {
+          return doc.payload.doc.data() as type;
+        });
+        console.log(data);
+        return data;
+      }));
+  }
 
-    return doc.snapshotChanges().pipe(map(snap => {
-      console.log(snap.payload.data());
-      return snap.payload.data() as type;
-    }));
+  public snapshotDocument<type>(path?: string): Observable<type> {
+    const document: AngularFirestoreDocument<type> = this.angularFirestore.doc<type>(path);
+    return document.snapshotChanges()
+      .pipe(map((snapshot: Action<DocumentSnapshot<type>>) => {
+        console.log(snapshot.payload.data());
+        return snapshot.payload.data() as type;
+      }));
+  }
+
+  public addDocument<type>(path: string, id: string, data: type): Promise<void> {
+    return this.angularFirestore.collection<type>(path).doc<type>(id).set(data);
+  }
+
+  public deleteDocument(path: string): Promise<void> {
+    return this.angularFirestore.doc(path).delete();
+  }
+
+  public updateDocument<type>(path: string, data: Partial<type>): Promise<void> { // Aca en path se traspasa el camino completo
+    return this.angularFirestore.doc<Partial<type>>(path).update(data);
   }
 
 

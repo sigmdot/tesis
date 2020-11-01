@@ -1,0 +1,4 @@
+<div id="listahistorial" class="w-100 rounded">
+    <app-tarjeta-lista-historial *ngFor="let aviso of lista;let i = index" [aviso]="aviso" [indice]="i" (indiceEmisor)="capturarIndice($event)"></app-tarjeta-lista-historial>
+    <app-detalle-aviso-historial [avisoDetalle]="avisoSeleccionado"></app-detalle-aviso-historial>
+</div>

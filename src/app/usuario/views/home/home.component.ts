@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 import { FormControl, Validators } from '@angular/forms';
+import { FireauthService } from '@core/services/fireauth/fireauth.service';
 
 @Component({
   selector: 'app-home',
@@ -14,24 +15,30 @@ export class HomeComponent implements OnInit, OnDestroy {
   trabajos$: Observable<AvisoTrabajo[]> = null;
   centroMapa: number[] = [-70.689409, -33.518071];
   kilometros = 0;
+  usuarioPropio: string;
   // tslint:disable-next-line: typedef
   cambio(){
-    console.log(this.kilometros);
     if ( (this.kilometros >= 11) || (this.kilometros < 0) ){
       this.kilometros = 0;
     }
     this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
-      console.log(avisosTrabajos);
       avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>  avisoTrabajo.distancia <= this.kilometros );
-      console.log(avisosTrabajos);
       return avisosTrabajos;
     }));
   }
 
-  constructor(private trabajoSvc: AvisosTrabajosService) {
+  constructor(private trabajoSvc: AvisosTrabajosService, private authSvc: FireauthService) {
     this.trabajos$ = this.trabajoSvc.getAvisoByStatus('activo');
+    this.getUserFnc().then(e => {
+      this.usuarioPropio = e.uid;
+    });
   }
 
+  // tslint:disable-next-line: typedef
+  async getUserFnc(){
+    const usuario = await this.authSvc.getUserAuth();
+    return usuario;
+  }
 
   ngOnInit(): void {
     /* this.suscripcionTrabajos = this.trabajos$.subscribe(trabajos => this.avisosLista = trabajos); */
@@ -40,13 +47,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       // tslint:disable-next-line: prefer-for-of
       for (let index = 0; index < avisosTrabajos.length; index++) {
         avisosTrabajos[index].distancia = Math.round(this._calcularKm(avisosTrabajos[index].ubicacion));
-        console.log(avisosTrabajos[index].distancia);
       }
       avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>
         avisoTrabajo.distancia <= this.kilometros
       );
-      console.log(this.kilometros, ' Kilometros ');
-      console.log(avisosTrabajos, ' Avisos ');
+      avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>
+        avisoTrabajo.idUsuarioPosteador !== this.usuarioPropio
+      );
       return avisosTrabajos;
     }) );
   }
@@ -60,12 +67,10 @@ export class HomeComponent implements OnInit, OnDestroy {
           // tslint:disable-next-line: prefer-for-of
           for (let index = 0; index < avisosTrabajos.length; index++) {
             avisosTrabajos[index].distancia = Math.round(this._calcularKm(avisosTrabajos[index].ubicacion));
-            console.log(avisosTrabajos[index].distancia);
           }
           return avisosTrabajos;
         }) );
       });
-      console.log(this.centroMapa);
     } else {
       alert('La geolocalización parece no estar disponible en tú navegador :(');
     }

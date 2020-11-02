@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   centroMapa: number[] = [-70.689409, -33.518071];
 
   constructor(private trabajoSvc: AvisosTrabajosService) {
-    this.trabajos$ = this.trabajoSvc.getAllAvisos();
+    this.trabajos$ = this.trabajoSvc.getAvisoByStatus('activo');
   }
 
 

@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Usuario } from '@core/model/usuario.model';
+
 @Component({
   selector: 'app-tarjeta-lista-historial',
   templateUrl: './tarjeta-lista-historial.component.html',
@@ -12,17 +16,20 @@ export class TarjetaListaHistorialComponent implements OnInit, OnChanges {
   @Input() aviso: AvisoTrabajo;
   @Input() indice: number;
   @Output() indiceEmisor: EventEmitter<number> = new EventEmitter<number>();
-
+  usuario$: Observable<Usuario> = null;
   detalles = {
     nombre: null,
     foto: null,
     estado: null
-  }
+  };
 
-  constructor(private usuarioColleSvc: CollecionUsuariosService, private avisoColleSvc: AvisosTrabajosService) { }
+  constructor(private usuarioColleSvc: CollecionUsuariosService, private avisoColleSvc: AvisosTrabajosService) {   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('cambio tarjeta lista', changes);
+    console.log(changes);
+    /* console.log(this.aviso.idUsuarioPosteador);
+    this.usuario$ = this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador);
+    console.log(this.usuario$); */
   }
 
   ngOnInit(): void {

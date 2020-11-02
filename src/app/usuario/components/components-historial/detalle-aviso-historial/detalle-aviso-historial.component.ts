@@ -1,18 +1,63 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Usuario } from '@core/model/usuario.model';
+import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+declare var $: any;
 
 @Component({
   selector: 'app-detalle-aviso-historial',
   templateUrl: './detalle-aviso-historial.component.html',
   styleUrls: ['./detalle-aviso-historial.component.css']
 })
-export class DetalleAvisoHistorialComponent implements OnInit, OnChanges {
-  @Input() avisoDetalle: any;
-  constructor() { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() avisoDetalle: AvisoTrabajo;
+  usuario$: Observable<Usuario> = null;
+  detallesAviso = {
+    nombre: null,
+    desc: null,
+    ubicacion: null,
+    estado: null,
+    cantidadPostulados: null,
+    foto: null
+  };
+  constructor(private userCollecSvc: CollecionUsuariosService) {
   }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes.avisoDetalle);
+    // tslint:disable-next-line: triple-equals
+    if ((changes.avisoDetalle.currentValue != undefined) && (changes.avisoDetalle.currentValue !== null)) {
+      this.detallesAviso.nombre = this.avisoDetalle.nombreAviso;
+      if (this.avisoDetalle.usuariosPostulados != null) {
+        this.detallesAviso.cantidadPostulados = this.avisoDetalle.usuariosPostulados.length;
+      }
+      this.detallesAviso.desc = this.avisoDetalle.descAviso;
+      this.detallesAviso.ubicacion = this.avisoDetalle.ubicacion;
+      this.detallesAviso.estado = this.avisoDetalle.estado;
+      this.usuario$ = this.userCollecSvc.getUsuario(this.avisoDetalle.idUsuarioPosteador);
+      this.usuario$.subscribe(e => {
+        this.detallesAviso.foto = e.foto;
+      });
+    }
+  }
+
+  ngOnInit(): void { }
+
+  ngOnDestroy(): void {
+    console.log('me activo');
+  }
+
+  cerrarModal(): void {
+    console.log('Cerrado');
+    $('#modalDetalleHistorial').modal('hide');
+    $('#modalDetalleHistorial').on('hidden.bs.modal', (e) => {
+      // la e logea evento jquery.
+      $('#modalDetalleHistorial').modal('dispose');
+    });
+    this.avisoDetalle = null;
   }
 
 }

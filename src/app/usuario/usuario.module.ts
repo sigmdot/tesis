@@ -39,7 +39,21 @@ import { PerfilDatosDosComponent } from './components/components-perfil/perfil-d
 import { PerfilDatosTresComponent } from './components/components-perfil/perfil-datos-tres/perfil-datos-tres.component';
 import { TarjetaDatoUsuarioComponent } from './components/components-perfil/tarjeta-dato-usuario/tarjeta-dato-usuario.component';
 import { TarjetaComentarioComponent } from './components/components-perfil/tarjeta-comentario/tarjeta-comentario.component';
+// tslint:disable-next-line: max-line-length
 import { ModalDetalleComentarioComponent } from './components/components-perfil/modal-detalle-comentario/modal-detalle-comentario.component';
+import { ListaTrabajosRealizadosComponent } from './components/components-historial/lista-trabajos-realizados/lista-trabajos-realizados.component';
+import { TarjetaHistorialRealizadosComponent } from './components/components-historial/tarjeta-historial-realizados/tarjeta-historial-realizados.component';
+import { DetallesHistorialRealizadosComponent } from './components/components-historial/detalles-historial-realizados/detalles-historial-realizados.component';
+import { MapaDetalleHistorialRealizadosTrabajosComponent } from './components/components-historial/mapa-detalle-historial-realizados-trabajos/mapa-detalle-historial-realizados-trabajos.component';
+import { MapaDetalleHistorialPostuladosComponent } from './components/components-historial/mapa-detalle-historial-postulados/mapa-detalle-historial-postulados.component';
+import { DetallesHistorialPostuladosComponent } from './components/components-historial/detalles-historial-postulados/detalles-historial-postulados.component';
+import { TarjetaHistorialPostuladosComponent } from './components/components-historial/tarjeta-historial-postulados/tarjeta-historial-postulados.component';
+import { ListaTrabajosPostuladosComponent } from './components/components-historial/lista-trabajos-postulados/lista-trabajos-postulados.component';
+import { CrearAvisoComponent } from './components/components-general/crear-aviso/crear-aviso.component';
+import { MapaCrearAvisoComponent } from './components/components-general/mapa-crear-aviso/mapa-crear-aviso.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DetalleAvisoComponent } from './components/components-home/detalle-aviso/detalle-aviso.component';
+import { MapaDetalleAvisoLaboralComponent } from './components/components-home/mapa-detalle-aviso-laboral/mapa-detalle-aviso-laboral.component';
 
 @NgModule({
   declarations: [
@@ -64,13 +78,27 @@ import { ModalDetalleComentarioComponent } from './components/components-perfil/
     PerfilDatosTresComponent,
     TarjetaDatoUsuarioComponent,
     TarjetaComentarioComponent,
-    ModalDetalleComentarioComponent
+    ModalDetalleComentarioComponent,
+    ListaTrabajosRealizadosComponent,
+    TarjetaHistorialRealizadosComponent,
+    DetallesHistorialRealizadosComponent,
+    MapaDetalleHistorialRealizadosTrabajosComponent,
+    MapaDetalleHistorialPostuladosComponent,
+    DetallesHistorialPostuladosComponent,
+    TarjetaHistorialPostuladosComponent,
+    ListaTrabajosPostuladosComponent,
+    CrearAvisoComponent,
+    MapaCrearAvisoComponent,
+    DetalleAvisoComponent,
+    MapaDetalleAvisoLaboralComponent
   ],
   imports: [
     CommonModule,
     UsuarioRoutingModule,
     FontAwesomeModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class UsuarioModule { }

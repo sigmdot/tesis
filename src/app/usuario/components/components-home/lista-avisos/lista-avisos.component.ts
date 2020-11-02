@@ -8,6 +8,8 @@ import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 })
 export class ListaAvisosComponent implements OnInit {
   @Input() lista: AvisoTrabajo[];
+  seleccionado: AvisoTrabajo = null;
+  @Input() kilometros: number;
   constructor() { }
 
   ngOnInit(): void {
@@ -23,6 +25,13 @@ export class ListaAvisosComponent implements OnInit {
       }
     }
     return avisos;
+  }
+
+  // tslint:disable-next-line: typedef
+  capturarIndice(indice: number){
+    console.log(indice);
+    console.table(this.lista[indice]);
+    this.seleccionado = this.lista[indice];
   }
 
 }

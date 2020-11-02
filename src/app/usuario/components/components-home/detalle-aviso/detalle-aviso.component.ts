@@ -21,7 +21,7 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     private authSvc: FireauthService,
     private toastr: ToastrService
     ) {
-    this.getUserFnc().then(e=>{
+    this.getUserFnc().then(e => {
       this.usuarioid = e.uid;
     });
   }
@@ -29,18 +29,21 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     if ((changes.seleccionado.currentValue !== null) && (changes.seleccionado.currentValue !== undefined) ){
       this.userColle.getUsuario(this.seleccionado.idUsuarioPosteador).subscribe(e => {
         this.image = e.foto;
+        console.log(this.image);
       });
     }
   }
 
   ngOnInit(): void {
   }
+  // tslint:disable-next-line: typedef
   postularse(){
-    this.avisoTrabajoSvc.actualizarPostulados(this.seleccionado.id, this.usuarioid).then(e=>{
+    this.avisoTrabajoSvc.actualizarPostulados(this.seleccionado.id, this.usuarioid).then(e => {
       this.toastr.success('Postulado con éxito');
-    })
+    });
   }
 
+  // tslint:disable-next-line: typedef
   async getUserFnc(){
     const usuario = await this.authSvc.getUserAuth();
     return usuario;

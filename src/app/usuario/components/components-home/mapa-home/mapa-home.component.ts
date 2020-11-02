@@ -13,10 +13,7 @@ export class MapaHomeComponent implements OnInit, OnChanges {
   map: Mapboxgl.Map = null; // Mapa, se inicializa en null para cuando reciba el elemento posición pueda inicializarse
   markerWorker: Mapboxgl.Marker = null; // Marcador del trabajador, este se inicializa en nulo igual por la misma razones del mapa
   Marcadores: any[] = []; // Marcadores de avisos, se inicializa en nulo
-  /* geojson = {
-    'type': 'FeatureCollection',
-    'features': []
-  } */
+
   @Input() centroMapa: number[]; // Input del centro para el mapa
   @Input() avisosLista: AvisoTrabajo[]; // Lista de trabajos
 
@@ -25,9 +22,14 @@ export class MapaHomeComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
+  reajuste(){
+    if (this.map !== null){
+      this.map.resize();
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('soy el log del changes', changes);
-    console.log(typeof changes.centroMapaChanges, ' typeof ');
     if ((typeof changes.centroMapa) !== 'undefined') {
       if ((changes.centroMapa.currentValue !== undefined) && (changes.centroMapa.currentValue !== null)) {
         if (this.map === null) {
@@ -50,49 +52,37 @@ export class MapaHomeComponent implements OnInit, OnChanges {
           });
           this.markerWorker.setLngLat(changes.centroMapa.currentValue);
           this.Marcadores.forEach(e => {
-            e.remove()
+            e.remove();
           });
           this.avisosLista.forEach(e => {
             // tslint:disable-next-line: max-line-length
-            console.log(e.ubicacion, changes.centroMapa.currentValue, 'Aqui la ubicacion nueva');
             const el = document.createElement('marker');
             el.className = 'marker';
             el.style.backgroundImage = 'url(https://i.ibb.co/DzHgDmg/workIcon.png)';
             el.style.width = '20px';
             el.style.height = '40px';
-            console.log(e);
             const oneMarker = new Mapboxgl.Marker(el).setLngLat(e.ubicacion)
               .addTo(this.map);
             this.Marcadores.push(oneMarker);
-
-
           });
 
 
         }
       }
     }
-    console.log(changes.avisosLista);
     if ((typeof changes.avisosLista) !== 'undefined') {
       if ((changes.avisosLista.currentValue !== undefined) && (changes.avisosLista.currentValue !== null)) {
         if (this.map) {
-          console.log('LLego acá');
           this.avisosLista.forEach(e => {
-            console.log(e.ubicacion, this.centroMapa);
             const el = document.createElement('marker');
             el.className = 'marker';
             el.style.backgroundImage = 'url(https://i.ibb.co/DzHgDmg/workIcon.png)';
             el.style.backgroundSize = '100%';
             el.style.width = '20px';
             el.style.height = '40px';
-            console.log(e.ubicacion);
-
             const oneMarker = new Mapboxgl.Marker(el).setLngLat(e.ubicacion).addTo(this.map);
             this.Marcadores.push(oneMarker);
-
           });
-          console.log(this.Marcadores);
-
         }
       }
     }

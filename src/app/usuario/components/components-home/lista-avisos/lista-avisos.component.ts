@@ -9,6 +9,7 @@ import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 export class ListaAvisosComponent implements OnInit {
   @Input() lista: AvisoTrabajo[];
   seleccionado: AvisoTrabajo = null;
+  @Input() kilometros: number;
   constructor() { }
 
   ngOnInit(): void {

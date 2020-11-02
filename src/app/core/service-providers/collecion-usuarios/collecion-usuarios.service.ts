@@ -17,7 +17,7 @@ export class CollecionUsuariosService {
 
   // tslint:disable-next-line: typedef
   public getUsuario(id: string){
-    return this.firestoreSvc.snapshotDocument<any>(`usuarios/${id}`);
+    return this.firestoreSvc.snapshotDocument<Usuario>(`usuarios/${id}`);
   }
 
   // tslint:disable-next-line: typedef

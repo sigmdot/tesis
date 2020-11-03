@@ -3,8 +3,7 @@
         <h4>Lista aviso</h4>
     </div>
     <div class="col-12 p-0" id="lista" style="height: 90%; overflow-y: scroll;">
-        <app-tarjeta-aviso *ngFor="let aviso of lista" [aviso]="aviso"></app-tarjeta-aviso>
-        
-
+        <app-tarjeta-aviso *ngFor="let aviso of lista;let i = index" [aviso]="aviso" [index]="i" (emisorIndex)="capturarIndice($event)"></app-tarjeta-aviso>
+        <app-detalle-aviso [seleccionado]="seleccionado"></app-detalle-aviso>
     </div>
 </div>

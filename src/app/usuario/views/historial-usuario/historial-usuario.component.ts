@@ -11,7 +11,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./historial-usuario.component.css']
 })
 export class HistorialUsuarioComponent implements OnInit {
-  trabajosSolicitado$ : Observable<any> = null;
+  trabajosSolicitado$: Observable<any> = null;
+  trabajosConcretados$: Observable<any> = null;
   trabajosRealizado$ = null;
   avisosPostulado$ = null;
   vista = 'empleador';
@@ -23,12 +24,11 @@ export class HistorialUsuarioComponent implements OnInit {
       this.avisosPostulado$ = this.avisosSvc.getAvisosPostuladosPorUsuario(e.uid); // trabajador
       this.trabajosSolicitado$ = this.avisosSvc.getAvisosSolicitadosPorUsuario(e.uid); // empleador
       this.trabajosRealizado$ = this.trabajosCollecionSvc.getTrabajosUsuariosTrabajador(e.uid); // trabajador
+      this.trabajosConcretados$ = this.trabajosCollecionSvc.getTrabajosEmpleador(e.uid); // empleador
     });
   }
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   // tslint:disable-next-line: typedef
   cambiarPerfil(){

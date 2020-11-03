@@ -8,12 +8,15 @@ import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 })
 export class ListaHistorialComponent implements OnInit, OnChanges {
   @Input() lista: AvisoTrabajo[];
+  listaFiltradaFinalizados: AvisoTrabajo[] = [];
   avisoSeleccionado: AvisoTrabajo;
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
+    this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado === 'Finalizado');
   }
   ngOnInit(): void {
+    
   }
 
   // tslint:disable-next-line: typedef

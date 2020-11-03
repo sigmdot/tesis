@@ -3,7 +3,6 @@ import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/a
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AvisoTrabajo } from '@model/aviso-trabajo.model';
-import { FormControl, Validators } from '@angular/forms';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 
 @Component({

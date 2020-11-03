@@ -16,7 +16,6 @@ export class ListaHistorialComponent implements OnInit, OnChanges {
     this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado === 'Finalizado');
   }
   ngOnInit(): void {
-    
   }
 
   // tslint:disable-next-line: typedef

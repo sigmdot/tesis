@@ -55,6 +55,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DetalleAvisoComponent } from './components/components-home/detalle-aviso/detalle-aviso.component';
 import { MapaDetalleAvisoLaboralComponent } from './components/components-home/mapa-detalle-aviso-laboral/mapa-detalle-aviso-laboral.component';
 import { ListaAvisosActivosComponent } from './components/components-historial/lista-avisos-activos/lista-avisos-activos.component';
+import { TarjetaAvisosActivosComponent } from './components/components-historial/tarjeta-avisos-activos/tarjeta-avisos-activos.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { ListaAvisosActivosComponent } from './components/components-historial/l
     MapaCrearAvisoComponent,
     DetalleAvisoComponent,
     MapaDetalleAvisoLaboralComponent,
-    ListaAvisosActivosComponent
+    ListaAvisosActivosComponent,
+    TarjetaAvisosActivosComponent
   ],
   imports: [
     CommonModule,

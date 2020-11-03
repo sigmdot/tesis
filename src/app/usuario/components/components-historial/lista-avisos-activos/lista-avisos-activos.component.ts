@@ -14,7 +14,7 @@ export class ListaAvisosActivosComponent implements OnInit,OnChanges {
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges): void {
-
+    this.listaAvisosFiltradaActivo = this.listaAvisos.filter(aviso => aviso.estado === 'activo');
   }
 
 }

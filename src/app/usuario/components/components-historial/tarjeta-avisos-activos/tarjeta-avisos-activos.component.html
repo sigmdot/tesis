@@ -1,1 +1,9 @@
-<p>tarjeta-avisos-activos works!</p>
+<div id="tarjetaActivo" class="mb-2 rounded row m-0">
+    <div class="col-8 p-0 px-2 text-center d-flex align-items-center">
+        <h5> {{aviso.nombreAviso}} </h5>
+    </div>
+    <div class="col-4 p-0 px-2 text-center d-flex align-items-center justify-content-around">
+        <button class="btn btn-primary"><fa-icon [icon]="faIdBadge"></fa-icon> </button>
+        <button class="btn btn-danger"><fa-icon [icon]="faTimes"></fa-icon> </button>
+    </div>
+</div>

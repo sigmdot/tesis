@@ -12,9 +12,10 @@
             </div>
             <div class="col-12 p-0 border row m-0" style="height: 50%;">
                 <div class="col-6 border h-100">
-                    
+                    <app-lista-trabajos-concretados [listaTrabajosConcre]="(trabajosConcretados$ | async)"></app-lista-trabajos-concretados>
                 </div>
                 <div class="col-6 border h-100">
+                    <app-lista-trabajos-activos-empleador [listaTrabajoActivo]="(trabajosConcretados$|async)"></app-lista-trabajos-activos-empleador>
                 </div>
             </div>
         </div>

@@ -1,0 +1,21 @@
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Trabajo } from '@core/model/trabajo.model';
+
+@Component({
+  selector: 'app-lista-trabajos-concretados',
+  templateUrl: './lista-trabajos-concretados.component.html',
+  styleUrls: ['./lista-trabajos-concretados.component.css']
+})
+export class ListaTrabajosConcretadosComponent implements OnInit, OnChanges {
+  @Input() listaTrabajosConcre: Trabajo[];
+  constructor() { }
+  listaFinalizadoTrabajoConcre: Trabajo[] = [];
+  ngOnChanges(changes: SimpleChanges): void {
+    this.listaFinalizadoTrabajoConcre = this.listaTrabajosConcre.filter(trabajo => trabajo.estado === 'Finalizado');
+  }
+
+  ngOnInit(): void {
+  }
+
+}

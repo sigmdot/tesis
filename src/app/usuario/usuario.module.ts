@@ -56,6 +56,8 @@ import { DetalleAvisoComponent } from './components/components-home/detalle-avis
 import { MapaDetalleAvisoLaboralComponent } from './components/components-home/mapa-detalle-aviso-laboral/mapa-detalle-aviso-laboral.component';
 import { ListaAvisosActivosComponent } from './components/components-historial/lista-avisos-activos/lista-avisos-activos.component';
 import { TarjetaAvisosActivosComponent } from './components/components-historial/tarjeta-avisos-activos/tarjeta-avisos-activos.component';
+import { ListaTrabajosConcretadosComponent } from './components/components-historial/lista-trabajos-concretados/lista-trabajos-concretados.component';
+import { ListaTrabajosActivosEmpleadorComponent } from './components/components-historial/lista-trabajos-activos-empleador/lista-trabajos-activos-empleador.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,9 @@ import { TarjetaAvisosActivosComponent } from './components/components-historial
     DetalleAvisoComponent,
     MapaDetalleAvisoLaboralComponent,
     ListaAvisosActivosComponent,
-    TarjetaAvisosActivosComponent
+    TarjetaAvisosActivosComponent,
+    ListaTrabajosConcretadosComponent,
+    ListaTrabajosActivosEmpleadorComponent
   ],
   imports: [
     CommonModule,

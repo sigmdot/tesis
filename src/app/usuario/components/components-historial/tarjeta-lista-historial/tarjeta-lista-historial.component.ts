@@ -17,28 +17,17 @@ export class TarjetaListaHistorialComponent implements OnInit, OnChanges {
   @Input() indice: number;
   @Output() indiceEmisor: EventEmitter<number> = new EventEmitter<number>();
   usuario$: Observable<Usuario> = null;
-  detalles = {
-    nombre: null,
-    foto: null,
-    estado: null
-  };
 
-  constructor(private usuarioColleSvc: CollecionUsuariosService, private avisoColleSvc: AvisosTrabajosService) {   }
+  constructor(private usuarioColleSvc: CollecionUsuariosService) {   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    /* console.log(this.aviso.idUsuarioPosteador);
-    this.usuario$ = this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador);
-    console.log(this.usuario$); */
+    if ((changes.aviso.currentValue !== null) && (changes.aviso.currentValue !== undefined)){
+      this.usuario$ = this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador);
+    }
   }
 
-  ngOnInit(): void {
-    this.detalles.nombre = this.aviso.nombreAviso;
-    this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador).subscribe(e => {
-      this.detalles.foto = e.foto;
-    });
-    this.detalles.estado = this.aviso.estado;
-  }
+  ngOnInit(): void {}
 
   // tslint:disable-next-line: typedef
   emitirIndice(){

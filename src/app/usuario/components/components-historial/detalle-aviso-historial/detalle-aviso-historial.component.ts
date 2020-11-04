@@ -1,9 +1,10 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { Usuario } from '@core/model/usuario.model';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MapaDetallesAvisoComponent } from '../mapa-detalles-aviso/mapa-detalles-aviso.component';
 
 declare var $: any;
 
@@ -12,8 +13,9 @@ declare var $: any;
   templateUrl: './detalle-aviso-historial.component.html',
   styleUrls: ['./detalle-aviso-historial.component.css']
 })
-export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDestroy {
+export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDestroy, AfterViewChecked {
   @Input() avisoDetalle: AvisoTrabajo;
+  @ViewChild(MapaDetallesAvisoComponent) mapa: MapaDetallesAvisoComponent;
   usuario$: Observable<Usuario> = null;
   detallesAviso = {
     nombre: null,
@@ -24,6 +26,11 @@ export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDest
     foto: null
   };
   constructor(private userCollecSvc: CollecionUsuariosService) {
+  }
+  ngAfterViewChecked(): void {
+    if (this.mapa.mapaDetalleHistorial){
+      this.mapa.mapaDetalleHistorial.resize();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {

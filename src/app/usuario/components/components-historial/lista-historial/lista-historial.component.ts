@@ -21,6 +21,6 @@ export class ListaHistorialComponent implements OnInit, OnChanges {
   // tslint:disable-next-line: typedef
   capturarIndice(indice: number){
     console.log(indice);
-    this.avisoSeleccionado = this.lista[indice];
+    this.avisoSeleccionado = this.listaFiltradaFinalizados[indice];
   }
 }

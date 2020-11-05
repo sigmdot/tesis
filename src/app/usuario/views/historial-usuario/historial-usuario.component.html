@@ -33,11 +33,13 @@
                 </div>
                 <div class="col-6 h-100">
                     <div class="col-12 p-0 text-center border"><h5>Trabajos Realizados</h5></div>
+                    <app-lista-trabajos-realizados [listaTrabajoRealizados]="(trabajosRealizado$|async)"></app-lista-trabajos-realizados>
                 </div>
             </div>
             <div class="col-12 p-0 row m-0" style="height: 50%;">
                 <div class="col-12 h-100">
                     <div class="col-12 p-0 text-center border"><h5>Trabajos concretados activos</h5></div>
+                    <app-lista-trabajos-activos></app-lista-trabajos-activos>
                 </div>
             </div>
         </div>

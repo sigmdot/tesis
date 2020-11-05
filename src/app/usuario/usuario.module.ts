@@ -60,6 +60,8 @@ import { ListaTrabajosActivosEmpleadorComponent } from './components/components-
 import { TarjetaTrabajosConcretadoComponent } from './components/components-historial/tarjeta-trabajos-concretado/tarjeta-trabajos-concretado.component';
 import { TarjetaTrabajosActivosConcretadosComponent } from './components/components-historial/tarjeta-trabajos-activos-concretados/tarjeta-trabajos-activos-concretados.component';
 import { ListaAvisosPostuladosPorUsuarioComponent } from './components/components-historial/lista-avisos-postulados-por-usuario/lista-avisos-postulados-por-usuario.component';
+import { ListaTrabajosActivosComponent } from './components/components-historial/lista-trabajos-activos/lista-trabajos-activos.component';
+import { TarjetaTrabajosActivosComponent } from './components/components-historial/tarjeta-trabajos-activos/tarjeta-trabajos-activos.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +104,9 @@ import { ListaAvisosPostuladosPorUsuarioComponent } from './components/component
     ListaTrabajosActivosEmpleadorComponent,
     TarjetaTrabajosConcretadoComponent,
     TarjetaTrabajosActivosConcretadosComponent,
-    ListaAvisosPostuladosPorUsuarioComponent
+    ListaAvisosPostuladosPorUsuarioComponent,
+    ListaTrabajosActivosComponent,
+    TarjetaTrabajosActivosComponent
   ],
   imports: [
     CommonModule,

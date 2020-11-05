@@ -20,7 +20,6 @@ export class HistorialUsuarioComponent implements OnInit {
               private avisosSvc: AvisosTrabajosService,
               private authSvc: FireauthService) {
     this.authSvc.getCurrentUser().then(e => {
-      console.log(e.uid);
       this.avisosPostulado$ = this.avisosSvc.getAvisosPostuladosPorUsuario(e.uid); // trabajador
       this.trabajosSolicitado$ = this.avisosSvc.getAvisosSolicitadosPorUsuario(e.uid); // empleador
       this.trabajosRealizado$ = this.trabajosCollecionSvc.getTrabajosUsuariosTrabajador(e.uid); // trabajador

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Usuario } from '@core/model/usuario.model';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tarjeta-historial-postulados',
@@ -11,6 +13,7 @@ export class TarjetaHistorialPostuladosComponent implements OnInit, OnChanges {
   @Input() postulacion: AvisoTrabajo;
   @Input() indice: number;
   @Output() emisorIndicePostulados: EventEmitter<number> = new EventEmitter<number>();
+  usuarioPosteador$: Observable<Usuario>;
   foto: string;
   nombre: string;
   estado: string;
@@ -18,13 +21,10 @@ export class TarjetaHistorialPostuladosComponent implements OnInit, OnChanges {
   constructor(private userCollecSvc: CollecionUsuariosService) { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
+    this.usuarioPosteador$ = this.userCollecSvc.getUsuario(this.postulacion.idUsuarioPosteador);
   }
 
-  ngOnInit(): void {
-    this.userCollecSvc.getUsuario(this.postulacion.idUsuarioPosteador).subscribe(e=>{
-      this.foto = e.foto
-    });
-  }
+  ngOnInit(): void {}
 
   // tslint:disable-next-line: typedef
   emitirIndiceTrabajosPostulados(){

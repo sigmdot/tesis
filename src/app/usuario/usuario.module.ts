@@ -48,7 +48,6 @@ import { MapaDetalleHistorialRealizadosTrabajosComponent } from './components/co
 import { MapaDetalleHistorialPostuladosComponent } from './components/components-historial/mapa-detalle-historial-postulados/mapa-detalle-historial-postulados.component';
 import { DetallesHistorialPostuladosComponent } from './components/components-historial/detalles-historial-postulados/detalles-historial-postulados.component';
 import { TarjetaHistorialPostuladosComponent } from './components/components-historial/tarjeta-historial-postulados/tarjeta-historial-postulados.component';
-import { ListaTrabajosPostuladosComponent } from './components/components-historial/lista-trabajos-postulados/lista-trabajos-postulados.component';
 import { CrearAvisoComponent } from './components/components-general/crear-aviso/crear-aviso.component';
 import { MapaCrearAvisoComponent } from './components/components-general/mapa-crear-aviso/mapa-crear-aviso.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -60,6 +59,7 @@ import { ListaTrabajosConcretadosComponent } from './components/components-histo
 import { ListaTrabajosActivosEmpleadorComponent } from './components/components-historial/lista-trabajos-activos-empleador/lista-trabajos-activos-empleador.component';
 import { TarjetaTrabajosConcretadoComponent } from './components/components-historial/tarjeta-trabajos-concretado/tarjeta-trabajos-concretado.component';
 import { TarjetaTrabajosActivosConcretadosComponent } from './components/components-historial/tarjeta-trabajos-activos-concretados/tarjeta-trabajos-activos-concretados.component';
+import { ListaAvisosPostuladosPorUsuarioComponent } from './components/components-historial/lista-avisos-postulados-por-usuario/lista-avisos-postulados-por-usuario.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +92,6 @@ import { TarjetaTrabajosActivosConcretadosComponent } from './components/compone
     MapaDetalleHistorialPostuladosComponent,
     DetallesHistorialPostuladosComponent,
     TarjetaHistorialPostuladosComponent,
-    ListaTrabajosPostuladosComponent,
     CrearAvisoComponent,
     MapaCrearAvisoComponent,
     DetalleAvisoComponent,
@@ -102,7 +101,8 @@ import { TarjetaTrabajosActivosConcretadosComponent } from './components/compone
     ListaTrabajosConcretadosComponent,
     ListaTrabajosActivosEmpleadorComponent,
     TarjetaTrabajosConcretadoComponent,
-    TarjetaTrabajosActivosConcretadosComponent
+    TarjetaTrabajosActivosConcretadosComponent,
+    ListaAvisosPostuladosPorUsuarioComponent
   ],
   imports: [
     CommonModule,

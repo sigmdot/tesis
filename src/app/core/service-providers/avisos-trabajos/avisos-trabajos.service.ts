@@ -52,6 +52,7 @@ export class AvisosTrabajosService {
     return this.firestoreSvc.snapshotCollection<any>('avisosTrabajos', ref => ref.where('idUsuarioPosteador', '==', id));
   }
 
+  // tslint:disable-next-line: typedef
   public actualizarPostulados(id: string, idUsuario: string){
     return this.firestoreSvc
     .updateDocument(`avisosTrabajos/${id}`, {usuariosPostulados: firebase.firestore.FieldValue.arrayUnion(idUsuario)});

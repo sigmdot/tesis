@@ -6,7 +6,7 @@ import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
   templateUrl: './lista-avisos-activos.component.html',
   styleUrls: ['./lista-avisos-activos.component.css']
 })
-export class ListaAvisosActivosComponent implements OnInit,OnChanges {
+export class ListaAvisosActivosComponent implements OnInit, OnChanges {
   @Input() listaAvisos: AvisoTrabajo[];
   listaAvisosFiltradaActivo: AvisoTrabajo[] = [];
   constructor() { }
@@ -14,7 +14,9 @@ export class ListaAvisosActivosComponent implements OnInit,OnChanges {
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.listaAvisosFiltradaActivo = this.listaAvisos.filter(aviso => aviso.estado === 'activo');
+    if (this.listaAvisos != null) {
+      this.listaAvisosFiltradaActivo = this.listaAvisos.filter(aviso => aviso.estado === 'activo');
+    }
   }
 
 }

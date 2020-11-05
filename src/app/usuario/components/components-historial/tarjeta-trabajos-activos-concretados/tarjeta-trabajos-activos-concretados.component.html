@@ -1,6 +1,6 @@
 <div id="tarjetaActivoTrabajo" class="rounded row m-0">
     <div class="col-6 p-0 d-flex justify-content-center align-items-center">
-        <h5>{{(aviso$|async).nombreAviso}}</h5>
+        <h5> {{(aviso$|async)?.nombreAviso}} </h5>
     </div>
     <div class="col-6 d-flex justify-content-center align-items-center">
         <button class="btn btn-warning w-100">Ver trabajador a cargo</button>

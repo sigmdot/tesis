@@ -17,6 +17,8 @@ export class TarjetaTrabajosActivosConcretadosComponent implements OnInit, OnCha
   constructor(private avisoSvc: AvisosTrabajosService) { }
   ngOnChanges(changes: SimpleChanges): void {
     this.aviso$ = this.avisoSvc.getAviso(this.trabajoActivo.idAvisoAsociado);
+    this.aviso$.subscribe(e=>{console.log(e);
+    });
   }
 
   ngOnInit(): void {

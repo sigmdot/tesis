@@ -12,7 +12,9 @@ export class ListaTrabajosConcretadosComponent implements OnInit, OnChanges {
   constructor() { }
   listaFinalizadoTrabajoConcre: Trabajo[] = [];
   ngOnChanges(changes: SimpleChanges): void {
-    this.listaFinalizadoTrabajoConcre = this.listaTrabajosConcre.filter(trabajo => trabajo.estado === 'Finalizado');
+    if (this.listaTrabajosConcre != null) {
+      this.listaFinalizadoTrabajoConcre = this.listaTrabajosConcre.filter(trabajo => trabajo.estado === 'Finalizado');
+    }
   }
 
   ngOnInit(): void {

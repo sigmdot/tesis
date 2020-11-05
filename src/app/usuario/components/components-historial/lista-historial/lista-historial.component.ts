@@ -13,13 +13,15 @@ export class ListaHistorialComponent implements OnInit, OnChanges {
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado === 'Finalizado');
+    if (changes.lista.currentValue != null) {
+      this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado === 'Finalizado');
+    }
   }
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line: typedef
-  capturarIndice(indice: number){
+  capturarIndice(indice: number) {
     console.log(indice);
     this.avisoSeleccionado = this.listaFiltradaFinalizados[indice];
   }

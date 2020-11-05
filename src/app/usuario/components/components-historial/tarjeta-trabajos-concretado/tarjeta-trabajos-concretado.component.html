@@ -1,18 +1,17 @@
-<div id="tarjetaConcretada">
-    <div id="tarjetaHistorial" class="w-100 row m-0 mb-2">
-        <div class="col-2 p-2 h-100">
-            <img [src]="'https://via.placeholder.com/150'" class="w-100 h-100" style="height: 90%;">
+<div id="tarjetaConcretada" class="w-100 row m-0 mb-2">
+    <div class="col-2 p-2 h-100">
+        <img [src]="(usuario$|async)?.foto " class="w-100 h-100">
+    </div>
+    <div class="col-5 p-2 h-100 row m-0 w-100">
+        <div class="col-12 p-0 h-50 w-100" style="overflow: hidden; text-overflow: ellipsis;">
+            <span style="font-size: medium; font-weight: bold;"> {{ (avisoTrabajo$|async)?.nombreAviso }} </span>
         </div>
-        <div class="col-5 p-2 h-100 row m-0 w-100">
-            <div class="col-12 p-0 h-50 w-100" style="overflow: hidden; text-overflow: ellipsis;">
-                <span style="font-size: medium; font-weight: bold;"> {{ (avisoTrabajo$|async).nombreAviso }} </span>
-            </div>
-            <div class="col-12 p-0 h-50">
-                <span>Estado : <strong> {{trabajoConcretado.estado}} </strong></span>
-            </div>
+        <div class="col-12 p-0 h-50">
+            <span>Estado : <strong> {{trabajoConcretado.estado}} </strong></span>
         </div>
-        <div class="col-5 p-0 h-100 my-auto d-flex align-items-center px-2">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalDetalleHistorialRealizados">Ver detalle</button>
-        </div>
+    </div>
+    <div class="col-5 p-0 h-100 my-auto d-flex align-items-center px-2">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+            data-target="#modalDetalleHistorialRealizados">Ver detalle</button>
     </div>
 </div>

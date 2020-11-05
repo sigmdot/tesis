@@ -1,20 +1,24 @@
-<div class="container-fluid border p-0" style="height: 100vh; padding-top: 50px !important;">
+<div class="container-fluid p-0" style="height: 100vh; padding-top: 50px !important;">
     <button style="height: 7%;" class="btn btn-primary w-100 mt-2 mb-2" (click)="cambiarPerfil()">Usted ve esto como: {{vista}} </button>
     <ng-template [ngIf] = "vista=='empleador'">
         <div class="row m-0" style="height: 90%;">
-            <div class="col-12 p-0 border row m-0" style="height: 50%;">
-                <div class="col-6 border h-100">
-                    <app-lista-historial [lista]="(trabajosSolicitado$|async)"></app-lista-historial>
+            <div class="col-12 p-0 row m-0" style="height: 50%;">
+                <div class="col-6 h-100">
+                    <div class="col-12 p-0 text-center border"><h5>Avisos Finalizados</h5></div>
+                    <app-lista-historial [lista]="(trabajosSolicitado$|async)" style="height: 90%;"></app-lista-historial>
                 </div>
-                <div class="col-6 border h-100">
+                <div class="col-6 h-100">
+                    <div class="col-12 p-0 text-center border"><h5>Avisos Activos</h5></div>
                     <app-lista-avisos-activos [listaAvisos]="(trabajosSolicitado$|async)"></app-lista-avisos-activos>
                 </div>
             </div>
-            <div class="col-12 p-0 border row m-0" style="height: 50%;">
-                <div class="col-6 border h-100">
+            <div class="col-12 p-0 row m-0" style="height: 50%;">
+                <div class="col-6 h-100">
+                    <div class="col-12 p-0 text-center border"><h5>Trabajos concretados finalizados</h5></div>
                     <app-lista-trabajos-concretados [listaTrabajosConcre]="(trabajosConcretados$ | async)"></app-lista-trabajos-concretados>
                 </div>
-                <div class="col-6 border h-100">
+                <div class="col-6 h-100">
+                    <div class="col-12 p-0 text-center border"><h5>Trabajos concretados activos</h5></div>
                     <app-lista-trabajos-activos-empleador [listaTrabajoActivo]="(trabajosConcretados$|async)"></app-lista-trabajos-activos-empleador>
                 </div>
             </div>

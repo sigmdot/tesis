@@ -37,8 +37,9 @@ export class MapaDetalleHistorialRealizadosTrabajosComponent implements OnInit, 
       else {
         this.mapaDetalleHistorialRealizados.flyTo({
           center: this.mapaCenter,
-          speed: 0.9
+          speed: 1.4
         });
+        this.markerWork.setLngLat(this.mapaCenter);
 
       }
     }

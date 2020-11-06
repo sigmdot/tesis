@@ -24,12 +24,12 @@
             </div>
             <div class="col-12 p-0 mt-2" style="height: 8vh;">
               <div class="alert alert-primary w-100 h-100">
-                Este trabajo inicio el {{ trabajoDetalle?.fechaInicio.toDate() | date:'dd LLLL yyyy' }}
+                Este trabajo inicio el {{ trabajoDetalle?.fechaInicio?.toDate() | date:'dd LLLL yyyy' }}
               </div>
             </div>
             <div class="col-12 p-0 mt-2" style="height: 7vh;">
               <div class="alert alert-warning w-100 h-100">
-                Este trabajo termino el {{ trabajoDetalle?.fechaTermino.toDate() | date:'dd LLLL yyyy'  }}
+                Este trabajo termino el {{ trabajoDetalle?.fechaTermino?.toDate() | date:'dd LLLL yyyy'  }}
               </div>
             </div>
           </div>

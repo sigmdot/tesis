@@ -39,7 +39,7 @@
             <div class="col-12 p-0 row m-0" style="height: 50%;">
                 <div class="col-12 h-100">
                     <div class="col-12 p-0 text-center border"><h5>Trabajos concretados activos</h5></div>
-                    <app-lista-trabajos-activos></app-lista-trabajos-activos>
+                    <app-lista-trabajos-activos [listaTrabajoActivo]="(trabajosRealizado$|async)"></app-lista-trabajos-activos>
                 </div>
             </div>
         </div>

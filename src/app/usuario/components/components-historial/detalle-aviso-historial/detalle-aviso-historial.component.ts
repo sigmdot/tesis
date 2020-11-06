@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { Usuario } from '@core/model/usuario.model';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
@@ -25,8 +25,7 @@ export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDest
     cantidadPostulados: null,
     foto: null
   };
-  constructor(private userCollecSvc: CollecionUsuariosService) {
-  }
+  constructor(private userCollecSvc: CollecionUsuariosService) {}
   ngAfterViewChecked(): void {
     if (this.mapa.mapaDetalleHistorial){
       this.mapa.mapaDetalleHistorial.resize();

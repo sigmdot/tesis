@@ -1,4 +1,4 @@
-<div id="tarjetaHistorial" class="w-100 row m-0 mb-2 rounded">
+<div id="tarjetaHistorial" class="w-100 row m-0 mb-2 rounded" [ngClass]="{'bordeInactivo':(postulacion.estado).toLowerCase() === 'finalizado', 'bordeActivo': (postulacion.estado).toLowerCase() === 'activo'}">
     <div class="col-2 p-2 h-100">
         <img [src]="(usuarioPosteador$|async)?.foto" class="w-100 h-100" style="height: 90%;">
     </div>

@@ -14,10 +14,7 @@ export class TarjetaHistorialPostuladosComponent implements OnInit, OnChanges {
   @Input() indice: number;
   @Output() emisorIndicePostulados: EventEmitter<number> = new EventEmitter<number>();
   usuarioPosteador$: Observable<Usuario>;
-  foto: string;
-  nombre: string;
-  estado: string;
-
+  
   constructor(private userCollecSvc: CollecionUsuariosService) { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);

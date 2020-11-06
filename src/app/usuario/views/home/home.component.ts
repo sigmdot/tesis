@@ -1,20 +1,22 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
+import { MapaHomeComponent } from '@usuario/components/components-home/mapa-home/mapa-home.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   trabajos$: Observable<AvisoTrabajo[]> = null;
   centroMapa: number[] = [-70.689409, -33.518071];
   kilometros = 0;
   usuarioPropio: string;
+  @ViewChild(MapaHomeComponent) mapaDelHome: MapaHomeComponent;
   // tslint:disable-next-line: typedef
   cambio(){
     if ( (this.kilometros >= 11) || (this.kilometros < 0) ){
@@ -90,9 +92,5 @@ export class HomeComponent implements OnInit, OnDestroy {
     const d = R * c;
     return d;
   }
-  ngOnDestroy(): void {
-    /* this.suscripcionTrabajos.unsubscribe(); */
-  }
-
 
 }

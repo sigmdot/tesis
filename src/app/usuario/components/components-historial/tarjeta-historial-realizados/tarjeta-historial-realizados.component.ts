@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { Trabajo } from '@core/model/trabajo.model';
+import { Usuario } from '@core/model/usuario.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-tarjeta-historial-realizados',
   templateUrl: './tarjeta-historial-realizados.component.html',
@@ -10,22 +13,19 @@ import { CollecionUsuariosService } from '@core/service-providers/collecion-usua
 export class TarjetaHistorialRealizadosComponent implements OnInit, OnChanges {
   @Input() trabajo: Trabajo;
   @Input() indice: number;
+  usuario$: Observable<Usuario>;
+  aviso$: Observable<AvisoTrabajo>;
+
   @Output() emitirIndiceRealizado: EventEmitter<number> = new EventEmitter<number>();
-  nombre = 'Trabajo Nombre';
-  foto = 'url jajaj.com';
+
   constructor(private avisoTrabajoSvc: AvisosTrabajosService, private userColleSvc: CollecionUsuariosService) {}
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes, 'Historial realizado');
-    if ((changes.trabajo.currentValue !== undefined) && (changes.trabajo.currentValue != null)) {
-      console.log(changes.trabajo.currentValue);
-      this.userColleSvc.getUsuario(this.trabajo.idUsuarioEmpleador).subscribe((e) => {
-        this.foto = e.foto;
-      });
-      this.avisoTrabajoSvc.getAviso(this.trabajo.idAvisoAsociado).subscribe((e) => {
-        this.nombre = e.nombreAviso;
-      });
+    if ((this.trabajo !== undefined) && (this.trabajo != null)) {
+      this.usuario$ = this.userColleSvc.getUsuario(this.trabajo.idUsuarioEmpleador);
+      this.aviso$ = this.avisoTrabajoSvc.getAviso(this.trabajo.idAvisoAsociado);
     }
   }
   // tslint:disable-next-line: typedef

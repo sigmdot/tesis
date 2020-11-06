@@ -1,3 +1,4 @@
 <div style="overflow-y: scroll;height: 90%;">
-    <app-tarjeta-trabajos-concretado *ngFor="let trabajo of listaFinalizadoTrabajoConcre;let i = index" [trabajoConcretado]="trabajo" [index]="i"></app-tarjeta-trabajos-concretado>
+    <app-tarjeta-trabajos-concretado *ngFor="let trabajo of listaFinalizadoTrabajoConcre;let i = index" [trabajoConcretado]="trabajo" [index]="i" (emitirIndice)="capturarIndice($event)"></app-tarjeta-trabajos-concretado>
+    <app-detalle-trabajo-concretado></app-detalle-trabajo-concretado>
 </div>

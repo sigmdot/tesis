@@ -9,8 +9,10 @@ import { Trabajo } from '@core/model/trabajo.model';
 })
 export class ListaTrabajosConcretadosComponent implements OnInit, OnChanges {
   @Input() listaTrabajosConcre: Trabajo[];
-  constructor() { }
   listaFinalizadoTrabajoConcre: Trabajo[] = [];
+  trabajoConcretadoSeleccionado: Trabajo;
+  constructor() { }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (this.listaTrabajosConcre != null) {
       this.listaFinalizadoTrabajoConcre = this.listaTrabajosConcre.filter(trabajo => trabajo.estado === 'Finalizado');
@@ -18,6 +20,13 @@ export class ListaTrabajosConcretadosComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+  }
+
+  // tslint:disable-next-line: typedef
+  capturarIndice(indice: number){
+    console.log(indice, ' CAPTURADO ');
+    this.trabajoConcretadoSeleccionado = this.listaFinalizadoTrabajoConcre[indice];
+    console.log(this.trabajoConcretadoSeleccionado, ' ACA EL SELECCIONADO ');
   }
 
 }

@@ -1,6 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Postulacion } from '@core/model/postulacion.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
+import { PostulacionesCollecionService } from '@core/service-providers/postulaciones-collecion/postulaciones-collecion.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-lista-avisos-activos',
@@ -10,9 +13,9 @@ import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/a
 export class ListaAvisosActivosComponent implements OnInit, OnChanges {
   @Input() listaAvisos: AvisoTrabajo[];
   listaAvisosFiltradaActivo: AvisoTrabajo[] = [];
-  listaPostuladosSelect: string[] = null;
+  listaPostuladosSelect$: Observable<any> = null;
   idAviso: string;
-  constructor(private avisoSvc: AvisosTrabajosService) { }
+  constructor(private avisoSvc: AvisosTrabajosService, private postulacionSvc: PostulacionesCollecionService) { }
 
   ngOnInit(): void {
   }
@@ -23,9 +26,8 @@ export class ListaAvisosActivosComponent implements OnInit, OnChanges {
   }
   capturarIndice(indice: number){
     console.log(indice, ' Recepcionado padre ');
-    this.listaPostuladosSelect = this.listaAvisosFiltradaActivo[indice].usuariosPostulados;
-    console.log(this.listaPostuladosSelect);
-    this.idAviso = this.listaAvisosFiltradaActivo[indice].id;
+    console.log(this.listaAvisosFiltradaActivo[indice]);
+    this.listaPostuladosSelect$ = this.postulacionSvc.getPostulacionesPorAviso(this.listaAvisosFiltradaActivo[indice].id);
 
   }
 

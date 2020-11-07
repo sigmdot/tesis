@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Postulacion } from '@core/model/postulacion.model';
 import { Usuario } from '@core/model/usuario.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
@@ -17,12 +18,12 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
   faStreetView = faStreetView;
   faStar = faStar;
   @Output() emisorIndicePostulado: EventEmitter<number> = new EventEmitter<number>();
-  @Input() postuladoId: string;
+  @Input() postuladoId: Postulacion;
   @Input() indice: number;
   usuario$: Observable<Usuario>;
   constructor(private userColleSvc: CollecionUsuariosService, private avisoSvc:AvisosTrabajosService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    this.usuario$ = this.userColleSvc.getUsuario(this.postuladoId);
+    this.usuario$ = this.userColleSvc.getUsuario(this.postuladoId.idUsuarioPostulado);
   }
 
   ngOnInit(): void {

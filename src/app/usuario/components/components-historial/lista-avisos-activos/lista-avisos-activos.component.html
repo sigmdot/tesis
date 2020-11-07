@@ -1,4 +1,4 @@
 <div class="w-100 rounded" style="overflow-y: scroll; height: 89%;">
     <app-tarjeta-avisos-activos *ngFor="let aviso of listaAvisosFiltradaActivo;let i = index" [aviso]="aviso" [indice]="i" (emisorIndice)="capturarIndice($event)"></app-tarjeta-avisos-activos>
-    <app-lista-postulados [listaPostulados]="listaPostuladosSelect" [idAviso]="idAviso"></app-lista-postulados>
+    <app-lista-postulados [listaPostulados]="(listaPostuladosSelect$|async)"></app-lista-postulados>
 </div>

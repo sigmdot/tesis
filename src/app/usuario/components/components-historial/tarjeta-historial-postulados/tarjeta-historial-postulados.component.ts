@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Postulacion } from '@core/model/postulacion.model';
 import { Usuario } from '@core/model/usuario.model';
+import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
 import { Observable } from 'rxjs';
 
@@ -10,15 +12,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./tarjeta-historial-postulados.component.css']
 })
 export class TarjetaHistorialPostuladosComponent implements OnInit, OnChanges {
-  @Input() postulacion: AvisoTrabajo;
+  @Input() postulacion: Postulacion;
   @Input() indice: number;
   @Output() emisorIndicePostulados: EventEmitter<number> = new EventEmitter<number>();
-  usuarioPosteador$: Observable<Usuario>;
+  aviso$: Observable<AvisoTrabajo>;
+  user$: Observable<Usuario>;
   
-  constructor(private userCollecSvc: CollecionUsuariosService) { }
+  constructor(private userCollecSvc: CollecionUsuariosService, private avisoTrabajoSvc: AvisosTrabajosService) { }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    this.usuarioPosteador$ = this.userCollecSvc.getUsuario(this.postulacion.idUsuarioPosteador);
+    this.aviso$ = this.avisoTrabajoSvc.getAviso(this.postulacion.idAviso);
+    this.user$ = this.userCollecSvc.getUsuario(this.postulacion.idUsuarioPostulado);
   }
 
   ngOnInit(): void {}

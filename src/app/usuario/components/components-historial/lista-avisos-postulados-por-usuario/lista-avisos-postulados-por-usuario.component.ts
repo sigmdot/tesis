@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Postulacion } from '@core/model/postulacion.model';
 
 @Component({
   selector: 'app-lista-avisos-postulados-por-usuario',
@@ -7,7 +8,7 @@ import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
   styleUrls: ['./lista-avisos-postulados-por-usuario.component.css']
 })
 export class ListaAvisosPostuladosPorUsuarioComponent implements OnInit {
-  @Input() listaAvisosPostulados: AvisoTrabajo[];
+  @Input() listaAvisosPostulados: Postulacion[];
   constructor() { }
 
   ngOnInit(): void {

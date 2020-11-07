@@ -34,13 +34,11 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   // tslint:disable-next-line: typedef
   postularse(){
-    this.avisoTrabajoSvc.actualizarPostulados(this.seleccionado.id, this.usuarioid).then(e => {
-      this.toastr.success('Postulado con éxito');
-    });
+    console.log('Postulado Intento');
   }
 
   // tslint:disable-next-line: typedef

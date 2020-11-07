@@ -44,9 +44,7 @@ export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDest
       this.detallesAviso.ubicacion = this.avisoDetalle.ubicacion;
       this.detallesAviso.estado = this.avisoDetalle.estado;
       this.usuario$ = this.userCollecSvc.getUsuario(this.avisoDetalle.idUsuarioPosteador);
-      this.usuario$.subscribe(e => {
-        this.detallesAviso.foto = e.foto;
-      });
+
     }
   }
 

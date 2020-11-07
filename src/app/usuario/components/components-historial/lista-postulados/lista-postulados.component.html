@@ -8,16 +8,8 @@
                 </button>
             </div>
             <div class="modal-body" id="listaPostuladinos" style="height: 70vh; overflow-y: scroll;">
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
-                <app-tarjeta-postulado></app-tarjeta-postulado>
+                <app-tarjeta-postulado *ngFor="let postulado of listaPostulados; let i = index" [postuladoId]="postulado" [indice]="i" (emisorIndicePostulado)="capturarIndicPostulado($event)"></app-tarjeta-postulado>
+                <img src="https://media1.tenor.com/images/e8cf8b3a86d03c87a7c5b371924e509d/tenor.gif?itemid=4911712" class="w-100 h-100" *ngIf="listaPostulados == undefined || listaPostulados.length == 0">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary w-100" data-dismiss="modal">Cerrar</button>

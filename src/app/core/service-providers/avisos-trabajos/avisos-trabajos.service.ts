@@ -39,7 +39,7 @@ export class AvisosTrabajosService {
   // Devuelve avisos al que el usuario se postulo
   // tslint:disable-next-line: typedef
   public getAvisosPostuladosPorUsuario(id: string){
-    return this.firestoreSvc.snapshotCollection<any>('avisosTrabajos', ref => ref.where('usuariosPostulados', 'array-contains', id));
+    return this.firestoreSvc.snapshotCollection<any>('avisosTrabajos', ref => ref.where('usuariosPostulados', 'array-contains', {id}));
   }
 
   // tslint:disable-next-line: typedef
@@ -50,12 +50,6 @@ export class AvisosTrabajosService {
   // tslint:disable-next-line: typedef
   public getAvisosSolicitadosPorUsuario(id: string){
     return this.firestoreSvc.snapshotCollection<any>('avisosTrabajos', ref => ref.where('idUsuarioPosteador', '==', id));
-  }
-
-  // tslint:disable-next-line: typedef
-  public actualizarPostulados(id: string, idUsuario: string){
-    return this.firestoreSvc
-    .updateDocument(`avisosTrabajos/${id}`, {usuariosPostulados: firebase.firestore.FieldValue.arrayUnion(idUsuario)});
   }
 
 }

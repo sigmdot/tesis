@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { FirestoreService } from '@core/services/firestore/firestore.service';
-import * as firebase from 'firebase';
 @Injectable({
   providedIn: 'root'
 })

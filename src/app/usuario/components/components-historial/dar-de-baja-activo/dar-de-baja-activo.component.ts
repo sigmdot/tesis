@@ -28,7 +28,7 @@ export class DarDeBajaActivoComponent implements OnInit {
       });
       this.toastr.success('Fue dado de baja tú aviso con exito');
     });
-
+    this.confirmar = false;
   }
 
 }

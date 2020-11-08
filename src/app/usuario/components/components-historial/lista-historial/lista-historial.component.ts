@@ -14,7 +14,7 @@ export class ListaHistorialComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
     if (changes.lista.currentValue != null) {
-      this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado === 'Finalizado');
+      this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado.toUpperCase() === 'FINALIZADO');
     }
   }
   ngOnInit(): void {

@@ -47,7 +47,9 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
       idUsuarioPostulado: this.usuarioid,
       estado: 'activo'
     }
-    this.postulacionSvc.createPostulacion(postulacion);
+    this.postulacionSvc.createPostulacion(postulacion).then(e=>
+      this.toastr.success("Creada su postulación con exito!")
+    );
   }
 
   // tslint:disable-next-line: typedef

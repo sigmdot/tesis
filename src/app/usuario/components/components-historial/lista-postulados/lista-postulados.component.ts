@@ -18,13 +18,15 @@ export class ListaPostuladosComponent implements OnInit, OnChanges {
     private userColleSvc: CollecionUsuariosService,
     private avisoSvc: AvisosTrabajosService,
     private postulacionSvc: PostulacionesCollecionService
-    ) { }
+  ) { }
   ngOnChanges(changes: SimpleChanges): void {
-    this.listaPostulados = this.listaPostulados.filter(postulacion=> postulacion.estado.toUpperCase() === 'ACTIVO');
+    if ((this.listaPostulados !== null) && (this.listaPostulados !== undefined)) {
+      this.listaPostulados = this.listaPostulados.filter(postulacion => postulacion.estado.toUpperCase() === 'ACTIVO');
+    }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   // tslint:disable-next-line: typedef
-  capturarIndicPostulado(indiceaBorrar: number){
+  capturarIndicPostulado(indiceaBorrar: number) {
     console.log('Se actualizara el usuario', this.listaPostulados[indiceaBorrar].idUsuarioPostulado);
     this.postulacionSvc.actualizarPostulacion(this.listaPostulados[indiceaBorrar].id, 'finalizado');
   }

@@ -1,4 +1,5 @@
 <div class="w-100 rounded" style="overflow-y: scroll; height: 89%;">
-    <app-tarjeta-avisos-activos *ngFor="let aviso of listaAvisosFiltradaActivo;let i = index" [aviso]="aviso" [indice]="i" (emisorIndice)="capturarIndice($event)"></app-tarjeta-avisos-activos>
+    <app-tarjeta-avisos-activos *ngFor="let aviso of listaAvisosFiltradaActivo;let i = index" [aviso]="aviso" [indice]="i" (emisorIndice)="capturarIndice($event)" (emisorIndiceParaBorrar)="capturarIndiceParaBorrar($event)"></app-tarjeta-avisos-activos>
     <app-lista-postulados [listaPostulados]="(listaPostuladosSelect$|async)"></app-lista-postulados>
+    <app-dar-de-baja-activo [idAviso]="idAvisoBorrable"></app-dar-de-baja-activo>
 </div>

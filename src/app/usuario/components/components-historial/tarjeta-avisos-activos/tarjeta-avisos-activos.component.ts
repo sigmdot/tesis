@@ -12,6 +12,7 @@ export class TarjetaAvisosActivosComponent implements OnInit {
   @Input() aviso: AvisoTrabajo;
   @Input() indice: number;
   @Output() emisorIndice: EventEmitter<number> = new EventEmitter<number>();
+  @Output() emisorIndiceParaBorrar: EventEmitter<number> = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
@@ -21,6 +22,13 @@ export class TarjetaAvisosActivosComponent implements OnInit {
   emitirIndice(){
     console.log('emitido = ', this.indice);
     this.emisorIndice.emit(this.indice);
+  }
+
+  // tslint:disable-next-line: typedef
+  emitirIndiceParaBorrar(){
+    this.emisorIndiceParaBorrar.emit(this.indice);
+    console.log('Borrar', this.indice);
+    
   }
 
 }

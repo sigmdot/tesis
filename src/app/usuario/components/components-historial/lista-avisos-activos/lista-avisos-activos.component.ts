@@ -15,6 +15,7 @@ export class ListaAvisosActivosComponent implements OnInit, OnChanges {
   listaAvisosFiltradaActivo: AvisoTrabajo[] = [];
   listaPostuladosSelect$: Observable<any> = null;
   idAviso: string;
+  idAvisoBorrable: string;
   constructor(private avisoSvc: AvisosTrabajosService, private postulacionSvc: PostulacionesCollecionService) { }
 
   ngOnInit(): void {
@@ -24,11 +25,17 @@ export class ListaAvisosActivosComponent implements OnInit, OnChanges {
       this.listaAvisosFiltradaActivo = this.listaAvisos.filter(aviso => aviso.estado === 'activo');
     }
   }
+  // tslint:disable-next-line: typedef
   capturarIndice(indice: number){
     console.log(indice, ' Recepcionado padre ');
     console.log(this.listaAvisosFiltradaActivo[indice]);
     this.listaPostuladosSelect$ = this.postulacionSvc.getPostulacionesPorAviso(this.listaAvisosFiltradaActivo[indice].id);
-
+  }
+  // tslint:disable-next-line: typedef
+  capturarIndiceParaBorrar(indice: number){
+    this.idAvisoBorrable = this.listaAvisosFiltradaActivo[indice].id;
+    console.log(this.idAvisoBorrable, ' WOY A BORRAR ', this.listaAvisosFiltradaActivo[indice]);
+    
   }
 
 }

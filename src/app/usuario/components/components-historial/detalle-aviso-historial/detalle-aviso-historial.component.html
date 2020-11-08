@@ -23,8 +23,8 @@
             <app-mapa-detalles-aviso [centroMapaDetalle]="detallesAviso.ubicacion"></app-mapa-detalles-aviso>
           </div>
           <div class="col-12 p-0 mt-2" style="height: 8vh;">
-            <div class="alert alert-primary w-100 h-100" *ngIf="detallesAviso.cantidadPostulados !== undefined && detallesAviso.cantidadPostulados !== null">
-              Este aviso tuvo {{detallesAviso.cantidadPostulados}} Postulados
+            <div class="alert alert-primary w-100 h-100" *ngIf="(postulacion$|async) !== undefined && (postulacion$|async) !== null">
+              Este aviso tuvo {{(postulacion$|async).length}} Postulados
             </div>
           </div>
           <div class="col-12 p-0 mt-2" style="height: 7vh;">

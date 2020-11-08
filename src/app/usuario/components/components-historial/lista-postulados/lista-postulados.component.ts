@@ -20,7 +20,7 @@ export class ListaPostuladosComponent implements OnInit, OnChanges {
     private postulacionSvc: PostulacionesCollecionService
     ) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+    this.listaPostulados = this.listaPostulados.filter(postulacion=> postulacion.estado.toUpperCase() === 'ACTIVO');
   }
   ngOnInit(): void {}
   // tslint:disable-next-line: typedef

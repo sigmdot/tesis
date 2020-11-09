@@ -1,3 +1,4 @@
 <div id="listaTrabajoActivo">
-    <app-tarjeta-trabajos-activos *ngFor="let trabajoActivo of listaTrabajoActivo" [trabajoActivo]="trabajoActivo"></app-tarjeta-trabajos-activos>
+    <app-tarjeta-trabajos-activos *ngFor="let trabajoActivo of listaTrabajoActivo; let i = index" [trabajoActivo]="trabajoActivo" [indice]="i" (numeroIndiceEmisor)="capturarIndiceTrabajoActivo($event)"></app-tarjeta-trabajos-activos>
+    <app-detalle-trabajo-activo [avisoAMostrar]="(avisoTrabajoSeleccionadito$|async)"></app-detalle-trabajo-activo>
 </div>

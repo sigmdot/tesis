@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { Trabajo } from '@core/model/trabajo.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class TarjetaTrabajosActivosComponent implements OnInit, OnChanges {
   @Input() trabajoActivo: Trabajo;
+  @Input() indice: number;
+  @Output() numeroIndiceEmisor: EventEmitter<number> = new EventEmitter<number>();
   aviso$: Observable<AvisoTrabajo>;
   constructor(private avisoSvc: AvisosTrabajosService) { }
 
@@ -21,6 +23,10 @@ export class TarjetaTrabajosActivosComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  
+  // tslint:disable-next-line: typedef
+  emitirIndiceActivo(){
+    console.log('Emitir este indice tarjeta = ', this.indice);
+    this.numeroIndiceEmisor.emit(this.indice);
+  }
 
 }

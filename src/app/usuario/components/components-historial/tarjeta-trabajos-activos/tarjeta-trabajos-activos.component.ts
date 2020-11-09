@@ -13,6 +13,7 @@ export class TarjetaTrabajosActivosComponent implements OnInit, OnChanges {
   @Input() trabajoActivo: Trabajo;
   @Input() indice: number;
   @Output() numeroIndiceEmisor: EventEmitter<number> = new EventEmitter<number>();
+  @Output() indiceBajarActivo: EventEmitter<number> = new EventEmitter<number>();
   aviso$: Observable<AvisoTrabajo>;
   constructor(private avisoSvc: AvisosTrabajosService) { }
 
@@ -27,6 +28,12 @@ export class TarjetaTrabajosActivosComponent implements OnInit, OnChanges {
   emitirIndiceActivo(){
     console.log('Emitir este indice tarjeta = ', this.indice);
     this.numeroIndiceEmisor.emit(this.indice);
+  }
+
+  // tslint:disable-next-line: typedef
+  emitirIndiceFinalizar(){
+    console.log('Finalizar este trabajo = ', this.indice);
+    this.indiceBajarActivo.emit(this.indice);
   }
 
 }

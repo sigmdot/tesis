@@ -12,10 +12,11 @@ import { Observable } from 'rxjs';
 export class ListaTrabajosActivosComponent implements OnInit, OnChanges {
   @Input() listaTrabajoActivo: Trabajo[];
   avisoTrabajoSeleccionadito$: Observable<AvisoTrabajo>;
+  idTrabajo: string;
   constructor(private avisoSvc: AvisosTrabajosService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ((this.listaTrabajoActivo !== null)&&(this.listaTrabajoActivo !== undefined)){
+    if ((this.listaTrabajoActivo !== null) && (this.listaTrabajoActivo !== undefined)){
       this.listaTrabajoActivo = this.listaTrabajoActivo.filter(aviso => aviso.estado === 'activo');
     }
   }
@@ -25,5 +26,11 @@ export class ListaTrabajosActivosComponent implements OnInit, OnChanges {
   capturarIndiceTrabajoActivo(indice: number){
     console.log(indice, this.listaTrabajoActivo[indice]);
     this.avisoTrabajoSeleccionadito$ = this.avisoSvc.getAviso(this.listaTrabajoActivo[indice].idAvisoAsociado);
+  }
+
+  // tslint:disable-next-line: typedef
+  capturarAvisoAfinalizar(indice: number){
+    this.idTrabajo = this.listaTrabajoActivo[indice].id;
+    console.log('LARARARA = ', this.idTrabajo);
   }
 }

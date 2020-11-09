@@ -16,8 +16,8 @@ export class DetalleTrabajoActivoComponent implements OnInit, OnChanges, AfterVi
   @ViewChild(MapaDetalleTrabajosActivoComponent) map: MapaDetalleTrabajosActivoComponent;
   constructor(private usuarioSvc: CollecionUsuariosService) { }
   ngAfterViewChecked(): void {
-    if(this.map !== undefined){
-      if(this.map.mapaDetalleAvisoTrabajoActivo !== null){
+    if (this.map !== undefined){
+      if (this.map.mapaDetalleAvisoTrabajoActivo !== null){
         this.map.mapaDetalleAvisoTrabajoActivo.resize();
       }
     }

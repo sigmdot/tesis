@@ -27,4 +27,14 @@ export class TrabajosCollecionService {
   public getTrabajosEmpleador(id: string){
     return this.firestoreSvc.snapshotCollection<any>('trabajos', ref => ref.where('idUsuarioEmpleador', '==', id));
   }
+
+  // tslint:disable-next-line: typedef
+  public actualizarEstadoTrabajo(id: string, data: string){
+    return this.firestoreSvc.updateDocument(`trabajos/${id}`, {estado: data});
+  }
+
+  // tslint:disable-next-line: typedef
+  public finalizarFecha(id: string, data: Date){
+    return this.firestoreSvc.updateDocument(`trabajos/${id}`, {fechaTermino: data});
+  }
 }

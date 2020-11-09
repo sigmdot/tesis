@@ -20,6 +20,7 @@ export class DarDeBajaActivoComponent implements OnInit {
     console.log(this.confirmar);
   }
 
+  // tslint:disable-next-line: typedef
   borrarAviso() {
     this.avisosTrabajosSvc.setEstado(this.idAviso, 'Finalizado').then(e => {
       $('#modalDarDeBaja').modal('hide');

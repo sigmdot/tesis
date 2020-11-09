@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { Trabajo } from '@core/model/trabajo.model';
 import { Usuario } from '@core/model/usuario.model';
@@ -14,14 +15,18 @@ export class TarjetaTrabajosActivosConcretadosComponent implements OnInit, OnCha
   @Input() trabajoActivo: Trabajo;
   aviso$: Observable<AvisoTrabajo>;
   trabajadoAsociado$: Observable<Usuario>;
-  constructor(private avisoSvc: AvisosTrabajosService) { }
+  constructor(private avisoSvc: AvisosTrabajosService, private router: Router) { }
   ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.trabajoActivo.idAvisoAsociado, 'Acá la id del aviso');
     this.aviso$ = this.avisoSvc.getAviso(this.trabajoActivo.idAvisoAsociado);
-    this.aviso$.subscribe(e=>{console.log(e);
-    });
+  }
+  // tslint:disable-next-line: typedef
+  navegarATrabajador(){
+    this.router.navigate(['desktop','trabajador',this.trabajoActivo.idUsuarioTrabajador]);
   }
 
   ngOnInit(): void {
   }
+
 
 }

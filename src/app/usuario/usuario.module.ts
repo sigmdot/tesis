@@ -69,6 +69,7 @@ import { DetalleAvisosPostuladoPorUsuarioComponent } from './components/componen
 import { DetalleTrabajoActivoComponent } from './components/components-historial/detalle-trabajo-activo/detalle-trabajo-activo.component';
 import { MapaDetalleTrabajosActivoComponent } from './components/components-historial/mapa-detalle-trabajos-activo/mapa-detalle-trabajos-activo.component';
 import { ConfirmacionTerminarTrabajoActivoComponent } from './components/components-historial/confirmacion-terminar-trabajo-activo/confirmacion-terminar-trabajo-activo.component';
+import { PerfilTrabajadorComponent } from './views/perfil-trabajador/perfil-trabajador.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { ConfirmacionTerminarTrabajoActivoComponent } from './components/compone
     DetalleAvisosPostuladoPorUsuarioComponent,
     DetalleTrabajoActivoComponent,
     MapaDetalleTrabajosActivoComponent,
-    ConfirmacionTerminarTrabajoActivoComponent
+    ConfirmacionTerminarTrabajoActivoComponent,
+    PerfilTrabajadorComponent
   ],
   imports: [
     CommonModule,

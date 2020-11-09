@@ -3,6 +3,6 @@
         <h5> {{(aviso$|async)?.nombreAviso}} </h5>
     </div>
     <div class="col-6 d-flex justify-content-center align-items-center">
-        <button class="btn btn-warning w-100">Ver trabajador a cargo</button>
+        <a class="btn btn-warning w-100" (click)="navegarATrabajador()">Ver trabajador a cargo</a>
     </div>
 </div>

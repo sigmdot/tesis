@@ -65,6 +65,7 @@ import { TarjetaTrabajosActivosComponent } from './components/components-histori
 import { DetalleTrabajoConcretadoComponent } from './components/components-historial/detalle-trabajo-concretado/detalle-trabajo-concretado.component';
 import { MapaDetalleTrabajoConcretadoComponent } from './components/components-historial/mapa-detalle-trabajo-concretado/mapa-detalle-trabajo-concretado.component';
 import { DarDeBajaActivoComponent } from './components/components-historial/dar-de-baja-activo/dar-de-baja-activo.component';
+import { DetalleAvisosPostuladoPorUsuarioComponent } from './components/components-historial/detalle-avisos-postulado-por-usuario/detalle-avisos-postulado-por-usuario.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { DarDeBajaActivoComponent } from './components/components-historial/dar-
     TarjetaTrabajosActivosComponent,
     DetalleTrabajoConcretadoComponent,
     MapaDetalleTrabajoConcretadoComponent,
-    DarDeBajaActivoComponent
+    DarDeBajaActivoComponent,
+    DetalleAvisosPostuladoPorUsuarioComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,7 @@ declare var $: any;
   styleUrls: ['./dar-de-baja-activo.component.css']
 })
 export class DarDeBajaActivoComponent implements OnInit {
-  confirmar: boolean = false;
+  confirmar = false;
   @Input() idAviso: string;
   constructor(private avisosTrabajosSvc: AvisosTrabajosService, private toastr: ToastrService) { }
 
@@ -23,7 +23,7 @@ export class DarDeBajaActivoComponent implements OnInit {
   borrarAviso() {
     this.avisosTrabajosSvc.setEstado(this.idAviso, 'Finalizado').then(e => {
       $('#modalDarDeBaja').modal('hide');
-      $('#modalDarDeBaja').on('hidden.bs.modal', (e) => {
+      $('#modalDarDeBaja').on('hidden.bs.modal', () => {
         $('#modalDarDeBaja').modal('dispose');
       });
       this.toastr.success('Fue dado de baja tú aviso con exito');

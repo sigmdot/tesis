@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Trabajo } from '@core/model/trabajo.model';
 import { FirestoreService } from '@core/services/firestore/firestore.service';
 
 @Injectable({
@@ -36,5 +37,10 @@ export class TrabajosCollecionService {
   // tslint:disable-next-line: typedef
   public finalizarFecha(id: string, data: Date){
     return this.firestoreSvc.updateDocument(`trabajos/${id}`, {fechaTermino: data});
+  }
+
+  public crearTrabajo(trabajo:Trabajo){
+    trabajo.id = this.firestoreSvc.creatId();
+    return this.firestoreSvc.addDocument('trabajos',trabajo.id,trabajo);
   }
 }

@@ -4,39 +4,38 @@
         <div class="modal-body">
           <div class="row m-0 rounded">
             <div class="col-12 text-center">
-              <h4> {{nombre}} </h4>
+              <h4> {{(avisoAsociado$|async)?.nombreAviso}} </h4>
             </div>
             <div class="col-12 p-0 mb-2">
-              <div class="rounded w-100 border row m-0 p-0" style="height:20vh;">
+              <div class="rounded w-100 row m-0 p-0" style="height:20vh;">
                 <div class="col-4 p-0 h-100">
-                  <img class="w-100 h-100" [src]="foto">
+                  <img class="w-100 h-100" [src]="(usuarioEmpleador$|async)?.foto">
                 </div>
                 <div class="col h-100" style="overflow-y: scroll;">
                   <span>
-                    {{desc}}
+                    {{(avisoAsociado$|async)?.descAviso}}
                   </span>
                 </div>
               </div>
             </div>
             <!-- mapa -->
             <div class="col-12 p-0" style="height: 50vh;">
-              <app-mapa-detalle-historial-realizados-trabajos [mapaCenter]="ubicacion"></app-mapa-detalle-historial-realizados-trabajos>
+              <app-mapa-detalle-historial-realizados-trabajos [mapaCenter]="(avisoAsociado$|async)?.ubicacion"></app-mapa-detalle-historial-realizados-trabajos>
             </div>
             <div class="col-12 p-0 mt-2" style="height: 8vh;">
               <div class="alert alert-primary w-100 h-100">
-                Este trabajo inicio el
+                Este trabajo inicio el {{ trabajoDetalle?.fechaInicio?.toDate() | date:'dd LLLL yyyy' }}
               </div>
             </div>
             <div class="col-12 p-0 mt-2" style="height: 7vh;">
               <div class="alert alert-warning w-100 h-100">
-                Este trabajo termino el
+                Este trabajo termino el {{ trabajoDetalle?.fechaTermino?.toDate() | date:'dd LLLL yyyy'  }}
               </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+        <div class="modal-footer w-100">
+          <button type="button" class="btn btn-secondary w-100" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>

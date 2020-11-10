@@ -48,12 +48,28 @@ import { MapaDetalleHistorialRealizadosTrabajosComponent } from './components/co
 import { MapaDetalleHistorialPostuladosComponent } from './components/components-historial/mapa-detalle-historial-postulados/mapa-detalle-historial-postulados.component';
 import { DetallesHistorialPostuladosComponent } from './components/components-historial/detalles-historial-postulados/detalles-historial-postulados.component';
 import { TarjetaHistorialPostuladosComponent } from './components/components-historial/tarjeta-historial-postulados/tarjeta-historial-postulados.component';
-import { ListaTrabajosPostuladosComponent } from './components/components-historial/lista-trabajos-postulados/lista-trabajos-postulados.component';
 import { CrearAvisoComponent } from './components/components-general/crear-aviso/crear-aviso.component';
 import { MapaCrearAvisoComponent } from './components/components-general/mapa-crear-aviso/mapa-crear-aviso.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DetalleAvisoComponent } from './components/components-home/detalle-aviso/detalle-aviso.component';
 import { MapaDetalleAvisoLaboralComponent } from './components/components-home/mapa-detalle-aviso-laboral/mapa-detalle-aviso-laboral.component';
+import { ListaAvisosActivosComponent } from './components/components-historial/lista-avisos-activos/lista-avisos-activos.component';
+import { TarjetaAvisosActivosComponent } from './components/components-historial/tarjeta-avisos-activos/tarjeta-avisos-activos.component';
+import { ListaTrabajosConcretadosComponent } from './components/components-historial/lista-trabajos-concretados/lista-trabajos-concretados.component';
+import { ListaTrabajosActivosEmpleadorComponent } from './components/components-historial/lista-trabajos-activos-empleador/lista-trabajos-activos-empleador.component';
+import { TarjetaTrabajosConcretadoComponent } from './components/components-historial/tarjeta-trabajos-concretado/tarjeta-trabajos-concretado.component';
+import { TarjetaTrabajosActivosConcretadosComponent } from './components/components-historial/tarjeta-trabajos-activos-concretados/tarjeta-trabajos-activos-concretados.component';
+import { ListaAvisosPostuladosPorUsuarioComponent } from './components/components-historial/lista-avisos-postulados-por-usuario/lista-avisos-postulados-por-usuario.component';
+import { ListaTrabajosActivosComponent } from './components/components-historial/lista-trabajos-activos/lista-trabajos-activos.component';
+import { TarjetaTrabajosActivosComponent } from './components/components-historial/tarjeta-trabajos-activos/tarjeta-trabajos-activos.component';
+import { DetalleTrabajoConcretadoComponent } from './components/components-historial/detalle-trabajo-concretado/detalle-trabajo-concretado.component';
+import { MapaDetalleTrabajoConcretadoComponent } from './components/components-historial/mapa-detalle-trabajo-concretado/mapa-detalle-trabajo-concretado.component';
+import { DarDeBajaActivoComponent } from './components/components-historial/dar-de-baja-activo/dar-de-baja-activo.component';
+import { DetalleAvisosPostuladoPorUsuarioComponent } from './components/components-historial/detalle-avisos-postulado-por-usuario/detalle-avisos-postulado-por-usuario.component';
+import { DetalleTrabajoActivoComponent } from './components/components-historial/detalle-trabajo-activo/detalle-trabajo-activo.component';
+import { MapaDetalleTrabajosActivoComponent } from './components/components-historial/mapa-detalle-trabajos-activo/mapa-detalle-trabajos-activo.component';
+import { ConfirmacionTerminarTrabajoActivoComponent } from './components/components-historial/confirmacion-terminar-trabajo-activo/confirmacion-terminar-trabajo-activo.component';
+import { PerfilTrabajadorComponent } from './views/perfil-trabajador/perfil-trabajador.component';
 
 @NgModule({
   declarations: [
@@ -86,11 +102,27 @@ import { MapaDetalleAvisoLaboralComponent } from './components/components-home/m
     MapaDetalleHistorialPostuladosComponent,
     DetallesHistorialPostuladosComponent,
     TarjetaHistorialPostuladosComponent,
-    ListaTrabajosPostuladosComponent,
     CrearAvisoComponent,
     MapaCrearAvisoComponent,
     DetalleAvisoComponent,
-    MapaDetalleAvisoLaboralComponent
+    MapaDetalleAvisoLaboralComponent,
+    ListaAvisosActivosComponent,
+    TarjetaAvisosActivosComponent,
+    ListaTrabajosConcretadosComponent,
+    ListaTrabajosActivosEmpleadorComponent,
+    TarjetaTrabajosConcretadoComponent,
+    TarjetaTrabajosActivosConcretadosComponent,
+    ListaAvisosPostuladosPorUsuarioComponent,
+    ListaTrabajosActivosComponent,
+    TarjetaTrabajosActivosComponent,
+    DetalleTrabajoConcretadoComponent,
+    MapaDetalleTrabajoConcretadoComponent,
+    DarDeBajaActivoComponent,
+    DetalleAvisosPostuladoPorUsuarioComponent,
+    DetalleTrabajoActivoComponent,
+    MapaDetalleTrabajosActivoComponent,
+    ConfirmacionTerminarTrabajoActivoComponent,
+    PerfilTrabajadorComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,4 @@
+<div id="listaAvisosPostulados">
+    <app-tarjeta-historial-postulados *ngFor="let aviso of listaAvisosPostulados; let i = index" [postulacion]="aviso" [indice]="i" (emisorIndicePostulados)="capturarIndicePostulado($event)"></app-tarjeta-historial-postulados>
+    <app-detalle-avisos-postulado-por-usuario [idAviso]="(idSeleccionada|async)"></app-detalle-avisos-postulado-por-usuario>
+</div>

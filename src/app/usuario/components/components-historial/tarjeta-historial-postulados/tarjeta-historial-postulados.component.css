@@ -1,4 +1,10 @@
 #tarjetaHistorial{
     height: 12vh;
-    background-color: #F0F4F8;
+    background-color: #f8f0f1;
+}
+.bordeInactivo{
+    border-left: 12px solid red;
+}
+.bordeActivo{
+    border-left: 12px solid blue;
 }

@@ -1,0 +1,13 @@
+<div id="tarjetaTrabajoActivo" class="mb-2 rounded row m-0">
+    <div class="col-5 d-flex justify-content-center align-items-center">
+        <h4> {{(aviso$|async)?.nombreAviso}} </h4>
+    </div>
+    <div class="col-7 pt-2">
+        <div class="col-12 w-100 mb-2">
+            <button class="btn btn-secondary w-100" data-toggle="modal" data-target="#modalTrabajoActivoDetalleAviso" (click)="emitirIndiceActivo()">Ver aviso</button>
+        </div>
+        <div class="col-12 w-100">
+            <button class="btn btn-danger w-100" data-toggle="modal" data-target="#modalTerminarTrabajo" (click)="emitirIndiceFinalizar()">Terminar trabajo</button>
+        </div>
+    </div>
+</div>

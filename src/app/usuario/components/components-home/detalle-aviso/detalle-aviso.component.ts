@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
+import { Postulacion} from '@core/model/postulacion.model'
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import {PostulacionesCollecionService} from '@core/service-providers/postulaciones-collecion/postulaciones-collecion.service'
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -19,6 +21,7 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     private userColle: CollecionUsuariosService,
     private avisoTrabajoSvc: AvisosTrabajosService,
     private authSvc: FireauthService,
+    private postulacionSvc: PostulacionesCollecionService,
     private toastr: ToastrService
     ) {
     this.getUserFnc().then(e => {
@@ -34,13 +37,19 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   // tslint:disable-next-line: typedef
   postularse(){
-    this.avisoTrabajoSvc.actualizarPostulados(this.seleccionado.id, this.usuarioid).then(e => {
-      this.toastr.success('Postulado con éxito');
-    });
+    console.log('Postulado Intento');
+    const postulacion: Postulacion = {
+      idAviso: this.seleccionado.id,
+      idUsuarioPostulado: this.usuarioid,
+      estado: 'activo'
+    }
+    this.postulacionSvc.createPostulacion(postulacion).then(e=>
+      this.toastr.success("Creada su postulación con exito!")
+    );
   }
 
   // tslint:disable-next-line: typedef

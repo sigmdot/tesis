@@ -5,6 +5,8 @@ import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/a
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { ToastrService } from 'ngx-toastr';
 import { MapaCrearAvisoComponent } from '../mapa-crear-aviso/mapa-crear-aviso.component';
+declare var $: any;
+
 @Component({
   selector: 'app-crear-aviso',
   templateUrl: './crear-aviso.component.html',
@@ -70,6 +72,7 @@ export class CrearAvisoComponent implements OnInit {
       avisoTrabajo.idUsuarioPosteador = this.usuario;
       avisoTrabajo.ubicacion = [this.mapa.obtenerLatLngMark().lng, this.mapa.obtenerLatLngMark().lat];
       this.avisoSvc.createAviso(avisoTrabajo);
+      $('#modalCrearAviso').modal('toggle');
     }
   }
 

@@ -4,7 +4,7 @@
     </div>
     <div class="col-6 p-0 px-2">
         <div class="col-12 p-0 w-100">
-            <span>Nombre</span>
+            <span> {{(usuario$|async)?.nombres}} </span>
         </div>
         <div class="col-12 p-0 w-100">
             <span>Hora 12:00:00</span>
@@ -15,9 +15,8 @@
         </div>
     </div>
     <div class="col-4 p-0 row m-0">
-        <button type="button" class="btn btn-secondary w-100 mb-1">Ver perfil <fa-icon [icon]="faIdBadge"></fa-icon> </button>
-        <button type="button" class="btn btn-success mr-1" style="width: 49%;"><fa-icon [icon]="faCheck"></fa-icon></button>
-        <button type="button" class="btn btn-danger" style="width: 48%;"><fa-icon [icon]="faTimes"></fa-icon></button>
-
+        <button type="button" (click)="navegarATrabajador()" class="btn btn-secondary w-100 mb-1" >Ver perfil <fa-icon [icon]="faIdBadge"></fa-icon> </button>
+        <button type="button" class="btn btn-success mr-1" style="width: 49%;" (click)="crearTrabajoEstable()"><fa-icon [icon]="faCheck"></fa-icon></button>
+        <button type="button" class="btn btn-danger" style="width: 48%;" (click)="emitirIndice()"><fa-icon [icon]="faTimes"></fa-icon></button>
     </div>
 </div>

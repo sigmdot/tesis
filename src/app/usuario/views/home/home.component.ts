@@ -5,17 +5,19 @@ import { map } from 'rxjs/operators';
 import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { MapaHomeComponent } from '@usuario/components/components-home/mapa-home/mapa-home.component';
-
+import {regiones} from '@core/variables/regiones';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  opcionesRegion = regiones;
   trabajos$: Observable<AvisoTrabajo[]> = null;
-  centroMapa: number[] = [-70.689409, -33.518071];
+  centroMapa: number[] = this.opcionesRegion[12].coords;
   kilometros = 0;
   usuarioPropio: string;
+  regionSeleccionada: any = this.opcionesRegion[12].value;
   @ViewChild(MapaHomeComponent) mapaDelHome: MapaHomeComponent;
   // tslint:disable-next-line: typedef
   cambio(){
@@ -33,6 +35,7 @@ export class HomeComponent implements OnInit {
     this.getUserFnc().then(e => {
       this.usuarioPropio = e.uid;
     });
+    console.log(this.opcionesRegion[12]);
   }
 
   // tslint:disable-next-line: typedef
@@ -92,5 +95,9 @@ export class HomeComponent implements OnInit {
     const d = R * c;
     return d;
   }
+  // tslint:disable-next-line: typedef
+  cambiarcoords(){
+    console.log(this.regionSeleccionada);
 
+  }
 }

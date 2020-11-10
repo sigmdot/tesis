@@ -67,15 +67,16 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
       fechaInicio : new Date(),
       estado : 'activo'
     };
-    this.trabajoSvc.crearTrabajo(trabajAEnviar).then(()=>{
+    this.trabajoSvc.crearTrabajo(trabajAEnviar).then(() => {
       this.avisoSvc.setEstado(this.postuladoId.idAviso, 'Finalizado');
       this.toastr.success('El trabajador fue aceptado');
       $('#modalPostulados').modal('toggle');
     });
   }
 
+  // tslint:disable-next-line: typedef
   navegarATrabajador(){
-      this.router.navigate(['desktop','trabajador',this.postuladoId.idUsuarioPostulado]);
+      this.router.navigate(['desktop', 'trabajador', this.postuladoId.idUsuarioPostulado]);
   }
 
 }

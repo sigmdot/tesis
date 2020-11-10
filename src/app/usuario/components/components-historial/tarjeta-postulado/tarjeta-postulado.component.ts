@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Postulacion } from '@core/model/postulacion.model';
 import { Trabajo } from '@core/model/trabajo.model';
 import { Usuario } from '@core/model/usuario.model';
@@ -32,7 +33,9 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
     private userColleSvc: CollecionUsuariosService,
     private avisoSvc: AvisosTrabajosService,
     private trabajoSvc: TrabajosCollecionService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router
+    ) { }
   ngOnChanges(changes: SimpleChanges): void {
     this.usuario$ = this.userColleSvc.getUsuario(this.postuladoId.idUsuarioPostulado);
   }
@@ -69,6 +72,10 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
       this.toastr.success('El trabajador fue aceptado');
       $('#modalPostulados').modal('toggle');
     });
+  }
+
+  navegarATrabajador(){
+      this.router.navigate(['desktop','trabajador',this.postuladoId.idUsuarioPostulado]);
   }
 
 }

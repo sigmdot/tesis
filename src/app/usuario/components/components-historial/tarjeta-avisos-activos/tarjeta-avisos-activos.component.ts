@@ -28,7 +28,6 @@ export class TarjetaAvisosActivosComponent implements OnInit {
   emitirIndiceParaBorrar(){
     this.emisorIndiceParaBorrar.emit(this.indice);
     console.log('Borrar', this.indice);
-    
   }
 
 }

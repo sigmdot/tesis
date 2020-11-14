@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { NotiBasica } from '@core/model/notifi-basica';
+import { NotiBasica } from '@core/model/notifi-basica.model';
 import { Postulacion } from '@core/model/postulacion.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { NotificacionesBasicasService } from '@core/service-providers/notificaciones-basicas/notificaciones-basicas.service';

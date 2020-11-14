@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirestoreService } from '@core/services/firestore/firestore.service';
-import {NotiBasica} from '@core/model/notifi-basica'
+import {NotiBasica} from '@core/model/notifi-basica.model'
 @Injectable({
   providedIn: 'root'
 })

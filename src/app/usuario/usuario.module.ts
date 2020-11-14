@@ -73,6 +73,7 @@ import { PerfilTrabajadorComponent } from './views/perfil-trabajador/perfil-trab
 import { NotificacionesComponent } from './views/notificaciones/notificaciones.component';
 import { NotificacionesComentarioComponent } from './components/componentes-notificaciones/notificaciones-comentario/notificaciones-comentario.component';
 import { NotificacionesBasicasComponent } from './components/componentes-notificaciones/notificaciones-basicas/notificaciones-basicas.component';
+import { ModalEvaluacionComponent } from './components/componentes-notificaciones/modal-evaluacion/modal-evaluacion.component';
 
 @NgModule({
   declarations: [
@@ -128,7 +129,8 @@ import { NotificacionesBasicasComponent } from './components/componentes-notific
     PerfilTrabajadorComponent,
     NotificacionesComponent,
     NotificacionesComentarioComponent,
-    NotificacionesBasicasComponent
+    NotificacionesBasicasComponent,
+    ModalEvaluacionComponent
   ],
   imports: [
     CommonModule,

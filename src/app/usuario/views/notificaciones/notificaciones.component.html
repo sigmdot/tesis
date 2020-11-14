@@ -1,0 +1,5 @@
+<div class="container-fluid" style="padding-top: 50px !important; height: 100vh;">
+    <app-notificaciones-basicas *ngFor="let notiBasica of (notisBasica$|async)" [notiBasica]="notiBasica"></app-notificaciones-basicas>
+    <app-notificaciones-comentario></app-notificaciones-comentario>
+    {{(notisBasica$|async)|json }}
+</div>

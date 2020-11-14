@@ -30,4 +30,6 @@ export class PostulacionesCollecionService {
   public getPostulacionesPorUsuarioPostulado(idUsuario: string){
     return this.firestoreSvc.snapshotCollection<any>('postulaciones', ref => ref.where('idUsuarioPostulado' , '==', idUsuario));
   }
+
+  
 }

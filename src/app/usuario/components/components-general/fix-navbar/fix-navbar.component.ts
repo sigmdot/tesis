@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
-import { faHome, faClock, faPlus, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faClock, faPlus, faUser, faSignOutAlt, faBell } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-fix-navbar',
   templateUrl: './fix-navbar.component.html',
@@ -12,6 +12,7 @@ export class FixNavbarComponent implements OnInit {
   faClock = faClock;
   faPlus = faPlus;
   faUser = faUser;
+  faBell = faBell;
   faSignOutAlt = faSignOutAlt;
 
   constructor(private authSvc: FireauthService, private router:Router) { }

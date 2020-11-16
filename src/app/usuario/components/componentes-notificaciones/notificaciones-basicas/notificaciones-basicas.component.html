@@ -1,0 +1,13 @@
+<div class="w-100 border bg-warning row m-0 rounded" style="height: 10vh;">
+    <div class="col-3 h-100 d-flex justify-content-center align-items-center">
+        <fa-icon [icon]="faLightbulb" size="3x" class="text-white"></fa-icon>
+    </div>
+    <div class="col-7 d-flex justify-content-center align-items-center">
+        <span>{{notiBasica.mensaje}}</span>
+    </div>
+    <div class="col-2 h-100 d-flex justify-content-center align-items-center">
+        <button class="btn btn-success border" (click)="checkeado()">
+            <fa-icon [icon]="faCheck"></fa-icon>
+        </button>
+    </div>
+</div>

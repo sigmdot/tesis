@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class ListaTrabajosActivosComponent implements OnInit, OnChanges {
   @Input() listaTrabajoActivo: Trabajo[];
   avisoTrabajoSeleccionadito$: Observable<AvisoTrabajo>;
-  idTrabajo: string;
+  trabajo: Trabajo;
   constructor(private avisoSvc: AvisosTrabajosService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -30,7 +30,7 @@ export class ListaTrabajosActivosComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   capturarAvisoAfinalizar(indice: number){
-    this.idTrabajo = this.listaTrabajoActivo[indice].id;
-    console.log('LARARARA = ', this.idTrabajo);
+    this.trabajo = this.listaTrabajoActivo[indice];
+    console.log('LARARARA = ', this.trabajo);
   }
 }

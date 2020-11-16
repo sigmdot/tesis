@@ -1,1 +1,41 @@
-<p>modal-evaluacion works!</p>
+<div class="modal fade" id="evaluacionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Evaluacion usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="alert alert-secondary" role="alert">
+                Evaluando al usuario {{(usuario$|async)?.nombres + ' ' + (usuario$|async)?.apellidos}}
+              </div>
+            <form [formGroup]="formularioEvaluacionUsuario">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">
+                        Califique al usuario (siendo 1 lo más bajo y 7 lo más alto)
+                    </label>
+                    <select class="form-control" id="controlNota" formControlName="nota">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Comente como fue su experiencia con el usuario (20 caract. minimo):</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" style="resize: none;" formControlName="comentario"></textarea>
+                  </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" [disabled]="formularioEvaluacionUsuario.invalid" (click)="crearComentario()">Dejar comentario</button>
+        </div>
+      </div>
+    </div>
+</div>

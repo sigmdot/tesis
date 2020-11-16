@@ -4,5 +4,4 @@ export interface Comentario{
     idUsuarioEvaluado: string;
     nota: number;
     comentarioEmpleador: string;
-    rol: string;
 }

@@ -1,5 +1,5 @@
 <div id="listaTrabajoActivo">
     <app-tarjeta-trabajos-activos *ngFor="let trabajoActivo of listaTrabajoActivo; let i = index" [trabajoActivo]="trabajoActivo" [indice]="i" (numeroIndiceEmisor)="capturarIndiceTrabajoActivo($event)" (indiceBajarActivo)="capturarAvisoAfinalizar($event)"></app-tarjeta-trabajos-activos>
     <app-detalle-trabajo-activo [avisoAMostrar]="(avisoTrabajoSeleccionadito$|async)"></app-detalle-trabajo-activo>
-    <app-confirmacion-terminar-trabajo-activo [idTrabajo]="idTrabajo"></app-confirmacion-terminar-trabajo-activo>
+    <app-confirmacion-terminar-trabajo-activo [trabajo]="trabajo"></app-confirmacion-terminar-trabajo-activo>
 </div>

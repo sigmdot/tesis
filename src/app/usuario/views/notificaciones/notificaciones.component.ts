@@ -11,12 +11,16 @@ import { Observable } from 'rxjs';
 export class NotificacionesComponent implements OnInit {
   notisBasica$: Observable<any>;
   notiComentario$: Observable<any>;
-  constructor(private notiSvc: NotificacionesBasicasService, private notiComenSvc: NotificacionesComentariosService, private authSvc: FireauthService) { 
+  constructor(
+    private notiSvc: NotificacionesBasicasService,
+    private notiComenSvc: NotificacionesComentariosService,
+    private authSvc: FireauthService
+    ) {
     const user = this.getUserFnc();
     user.then(e=>{
       this.notisBasica$ = this.notiSvc.getNotificacionesUsuario(e.uid);
       this.notiComentario$ = this.notiComenSvc.getNotificacionesUsuario(e.uid);
-    })
+    });
   }
 
   ngOnInit(): void {

@@ -1,10 +1,9 @@
 <div class="col-12 h-100 p-0 w-100">
-    <div class="col-12 p-0 border text-center rounded-top w-100" style="height: 5%;">
+    <div class="col-12 p-0 text-center rounded-top w-100 border" style="height: 5%;">
         <h4>Lista aviso</h4>
     </div>
     <div class="col-12 p-0" id="lista" style="height: 90%; overflow-y: scroll;">
-        <app-tarjeta-aviso *ngFor="let aviso of lista" [aviso]="aviso"></app-tarjeta-aviso>
-        
-
+        <app-tarjeta-aviso *ngFor="let aviso of lista;let i = index" [aviso]="aviso" [index]="i" (emisorIndex)="capturarIndice($event)"></app-tarjeta-aviso>
+        <app-detalle-aviso [seleccionado]="seleccionado"></app-detalle-aviso>
     </div>
 </div>

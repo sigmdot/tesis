@@ -23,4 +23,10 @@ export class ComentarioCollecionService {
   public getComentariosUsuario(idUsuario: string){
     return this.firestoreSvc.snapshotCollection<Comentario>('comentarios', ref => ref.where('idUsuarioEvaluado', '==', idUsuario));
   }
+
+  // tslint:disable-next-line: typedef
+  public crearComentario(comentario: Comentario){
+    comentario.id = this.firestoreSvc.creatId();
+    return this.firestoreSvc.addDocument('comentarios', comentario.id, comentario);
+  }
 }

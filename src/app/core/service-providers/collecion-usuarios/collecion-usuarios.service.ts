@@ -17,7 +17,7 @@ export class CollecionUsuariosService {
 
   // tslint:disable-next-line: typedef
   public getUsuario(id: string){
-    return this.firestoreSvc.snapshotDocument<any>(`usuarios/${id}`);
+    return this.firestoreSvc.snapshotDocument<Usuario>(`usuarios/${id}`);
   }
 
   // tslint:disable-next-line: typedef
@@ -31,12 +31,14 @@ export class CollecionUsuariosService {
     return this.firestoreSvc.updateDocument(`usuarios/${id}`, {foto: data});
   }
 
+  // tslint:disable-next-line: typedef
   public setRut(id: string, data: string){
-    return this.firestoreSvc.updateDocument(`usuarios/${id}`,{rut: data});
+    return this.firestoreSvc.updateDocument(`usuarios/${id}`, {rut: data});
   }
 
+  // tslint:disable-next-line: typedef
   public setEmail(id: string, data: string){
-    return this.firestoreSvc.updateDocument(`usuarios/${id}`,{correo: data});
+    return this.firestoreSvc.updateDocument(`usuarios/${id}`, {correo: data});
   }
 
 }

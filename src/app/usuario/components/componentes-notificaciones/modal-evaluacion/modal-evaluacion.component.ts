@@ -5,7 +5,10 @@ import { NotiComentario } from '@core/model/notifi-comentario.model';
 import { Usuario } from '@core/model/usuario.model';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
 import { ComentarioCollecionService } from '@core/service-providers/comentario-collecion/comentario-collecion.service';
+import { NotificacionesComentariosService } from '@core/service-providers/notificaciones-comentarios/notificaciones-comentarios.service';
 import { Observable } from 'rxjs';
+
+declare var $: any;
 
 @Component({
   selector: 'app-modal-evaluacion',
@@ -17,11 +20,12 @@ export class ModalEvaluacionComponent implements OnInit, OnChanges {
   usuario$: Observable<Usuario>;
   constructor(
     private usuarioSvc: CollecionUsuariosService,
-    private comentarioSvc: ComentarioCollecionService
-    ) { }
+    private comentarioSvc: ComentarioCollecionService,
+    private notiComentaSvc: NotificacionesComentariosService
+  ) { }
   formularioEvaluacionUsuario: FormGroup = new FormGroup({
     nota: new FormControl('', [Validators.required]),
-    comentario: new FormControl ('',[Validators.required, Validators.minLength(20)])
+    comentario: new FormControl('', [Validators.required, Validators.minLength(20)])
   }, {
     validators: [this.formValidator]
   });
@@ -40,7 +44,7 @@ export class ModalEvaluacionComponent implements OnInit, OnChanges {
     return { datosEnNulo: true };
   }
   // tslint:disable-next-line: typedef
-  crearComentario(){
+  crearComentario() {
     console.log(this.formularioEvaluacionUsuario.value.nota);
     console.log(this.formularioEvaluacionUsuario.value.comentario);
     const comentario: Comentario = {
@@ -49,6 +53,10 @@ export class ModalEvaluacionComponent implements OnInit, OnChanges {
       nota: this.formularioEvaluacionUsuario.value.nota,
       comentarioEmpleador: this.formularioEvaluacionUsuario.value.comentario
     };
-    this.comentarioSvc.crearComentario(comentario);
+    this.comentarioSvc.crearComentario(comentario).then(() => {
+      $('#evaluacionModal').modal('toggle');
+      this.notiComentaSvc.eliminarNotificacion(this.notificacionDatos.id);
+    }
+    );
   }
 }

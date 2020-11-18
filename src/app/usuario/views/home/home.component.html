@@ -1,9 +1,9 @@
 <div class="container-fluid row m-0 p-0 w-100" style="height:100vh; padding-top: 50px !important;">
     <div class="col-9 h-100 pt-2 pb-2 rounded">
-        <div class="col-12 bg-verdeclaro pt-2" style="height: 70%;">
+        <div class="col-12 bg-verdeclaro pt-2" style="height: 60%;">
             <app-mapa-home [centroMapa]="centroMapa" [avisosLista]="(trabajos$ | async)"></app-mapa-home>
         </div>
-        <div class="col-12 pt-2 bg-verdeclaro" style="height: 30%;">
+        <div class="col-12 pt-2 bg-verdeclaro" style="height: 40%;">
             <button class="btn btn-dark w-100" (click)="obtenerMiUbicacion()"> <strong>Obtener mi ubicación</strong> </button>
             <div class="input-group mb-3 mt-2">
                 <div class="input-group-prepend">
@@ -13,6 +13,9 @@
                   <option *ngFor="let region of opcionesRegion" [value]="region.coords"> {{region.name}} </option>
                 </select>
             </div>
+            <button class="btn btn-warning w-100 text-white" data-toggle="modal" data-target="#modalCrearAviso">
+                <fa-icon [icon]="faPlus"></fa-icon> Agregar aviso
+            </button>
             <div class="form-group mt-2 w-100">
                 <label for="kmInputs"> <h5>Kilometros que quieres abarcar:</h5> </label>
                 <input type="number" class="form-control w-100" id="kmInputs" min="0" max="10" [(ngModel)]="kilometros" (change)="cambio()">
@@ -22,4 +25,6 @@
     <div class="col-3 pt-2 pb-2 h-100">
         <app-lista-avisos [lista]="(trabajos$ | async)"></app-lista-avisos>
     </div>
+    
 </div>
+<app-crear-aviso></app-crear-aviso>

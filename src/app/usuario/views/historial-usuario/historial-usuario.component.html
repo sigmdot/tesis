@@ -1,7 +1,5 @@
-<div class="container-fluid p-0" style="height: 100vh; padding-top: 50px !important;">
-    <button style="height: 7%;" class="btn btn-primary w-100 mt-2 mb-2" (click)="cambiarPerfil()">Usted ve esto como: {{vista}} </button>
-    <ng-template [ngIf] = "vista=='empleador'">
-        <div class="row m-0" style="height: 90%;">
+<div class="container-fluid p-0" style="height: 100vh; padding-top: 60px !important;">
+        <div class="row m-0" style="height: 100%;">
             <div class="col-12 p-0 row m-0" style="height: 50%;">
                 <div class="col-6 h-100">
                     <div class="col-12 p-0 text-center border"><h5>Avisos Finalizados</h5></div>
@@ -23,25 +21,4 @@
                 </div>
             </div>
         </div>
-    </ng-template>
-    <ng-template [ngIf] = "vista=='trabajador'">
-        <div class="row m-0" style="height: 90%;">
-            <div class="col-12 p-0 row m-0" style="height: 50%;">
-                <div class="col-6 h-100">
-                    <div class="col-12 p-0 text-center border"><h5>Avisos Postulados</h5></div>
-                    <app-lista-avisos-postulados-por-usuario [listaAvisosPostulados]="(postuladosLista$|async)"></app-lista-avisos-postulados-por-usuario>
-                </div>
-                <div class="col-6 h-100">
-                    <div class="col-12 p-0 text-center border"><h5>Trabajos Realizados</h5></div>
-                    <app-lista-trabajos-realizados [listaTrabajoRealizados]="(trabajosRealizado$|async)"></app-lista-trabajos-realizados>
-                </div>
-            </div>
-            <div class="col-12 p-0 row m-0" style="height: 50%;">
-                <div class="col-12 h-100">
-                    <div class="col-12 p-0 text-center border"><h5>Trabajos concretados activos</h5></div>
-                    <app-lista-trabajos-activos [listaTrabajoActivo]="(trabajosRealizado$|async)"></app-lista-trabajos-activos>
-                </div>
-            </div>
-        </div>
-    </ng-template>
 </div>

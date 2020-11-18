@@ -23,11 +23,8 @@ export class HistorialUsuarioComponent implements OnInit {
               private postulacionesSvc: PostulacionesCollecionService,
               private authSvc: FireauthService) {
     this.authSvc.getCurrentUser().then(e => {
-      this.avisosPostulado$ = this.avisosSvc.getAvisosPostuladosPorUsuario(e.uid); // trabajador
       this.trabajosSolicitado$ = this.avisosSvc.getAvisosSolicitadosPorUsuario(e.uid); // empleador
-      this.trabajosRealizado$ = this.trabajosCollecionSvc.getTrabajosUsuariosTrabajador(e.uid); // trabajador
       this.trabajosConcretados$ = this.trabajosCollecionSvc.getTrabajosEmpleador(e.uid); // empleador
-      this.postuladosLista$ = this.postulacionesSvc.getPostulacionesPorUsuarioPostulado(e.uid);
     });
   }
 

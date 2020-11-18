@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UsuarioComponent } from './usuario.component';
+import { HistorialTrabajosRealizadosComponent } from './views/historial-trabajos-realizados/historial-trabajos-realizados.component';
 import { HistorialUsuarioComponent } from './views/historial-usuario/historial-usuario.component';
 import { HomeComponent } from './views/home/home.component';
 import { NotificacionesComponent } from './views/notificaciones/notificaciones.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'notificaciones',
         component: NotificacionesComponent
+      },
+      {
+        path: 'trabajosRealizados',
+        component: HistorialTrabajosRealizadosComponent
       }
     ]
   }

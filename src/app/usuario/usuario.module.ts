@@ -74,6 +74,7 @@ import { NotificacionesComponent } from './views/notificaciones/notificaciones.c
 import { NotificacionesComentarioComponent } from './components/componentes-notificaciones/notificaciones-comentario/notificaciones-comentario.component';
 import { NotificacionesBasicasComponent } from './components/componentes-notificaciones/notificaciones-basicas/notificaciones-basicas.component';
 import { ModalEvaluacionComponent } from './components/componentes-notificaciones/modal-evaluacion/modal-evaluacion.component';
+import { HistorialTrabajosRealizadosComponent } from './views/historial-trabajos-realizados/historial-trabajos-realizados.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +131,8 @@ import { ModalEvaluacionComponent } from './components/componentes-notificacione
     NotificacionesComponent,
     NotificacionesComentarioComponent,
     NotificacionesBasicasComponent,
-    ModalEvaluacionComponent
+    ModalEvaluacionComponent,
+    HistorialTrabajosRealizadosComponent
   ],
   imports: [
     CommonModule,

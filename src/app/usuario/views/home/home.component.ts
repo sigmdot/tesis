@@ -15,14 +15,15 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class HomeComponent implements OnInit {
   faPlus = faPlus;
   opcionesRegion = regiones;
+  regionSeleccionada: any = (this.opcionesRegion[12].value) - 1;
   trabajos$: Observable<AvisoTrabajo[]> = null;
-  centroMapa: number[] = this.opcionesRegion[12].coords;
+  centroMapa: number[] = this.opcionesRegion[this.regionSeleccionada].coords;
   kilometros = 0;
   usuarioPropio: string;
-  regionSeleccionada: any = this.opcionesRegion[12].value;
   @ViewChild(MapaHomeComponent) mapaDelHome: MapaHomeComponent;
   // tslint:disable-next-line: typedef
   cambio(){
+    console.log('hola');
     if ( (this.kilometros >= 11) || (this.kilometros < 0) ){
       this.kilometros = 0;
     }
@@ -99,7 +100,15 @@ export class HomeComponent implements OnInit {
   }
   // tslint:disable-next-line: typedef
   cambiarcoords(){
-    console.log(this.regionSeleccionada);
-
+    console.log(this.opcionesRegion[this.regionSeleccionada]);
+    this.centroMapa = this.opcionesRegion[this.regionSeleccionada].coords;
+    this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
+      // tslint:disable-next-line: prefer-for-of
+      for (let index = 0; index < avisosTrabajos.length; index++) {
+        avisosTrabajos[index].distancia = Math.round(this._calcularKm(avisosTrabajos[index].ubicacion));
+      }
+      return avisosTrabajos;
+    }) );
+    this.cambio();
   }
 }

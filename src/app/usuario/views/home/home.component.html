@@ -10,7 +10,7 @@
                   <label class="input-group-text" for="inputGroupSelect01">Región:</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="regionSeleccionada" (change)="cambiarcoords()">
-                  <option *ngFor="let region of opcionesRegion" [value]="region.coords"> {{region.name}} </option>
+                  <option *ngFor="let region of opcionesRegion; let i = index" [value]="i"> {{region.name}} </option>
                 </select>
             </div>
             <button class="btn btn-warning w-100 text-white" data-toggle="modal" data-target="#modalCrearAviso">

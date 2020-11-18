@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 import * as Mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,7 @@ export class MapaHomeComponent implements OnInit, OnChanges {
   map: Mapboxgl.Map = null; // Mapa, se inicializa en null para cuando reciba el elemento posición pueda inicializarse
   markerWorker: Mapboxgl.Marker = null; // Marcador del trabajador, este se inicializa en nulo igual por la misma razones del mapa
   Marcadores: any[] = []; // Marcadores de avisos, se inicializa en nulo
-
+  @Output() emisorMarkador: EventEmitter<number[]> = new EventEmitter<number[]>();
   @Input() centroMapa: number[]; // Input del centro para el mapa
   @Input() avisosLista: AvisoTrabajo[]; // Lista de trabajos
 
@@ -41,9 +41,14 @@ export class MapaHomeComponent implements OnInit, OnChanges {
             zoom: 12.6
           });
           this.markerWorker = new Mapboxgl.Marker({
-            draggable: false
+            draggable: true
           }).setLngLat(changes.centroMapa.currentValue)
             .addTo(this.map);
+
+          this.markerWorker.on('drag', () => {
+              console.log(this.markerWorker.getLngLat().lat);
+              this.emisorMarkador.emit([this.markerWorker.getLngLat().lng, this.markerWorker.getLngLat().lat] );
+            });
         }
         else {
           this.map.flyTo({

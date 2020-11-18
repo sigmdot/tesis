@@ -47,6 +47,25 @@ export class HomeComponent implements OnInit {
     return usuario;
   }
 
+  capturarMarkador(numeros:number[]){
+    console.log('aka',numeros);
+    this.centroMapa = numeros;
+    console.log(this.centroMapa);
+    this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
+      // tslint:disable-next-line: prefer-for-of
+      for (let index = 0; index < avisosTrabajos.length; index++) {
+        avisosTrabajos[index].distancia = Math.round(this._calcularKm(avisosTrabajos[index].ubicacion));
+      }
+      avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>
+        avisoTrabajo.distancia <= this.kilometros
+      );
+      avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>
+        avisoTrabajo.idUsuarioPosteador !== this.usuarioPropio
+      );
+      return avisosTrabajos;
+    }) );
+  }
+
   ngOnInit(): void {
     /* this.suscripcionTrabajos = this.trabajos$.subscribe(trabajos => this.avisosLista = trabajos); */
     /* console.log(this.avisosLista); */

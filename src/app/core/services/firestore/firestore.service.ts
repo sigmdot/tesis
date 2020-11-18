@@ -1,7 +1,15 @@
 import { Injectable, Type } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentChangeAction, DocumentSnapshot, QueryFn } from '@angular/fire/firestore';
+import {
+  Action,
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  DocumentChangeAction,
+  DocumentSnapshot,
+  QueryFn
+} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotiComentario } from '@core/model/notifi-comentario.model';
 import {NotificacionesBasicasService} from '@core/service-providers/notificaciones-basicas/notificaciones-basicas.service'
 import {NotificacionesComentariosService} from '@core/service-providers/notificaciones-comentarios/notificaciones-comentarios.service'
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class NotificacionesComponent implements OnInit {
   notisBasica$: Observable<any>;
   notiComentario$: Observable<any>;
+  notificacionCaptu: NotiComentario = null;
   constructor(
     private notiSvc: NotificacionesBasicasService,
     private notiComenSvc: NotificacionesComentariosService,
@@ -26,6 +28,13 @@ export class NotificacionesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
+  capturarIndice(notiComentario: NotiComentario){
+    console.log(notiComentario);
+    this.notificacionCaptu = notiComentario;
+  }
+
+  // tslint:disable-next-line: typedef
   async getUserFnc(){
     const usuario = await this.authSvc.getUserAuth();
     return usuario;

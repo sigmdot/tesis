@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AvisoTrabajo } from '@core/model/aviso-trabajo.model';
 import { Comentario } from '@core/model/comentario.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
@@ -14,10 +14,17 @@ export class TarjetaComentarioComponent implements OnInit, OnChanges {
   iconComentario;
   nombreTrabajo;
   aviso$: Observable<AvisoTrabajo>;
+  @Output() emisorIndice: EventEmitter<number> = new EventEmitter<number>();
   @Input() comentario: Comentario;
+  @Input() indice: number;
+
   constructor(private avisoTrabajoSvc: AvisosTrabajosService) { }
   ngOnChanges(changes: SimpleChanges): void {
     this.aviso$= this.avisoTrabajoSvc.getAviso(this.comentario.idTrabajo)
+  }
+  // tslint:disable-next-line: typedef
+  emitirIndice(){
+    this.emisorIndice.emit(this.indice);
   }
   ngOnInit(): void {
     if (this.comentario.nota > 3){

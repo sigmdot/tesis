@@ -6,9 +6,8 @@
         <span class="mr-1"> {{notiComentario.mensaje }} </span> {{' ' + (usuario$|async).nombres + ' ' + (usuario$|async).apellidos}}
     </div>
     <div class="col-2 h-100 d-flex justify-content-center align-items-center">
-        <button class="btn btn-success border" data-toggle="modal" data-target="#evaluacionModal">
+        <button class="btn btn-success border" data-toggle="modal" data-target="#evaluacionModal" (click)="emitirIndiceSeleccionado()">
             Evaluar <fa-icon [icon]="faPencilAlt" size="sm"></fa-icon>
         </button>
     </div>
 </div>
-<app-modal-evaluacion [notificacionDatos]="notiComentario"></app-modal-evaluacion>

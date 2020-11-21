@@ -1,5 +1,5 @@
 <div class="container-fluid row m-0 p-0 w-100" style="height:100vh; padding-top: 50px !important;">
-    <div class="col-9 h-100 pt-2 pb-2 rounded">
+    <div class="col-lg-9 col-md-12 h-100 pt-2 pb-2 rounded">
         <div class="col-12 bg-verdeclaro pt-2" style="height: 60%;">
             <app-mapa-home [centroMapa]="centroMapa" [avisosLista]="(trabajos$ | async)" (emisorMarkador)="capturarMarkador($event)"></app-mapa-home>
         </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="col-3 pt-2 pb-2 h-100">
+    <div class="col-lg-3 col-md-12 pt-2 pb-2 h-100">
         <app-lista-avisos [lista]="(trabajos$ | async)"></app-lista-avisos>
     </div>
     

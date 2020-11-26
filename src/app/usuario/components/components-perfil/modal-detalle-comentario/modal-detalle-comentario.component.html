@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalDetalleComentario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalDetalleComentario" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="comentarioDetalle !== null && comentarioDetalle !== undefined">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -11,24 +11,24 @@
                 <div class="col-12 w-100 mb-3">
                     <div class="col-12 text-center w-100 p-0"> <h5>Comentario</h5> </div>
                     <div class="col-12 w-100 border mb-2" style="height: 15vh; overflow-y: scroll;">
-                        <p>{{comentarioDetalle.comentarioEmpleador}}</p>
+                        <p>{{comentarioDetalle?.comentarioEmpleador}}</p>
                     </div>
                 </div>
                 <div class="col-12 w-100 mb-3">
                     <div class="col-12 text-center w-100 p-0"> <h5>Nota</h5> </div>
                     <div class="col-12 w-100 mb-2 text-center" style="height: 10vh;">
                         <span style="font-size: 300%;">
-                            {{comentarioDetalle.nota}}
+                            {{comentarioDetalle?.nota}}
                         </span>
                     </div>
                     <div class="col-12 w-100 text-center" [ngSwitch]="comentarioDetalle.nota">
                         <span style="font-size: 1.15rem;" *ngSwitchCase="comentarioDetalle.nota <= 3">
                             Bastante malo
                         </span>
-                        <span style="font-size: 1.15rem;" *ngSwitchCase="comentarioDetalle.nota > 3 && comentarioDetalle.nota <= 5">
+                        <span style="font-size: 1.15rem;" *ngSwitchCase="comentarioDetalle?.nota > 3 && comentarioDetalle.nota <= 5">
                             Podria haber sido mejor
                         </span>
-                        <span style="font-size: 1.15rem;" *ngSwitchCase="comentarioDetalle.nota > 5 && comentarioDetalle.nota < 7">
+                        <span style="font-size: 1.15rem;" *ngSwitchCase="comentarioDetalle?.nota > 5 && comentarioDetalle.nota < 7">
                             Bueno
                         </span>
                         <span style="font-size: 1.15rem;" *ngSwitchCase="comentarioDetalle.nota == 7">

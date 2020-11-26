@@ -6,21 +6,24 @@ import { AvisoTrabajo } from '@model/aviso-trabajo.model';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { MapaHomeComponent } from '@usuario/components/components-home/mapa-home/mapa-home.component';
 import {regiones} from '@core/variables/regiones';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  faPlus = faPlus;
   opcionesRegion = regiones;
+  regionSeleccionada: any = (this.opcionesRegion[12].value) - 1;
   trabajos$: Observable<AvisoTrabajo[]> = null;
-  centroMapa: number[] = this.opcionesRegion[12].coords;
+  centroMapa: number[] = this.opcionesRegion[this.regionSeleccionada].coords;
   kilometros = 0;
   usuarioPropio: string;
-  regionSeleccionada: any = this.opcionesRegion[12].value;
   @ViewChild(MapaHomeComponent) mapaDelHome: MapaHomeComponent;
   // tslint:disable-next-line: typedef
   cambio(){
+    console.log('hola');
     if ( (this.kilometros >= 11) || (this.kilometros < 0) ){
       this.kilometros = 0;
     }
@@ -42,6 +45,25 @@ export class HomeComponent implements OnInit {
   async getUserFnc(){
     const usuario = await this.authSvc.getUserAuth();
     return usuario;
+  }
+
+  capturarMarkador(numeros:number[]){
+    console.log('aka',numeros);
+    this.centroMapa = numeros;
+    console.log(this.centroMapa);
+    this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
+      // tslint:disable-next-line: prefer-for-of
+      for (let index = 0; index < avisosTrabajos.length; index++) {
+        avisosTrabajos[index].distancia = Math.round(this._calcularKm(avisosTrabajos[index].ubicacion));
+      }
+      avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>
+        avisoTrabajo.distancia <= this.kilometros
+      );
+      avisosTrabajos = avisosTrabajos.filter(avisoTrabajo =>
+        avisoTrabajo.idUsuarioPosteador !== this.usuarioPropio
+      );
+      return avisosTrabajos;
+    }) );
   }
 
   ngOnInit(): void {
@@ -97,7 +119,15 @@ export class HomeComponent implements OnInit {
   }
   // tslint:disable-next-line: typedef
   cambiarcoords(){
-    console.log(this.regionSeleccionada);
-
+    console.log(this.opcionesRegion[this.regionSeleccionada]);
+    this.centroMapa = this.opcionesRegion[this.regionSeleccionada].coords;
+    this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
+      // tslint:disable-next-line: prefer-for-of
+      for (let index = 0; index < avisosTrabajos.length; index++) {
+        avisosTrabajos[index].distancia = Math.round(this._calcularKm(avisosTrabajos[index].ubicacion));
+      }
+      return avisosTrabajos;
+    }) );
+    this.cambio();
   }
 }

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NotificacionesBasicasService } from '@core/service-providers/notificaciones-basicas/notificaciones-basicas.service';
 import { NotificacionesComentariosService } from '@core/service-providers/notificaciones-comentarios/notificaciones-comentarios.service';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
-import { faHome, faClock, faPlus, faUser, faSignOutAlt, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faClock, faPlus, faUser, faSignOutAlt, faBell, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-fix-navbar',
@@ -16,6 +16,7 @@ export class FixNavbarComponent implements OnInit {
   faPlus = faPlus;
   faUser = faUser;
   faBell = faBell;
+  faBriefcase = faBriefcase;
   faSignOutAlt = faSignOutAlt;
   notisBasica$: Observable<any>;
   notiComentario$: Observable<any>;

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage'
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -11,7 +12,8 @@ import { environment } from 'src/environments/environment';
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ]
 })
 export class FirebaseModule { }

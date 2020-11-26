@@ -5,23 +5,23 @@
         </div>
         <div class="form-group">
             <label for="correoInput">Correo electronico</label>
-            <input type="email" class="form-control" id="correoInput" formControlName="correo">
+            <input type="email" class="form-control" id="correoInput" formControlName="correo" [class.is-invalid] = "formularioRegistro.get('correo').invalid && formularioRegistro.get('correo').touched" required>
         </div>
         <div class="form-group">
             <label for="correoConfInput">Confirmar correo electronico</label>
-            <input type="email" class="form-control" id="correoConfInput" formControlName="correoConf" autocomplete="off">
+            <input type="email" class="form-control" id="correoConfInput" formControlName="correoConf" autocomplete="off" [class.is-invalid] = "formularioRegistro.get('correoConf').invalid && formularioRegistro.get('correoConf').touched">
         </div>
         <div class="form-group">
             <label for="passInput">Contraseña</label>
-            <input type="password" class="form-control" id="passInput" formControlName="pass">
+            <input type="password" class="form-control" id="passInput" formControlName="pass" [class.is-invalid]= "formularioRegistro.get('pass').invalid && formularioRegistro.get('pass').touched">
         </div>
         <div class="form-group">
             <label for="passConfInput">Confirmar contraseña</label>
-            <input type="password" class="form-control" id="passConfInput" formControlName="passConf">
+            <input type="password" class="form-control" id="passConfInput" formControlName="passConf" [class.is-invalid] = "formularioRegistro.get('passConf').invalid && formularioRegistro.get('passConf').touched">
         </div>
         <div class="form-group">
             <label for="RutInput">RUT</label>
-            <input type="text" class="form-control" id="RutInput" formControlName="rut">
+            <input type="text" class="form-control" id="RutInput" formControlName="rut" [class.is-invalid] = "formularioRegistro.get('rut').invalid && formularioRegistro.get('rut').touched">
         </div>
         <button type="button" matStepperNext class="btn btn-primary" (click)="validacionFormularioUno()">Siguiente!</button>
     </form>

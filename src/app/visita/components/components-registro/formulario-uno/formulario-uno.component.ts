@@ -10,10 +10,17 @@ import { ToastrService } from 'ngx-toastr';
 export class FormularioUnoComponent implements OnInit {
 
   formularioRegistro: FormGroup = new FormGroup({
-    correo: new FormControl('', [Validators.required, ]),
-    correoConf: new FormControl('', Validators.required),
+    correo: new FormControl('', 
+    [
+    Validators.required,
+    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+    ]),
+    correoConf: new FormControl('',[
+    Validators.required,
+    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')
+    ]),
     rut: new FormControl('', Validators.required),
-    pass: new FormControl('', Validators.minLength(7)),
+    pass: new FormControl('', [Validators.minLength(7), Validators.required]),
     passConf: new FormControl('', Validators.required)
   }, {
     validators: [this.formValidator]

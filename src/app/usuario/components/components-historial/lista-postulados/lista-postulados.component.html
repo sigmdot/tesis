@@ -1,0 +1,20 @@
+<div class="modal fade" id="modalPostulados" tabindex="-1" aria-labelledby="modalPostulados" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Lista postulados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="listaPostuladinos" style="height: 70vh; overflow-y: scroll;">
+                <app-tarjeta-postulado *ngFor="let postulado of listaPostulados; let i = index" [postuladoId]="postulado" [indice]="i" (emisorIndicePostulado)="capturarIndicPostulado($event)" [avisoId]="postulado.idAviso"></app-tarjeta-postulado>
+                <img src="https://media1.tenor.com/images/e8cf8b3a86d03c87a7c5b371924e509d/tenor.gif?itemid=4911712" class="w-100" *ngIf="listaPostulados == undefined || listaPostulados.length == 0" style="height: 90%;">
+                <h4 *ngIf="listaPostulados == undefined || listaPostulados.length == 0">Parece que aun nadie se ha postulado :( ...</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary w-100" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

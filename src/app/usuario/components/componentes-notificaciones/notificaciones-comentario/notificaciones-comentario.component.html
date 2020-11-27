@@ -1,0 +1,13 @@
+<div class="w-100 border bg-primary row m-0 rounded" style="height: 10vh;">
+    <div class="col-3 h-100 d-flex justify-content-center align-items-center">
+        <fa-icon [icon]="faPencilAlt" size="3x" class="text-white"></fa-icon>
+    </div>
+    <div class="col-7 d-flex justify-content-center align-items-center">
+        <span class="mr-1"> {{notiComentario.mensaje }} </span> {{' ' + (usuario$|async).nombres + ' ' + (usuario$|async).apellidos}}
+    </div>
+    <div class="col-2 h-100 d-flex justify-content-center align-items-center">
+        <button class="btn btn-success border" data-toggle="modal" data-target="#evaluacionModal" (click)="emitirIndiceSeleccionado()">
+            Evaluar <fa-icon [icon]="faPencilAlt" size="sm"></fa-icon>
+        </button>
+    </div>
+</div>

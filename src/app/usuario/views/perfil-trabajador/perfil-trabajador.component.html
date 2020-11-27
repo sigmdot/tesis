@@ -1,0 +1,13 @@
+<div class="container-fluid row m-0" style="padding-top: 50px !important; height: 100vh;">
+        <div class="col-lg-3 col-12 h-100">
+            <app-perfil-datos-uno [usuario]="(usuario$|async)"></app-perfil-datos-uno>
+        </div>
+        <div class="col-lg-9 col-12 h-100">
+            <div class="col-12 p-0 mb-2" style="height: 49%;">
+                <app-perfil-datos-dos [info]="(usuario$|async)?.sobreMi"></app-perfil-datos-dos>
+            </div>
+            <div class="col-12 p-0" style="height: 49%">
+                <app-perfil-datos-tres [comentarios]="(comentario$|async)"></app-perfil-datos-tres>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="container-fluid" style="padding-top: 50px !important; height: 100vh;">
+    <app-notificaciones-basicas *ngFor="let notiBasica of (notisBasica$|async)" [notiBasica]="notiBasica"></app-notificaciones-basicas>
+    <app-notificaciones-comentario *ngFor="let notiComenta of (notiComentario$|async)" [notiComentario]="notiComenta" (emisorIndice)="capturarIndice($event)"></app-notificaciones-comentario>
+    <app-modal-evaluacion [notificacionDatos]="notificacionCaptu"></app-modal-evaluacion>
+
+</div>

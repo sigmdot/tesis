@@ -1,0 +1,26 @@
+<div class="container-fluid" style="height: 100vh;">
+    <div class="col-12 w-100 text-center" style="height: 12%; overflow-y: scroll;">
+        <h4>Registro</h4>
+        <p>Antes de poder acceder a la aplicación debes registrarte , no tomará más de 5 minutos</p>
+    </div>
+    <div class="col-12 p-0 w-100 d-flex justify-content-center">
+        <div class="col-10 border h-100">
+            <mat-horizontal-stepper linear #stepper>
+                <mat-step [stepControl]="FormpasoUno">
+                    <ng-template matStepLabel>Tus datos de registro</ng-template>
+                    <app-formulario-uno></app-formulario-uno>
+                </mat-step>
+                <mat-step [stepControl]="FormpasoDos">
+                    <ng-template matStepLabel>Tus datos de usuario</ng-template>
+                    <app-formulario-dos></app-formulario-dos>
+                </mat-step>
+                <mat-step [stepControl]="FormpasoTres">
+                    <ng-template matStepLabel>Sube una foto</ng-template>
+                    <app-formulario-tres></app-formulario-tres>
+                    <button class="btn btn-primary" (click)="finalizarRegistro()">Terminar de registrarse</button>
+                </mat-step>
+            </mat-horizontal-stepper>
+            <button class="btn btn-secondary w-100" (click)="backToLanding()"> Cancelar </button>
+        </div>
+    </div>
+</div>

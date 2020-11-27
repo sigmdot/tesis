@@ -26,7 +26,6 @@ export class DetalleTrabajoConcretadoComponent implements OnInit, OnChanges, Aft
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.table(changes.trabajoConcretadoAdefinir.currentValue);
     if ( (this.trabajoConcretadoAdefinir !== null) && (this.trabajoConcretadoAdefinir !== undefined) ){
       this.aviso$ = this.avisoSvc.getAviso(this.trabajoConcretadoAdefinir.idAvisoAsociado);
       this.usuario$ = this.UserSvc.getUsuario(this.trabajoConcretadoAdefinir.idUsuarioEmpleador);

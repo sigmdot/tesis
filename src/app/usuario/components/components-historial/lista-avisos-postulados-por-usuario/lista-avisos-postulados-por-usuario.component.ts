@@ -19,8 +19,6 @@ export class ListaAvisosPostuladosPorUsuarioComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   capturarIndicePostulado(indice: number){
-    console.log('Fue capturado este indice ', indice);
-    console.log('Por lo tanto este fue el aviso capturado postulado = ', this.listaAvisosPostulados[indice].idAviso);
     this.idSeleccionada = this.avisoSvc.getAviso(this.listaAvisosPostulados[indice].idAviso);
   }
 

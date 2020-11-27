@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   @ViewChild(MapaHomeComponent) mapaDelHome: MapaHomeComponent;
   // tslint:disable-next-line: typedef
   cambio(){
-    console.log('hola');
     if ( (this.kilometros >= 11) || (this.kilometros < 0) ){
       this.kilometros = 0;
     }
@@ -38,7 +37,6 @@ export class HomeComponent implements OnInit {
     this.getUserFnc().then(e => {
       this.usuarioPropio = e.uid;
     });
-    console.log(this.opcionesRegion[12]);
   }
 
   // tslint:disable-next-line: typedef
@@ -48,9 +46,7 @@ export class HomeComponent implements OnInit {
   }
 
   capturarMarkador(numeros:number[]){
-    console.log('aka',numeros);
     this.centroMapa = numeros;
-    console.log(this.centroMapa);
     this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
       // tslint:disable-next-line: prefer-for-of
       for (let index = 0; index < avisosTrabajos.length; index++) {
@@ -119,7 +115,6 @@ export class HomeComponent implements OnInit {
   }
   // tslint:disable-next-line: typedef
   cambiarcoords(){
-    console.log(this.opcionesRegion[this.regionSeleccionada]);
     this.centroMapa = this.opcionesRegion[this.regionSeleccionada].coords;
     this.trabajos$ = this.trabajos$.pipe( map((avisosTrabajos) => {
       // tslint:disable-next-line: prefer-for-of

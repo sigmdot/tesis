@@ -21,12 +21,10 @@ export class PerfilTrabajadorComponent implements OnInit, OnDestroy {
   ) { }
   ngOnDestroy(): void {
     this.trabajador$.unsubscribe();
-    console.log('L O L');
   }
 
   ngOnInit(): void {
     this.trabajador$ = this.route.params.subscribe(e => {
-      console.log(e.id);
       this.usuario$ = this.usuarioSvc.getUsuario(e.id);
       this.comentario$ = this.comentarioSvc.getComentariosUsuario(e.id);
     });

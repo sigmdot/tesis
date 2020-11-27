@@ -21,7 +21,6 @@ export class MapaDetalleAvisoLaboralComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if ((changes.ubicacion.currentValue != undefined) && (changes.ubicacion.currentValue != null)) {
-      console.log('Llegue acá', changes.ubicacion.currentValue);
       if (this.mapaLaboral == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaLaboral = new Mapboxgl.Map({

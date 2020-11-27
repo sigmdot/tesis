@@ -27,7 +27,6 @@ export class ListaPostuladosComponent implements OnInit, OnChanges {
   ngOnInit(): void { }
   // tslint:disable-next-line: typedef
   capturarIndicPostulado(indiceaBorrar: number) {
-    console.log('Se actualizara el usuario', this.listaPostulados[indiceaBorrar].idUsuarioPostulado);
     this.postulacionSvc.actualizarPostulacion(this.listaPostulados[indiceaBorrar].id, 'finalizado');
   }
 

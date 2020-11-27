@@ -32,7 +32,6 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     if ((changes.seleccionado.currentValue !== null) && (changes.seleccionado.currentValue !== undefined) ){
       this.userColle.getUsuario(this.seleccionado.idUsuarioPosteador).subscribe(e => {
         this.image = e.foto;
-        console.log(this.image);
       });
     }
   }
@@ -41,7 +40,6 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   postularse(){
-    console.log('Postulado Intento');
     const postulacion: Postulacion = {
       idAviso: this.seleccionado.id,
       idUsuarioPostulado: this.usuarioid,

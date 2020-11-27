@@ -24,7 +24,6 @@ export class DetalleAvisosPostuladoPorUsuarioComponent implements OnInit, OnChan
     }
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if ((this.idAviso !== undefined)&&(this.idAviso !== null)) {
       this.usuarioo$ = this.usuarioSvc.getUsuario(this.idAviso.idUsuarioPosteador);
     }

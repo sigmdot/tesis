@@ -52,14 +52,11 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   emitirIndice(){
-    console.log(this.indice, ' Aca el postulado ');
     this.emisorIndicePostulado.emit(this.indice);
   }
 
   // tslint:disable-next-line: typedef
   crearTrabajoEstable(){
-    console.log('Se wa a crear el trabajo');
-    console.log(this.postuladoId.idAviso);
     const trabajAEnviar: Trabajo = {
       idAvisoAsociado : this.postuladoId.idAviso,
       idUsuarioEmpleador : this.usuario,
@@ -76,7 +73,8 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   navegarATrabajador(){
-      this.router.navigate(['desktop', 'trabajador', this.postuladoId.idUsuarioPostulado]);
+    $('#modalPostulados').modal('toggle');
+    this.router.navigate(['desktop', 'trabajador', this.postuladoId.idUsuarioPostulado]);
   }
 
 }

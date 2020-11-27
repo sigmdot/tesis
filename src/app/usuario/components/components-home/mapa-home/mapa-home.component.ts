@@ -46,7 +46,6 @@ export class MapaHomeComponent implements OnInit, OnChanges {
             .addTo(this.map);
 
           this.markerWorker.on('drag', () => {
-              console.log(this.markerWorker.getLngLat().lat);
               this.emisorMarkador.emit([this.markerWorker.getLngLat().lng, this.markerWorker.getLngLat().lat] );
             });
         }

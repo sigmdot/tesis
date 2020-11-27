@@ -30,7 +30,6 @@ export class NotificacionesComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   capturarIndice(notiComentario: NotiComentario){
-    console.log(notiComentario);
     this.notificacionCaptu = notiComentario;
   }
 

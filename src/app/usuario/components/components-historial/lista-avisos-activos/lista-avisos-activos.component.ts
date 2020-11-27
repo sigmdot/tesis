@@ -36,19 +36,15 @@ export class ListaAvisosActivosComponent implements OnInit, OnChanges {
   }
   // tslint:disable-next-line: typedef
   capturarIndice(indice: number){
-    console.log(indice, ' Recepcionado padre ');
-    console.log(this.listaAvisosFiltradaActivo[indice]);
     this.listaPostuladosSelect$ = this.postulacionSvc.getPostulacionesPorAviso(this.listaAvisosFiltradaActivo[indice].id);
   }
   // tslint:disable-next-line: typedef
   capturarIndiceParaBorrar(indice: number){
     this.idAvisoBorrable = this.listaAvisosFiltradaActivo[indice].id;
     this.indiceATerminarPost = indice;
-    console.log(this.idAvisoBorrable, ' WOY A BORRAR ', this.listaAvisosFiltradaActivo[indice]);
   }
   // tslint:disable-next-line: typedef
   capturarIndiceParaFinalizarPostulaciones(indice: number){
-    console.log('ME WOY A SUICIDAR LOG ', indice);
     this.listaPostuladoSuscripcion = this.postulacionSvc.getPostulacionesPorAviso(this.listaAvisosFiltradaActivo[indice].id);
     this.listaPostuladoSuscripcion.subscribe(postulaciones => {
       postulaciones.forEach(postulacion => {

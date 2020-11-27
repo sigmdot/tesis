@@ -29,8 +29,6 @@ export class ListaAvisosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   capturarIndice(indice: number){
-    console.log(indice);
-    console.table(this.lista[indice]);
     this.seleccionado = this.lista[indice];
   }
 

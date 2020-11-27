@@ -16,7 +16,6 @@ export class DetallesHistorialPostuladosComponent implements OnInit, OnChanges {
   constructor(private userCollecSvc: CollecionUsuariosService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.postulado);
     if ( (changes.postulado.currentValue) && (changes.postulado.currentValue != null) ){
       this.nombre = this.postulado.nombreAviso;
       this.desc = this.postulado.descAviso;

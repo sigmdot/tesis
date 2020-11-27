@@ -17,7 +17,6 @@ export class TarjetaTrabajosActivosConcretadosComponent implements OnInit, OnCha
   trabajadoAsociado$: Observable<Usuario>;
   constructor(private avisoSvc: AvisosTrabajosService, private router: Router) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.trabajoActivo.idAvisoAsociado, 'Acá la id del aviso');
     this.aviso$ = this.avisoSvc.getAviso(this.trabajoActivo.idAvisoAsociado);
   }
   // tslint:disable-next-line: typedef

@@ -36,7 +36,6 @@ export class FirestoreService {
         let data: type[] = snapshot.map((doc: DocumentChangeAction<type>) => {
           return doc.payload.doc.data() as type;
         });
-        console.log(data);
         return data;
       }));
   }
@@ -45,7 +44,6 @@ export class FirestoreService {
     const document: AngularFirestoreDocument<type> = this.angularFirestore.doc<type>(path);
     return document.snapshotChanges()
       .pipe(map((snapshot: Action<DocumentSnapshot<type>>) => {
-        console.log(snapshot.payload.data());
         return snapshot.payload.data() as type;
       }));
   }

@@ -14,10 +14,8 @@ export class MapaDetalleTrabajoConcretadoComponent implements OnInit, OnChanges 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     // tslint:disable-next-line: triple-equals
     if ((this.ubicacionConcretado != undefined) && (this.ubicacionConcretado != null)) {
-      console.log('Llegue ohana', this.ubicacionConcretado);
       if (this.mapaTrabajoConcretado == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaTrabajoConcretado = new Mapboxgl.Map({
@@ -33,7 +31,6 @@ export class MapaDetalleTrabajoConcretadoComponent implements OnInit, OnChanges 
         el.style.height = '40px';
         this.markJob = new Mapboxgl.Marker(el).setLngLat(this.ubicacionConcretado)
           .addTo(this.mapaTrabajoConcretado); // cambiar
-        console.log(this.mapaTrabajoConcretado);
       }
       else {
         this.mapaTrabajoConcretado.flyTo({

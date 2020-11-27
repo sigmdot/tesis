@@ -16,13 +16,11 @@ export class TarjetaAvisoComponent implements OnInit {
 
   ngOnInit(): void {
     this.userColl.getUsuario(this.aviso.idUsuarioPosteador).subscribe(e=>{
-      console.log(e.foto);
       this.imagen = e.foto;
     });
   }
 
   seleccionado(){
-    console.log('Fui seleccionado weh', this.index);
     this.emisorIndex.emit(this.index);
   }
 

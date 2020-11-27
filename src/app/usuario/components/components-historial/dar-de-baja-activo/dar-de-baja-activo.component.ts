@@ -29,7 +29,6 @@ export class DarDeBajaActivoComponent implements OnInit, OnChanges {
     private bajarPostulacionSvc: PostulacionesCollecionService
     ) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.idAviso, ' HOLA ACÁ');
     this.postulaciones$ = this.postulacionSv.getPostulacionesPorAviso(this.idAviso);
   }
 

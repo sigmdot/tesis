@@ -48,7 +48,6 @@ export class RegistroComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   finalizarRegistro() {
-    console.log(this.FormpasoTres.value.foto);
 
     if (this.FormpasoTres.value.foto !== null) {
       this.authSvc.createUserEmailPass(this.FormpasoUno.value.correo, this.FormpasoUno.value.pass).then((user) => {
@@ -72,7 +71,6 @@ export class RegistroComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       }).catch(e => {
-        console.log('ERROR', e);
         if (e.code === 'auth/email-already-in-use') {
           this.toastr.warning('El correo ya se encuentra usado');
         }

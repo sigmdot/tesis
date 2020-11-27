@@ -45,8 +45,6 @@ export class ModalEvaluacionComponent implements OnInit, OnChanges {
   }
   // tslint:disable-next-line: typedef
   crearComentario() {
-    console.log(this.formularioEvaluacionUsuario.value.nota);
-    console.log(this.formularioEvaluacionUsuario.value.comentario);
     const comentario: Comentario = {
       idTrabajo: this.notificacionDatos.idAvisoAsoc,
       idUsuarioEvaluado: this.notificacionDatos.idUsuarioEvaluado,

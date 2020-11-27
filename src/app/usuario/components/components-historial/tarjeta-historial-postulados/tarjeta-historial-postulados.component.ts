@@ -20,7 +20,6 @@ export class TarjetaHistorialPostuladosComponent implements OnInit, OnChanges {
   
   constructor(private userCollecSvc: CollecionUsuariosService, private avisoTrabajoSvc: AvisosTrabajosService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     this.aviso$ = this.avisoTrabajoSvc.getAviso(this.postulacion.idAviso);
     this.user$ = this.userCollecSvc.getUsuario(this.postulacion.idUsuarioPostulado);
   }
@@ -29,7 +28,6 @@ export class TarjetaHistorialPostuladosComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   emitirIndiceTrabajosPostulados(){
-    console.log('Emitido postulados', this.indice);
     this.emisorIndicePostulados.emit(this.indice);
   }
 

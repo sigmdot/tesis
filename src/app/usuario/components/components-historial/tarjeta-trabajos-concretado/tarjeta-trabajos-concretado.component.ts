@@ -28,8 +28,6 @@ export class TarjetaTrabajosConcretadoComponent implements OnInit, OnChanges {
   }
   // tslint:disable-next-line: typedef
   emitirIndiceX(){
-    console.log('hola weh');
-    console.log(this.index);
     this.emitirIndice.emit(this.index);
   }
 

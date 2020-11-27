@@ -18,10 +18,8 @@ export class MapaDetallesAvisoComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     // tslint:disable-next-line: triple-equals
     if ((changes.centroMapaDetalle.currentValue != undefined) && (changes.centroMapaDetalle.currentValue != null)) {
-      console.log('Llegue acá', changes.centroMapaDetalle.currentValue);
       if (this.mapaDetalleHistorial == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaDetalleHistorial = new Mapboxgl.Map({
@@ -37,7 +35,6 @@ export class MapaDetallesAvisoComponent implements OnInit, OnChanges {
         el.style.height = '40px';
         this.markerWork = new Mapboxgl.Marker(el).setLngLat(changes.centroMapaDetalle.currentValue)
           .addTo(this.mapaDetalleHistorial); // cambiar
-        console.log(this.mapaDetalleHistorial);
       }
       else {
         this.mapaDetalleHistorial.flyTo({

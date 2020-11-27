@@ -24,9 +24,7 @@ export class ListaTrabajosConcretadosComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   capturarIndice(indice: number){
-    console.log(indice, ' CAPTURADO ');
     this.trabajoConcretadoSeleccionado = this.listaFinalizadoTrabajoConcre[indice];
-    console.log(this.trabajoConcretadoSeleccionado, ' ACA EL SELECCIONADO ');
   }
 
 }

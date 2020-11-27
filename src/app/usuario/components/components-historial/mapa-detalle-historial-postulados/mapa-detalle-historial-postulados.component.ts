@@ -13,10 +13,8 @@ export class MapaDetalleHistorialPostuladosComponent implements OnInit, OnChange
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     // tslint:disable-next-line: triple-equals
     if ((changes.centroMapa.currentValue != undefined) && (changes.centroMapa.currentValue != null)) {
-      console.log('Llegue acá', changes.centroMapa.currentValue);
       if (this.mapaDetallePostulado == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaDetallePostulado = new Mapboxgl.Map({

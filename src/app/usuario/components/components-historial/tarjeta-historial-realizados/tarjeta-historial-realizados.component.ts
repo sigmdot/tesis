@@ -22,7 +22,6 @@ export class TarjetaHistorialRealizadosComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes, 'Historial realizado');
     if ((this.trabajo !== undefined) && (this.trabajo != null)) {
       this.usuario$ = this.userColleSvc.getUsuario(this.trabajo.idUsuarioEmpleador);
       this.aviso$ = this.avisoTrabajoSvc.getAviso(this.trabajo.idAvisoAsociado);
@@ -30,7 +29,6 @@ export class TarjetaHistorialRealizadosComponent implements OnInit, OnChanges {
   }
   // tslint:disable-next-line: typedef
   emitirIndiceTrabajosRealizados() {
-    console.log('se emite', this.indice);
     this.emitirIndiceRealizado.emit(this.indice);
   }
 

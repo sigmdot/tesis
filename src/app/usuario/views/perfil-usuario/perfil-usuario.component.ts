@@ -23,9 +23,9 @@ export class PerfilUsuarioComponent implements OnInit, OnDestroy {
               private comentarioSvc: ComentarioCollecionService){
     const user = this.getUserFnc();
     user.then((e) => {
-      this.userSubscription = this.userColleSvc.getUsuario(e.uid).subscribe((usuario) => {this.usuario = usuario; console.log(usuario); });
+      this.userSubscription = this.userColleSvc.getUsuario(e.uid).subscribe((usuario) => {this.usuario = usuario; });
       this.comentariosSubscription = this.comentarioSvc.getComentariosUsuario(e.uid).subscribe(
-        (comentario) => {this.comentariosUsuario = comentario; console.log(comentario); }
+        (comentario) => {this.comentariosUsuario = comentario; }
         );
     });
   }
@@ -36,7 +36,6 @@ export class PerfilUsuarioComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();
     this.comentariosSubscription.unsubscribe();
-    console.log('Me borre');
 
   }
 

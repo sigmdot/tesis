@@ -24,13 +24,11 @@ export class ListaTrabajosActivosComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
   // tslint:disable-next-line: typedef
   capturarIndiceTrabajoActivo(indice: number){
-    console.log(indice, this.listaTrabajoActivo[indice]);
     this.avisoTrabajoSeleccionadito$ = this.avisoSvc.getAviso(this.listaTrabajoActivo[indice].idAvisoAsociado);
   }
 
   // tslint:disable-next-line: typedef
   capturarAvisoAfinalizar(indice: number){
     this.trabajo = this.listaTrabajoActivo[indice];
-    console.log('LARARARA = ', this.trabajo);
   }
 }

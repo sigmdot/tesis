@@ -39,7 +39,6 @@ export class CrearAvisoComponent implements OnInit {
       navigator.geolocation.getCurrentPosition((position) => {
         this.mapaObtenerCentro = [position.coords.longitude, position.coords.latitude];
       });
-      console.log(this.mapaObtenerCentro);
     } else {
       alert('La geolocalización parece no estar disponible en tú navegador :(');
     }

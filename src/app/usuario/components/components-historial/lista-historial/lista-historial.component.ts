@@ -12,7 +12,6 @@ export class ListaHistorialComponent implements OnInit, OnChanges {
   avisoSeleccionado: AvisoTrabajo;
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes.lista.currentValue != null) {
       this.listaFiltradaFinalizados = this.lista.filter(aviso => aviso.estado.toUpperCase() === 'FINALIZADO');
     }
@@ -22,7 +21,6 @@ export class ListaHistorialComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   capturarIndice(indice: number) {
-    console.log(indice);
     this.avisoSeleccionado = this.listaFiltradaFinalizados[indice];
   }
 }

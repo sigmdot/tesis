@@ -11,7 +11,6 @@ export class LoggedUserGuard implements CanActivate {
   async canActivate(){
     const user = await this.authSvc.getUserAuth();
     if(user !== null){
-      console.log('whats');
       this.route.navigate(['/home']);
       return false;
     }

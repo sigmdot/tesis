@@ -16,7 +16,6 @@ export class ModalDetalleComentarioComponent implements OnInit, OnChanges {
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     this.aviso$ = this.avisoSvc.getAviso(this.comentarioDetalle.idTrabajo);
   }
 

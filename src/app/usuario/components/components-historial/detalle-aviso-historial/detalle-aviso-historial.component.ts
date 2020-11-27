@@ -35,7 +35,6 @@ export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDest
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.avisoDetalle);
     // tslint:disable-next-line: triple-equals
     if ((changes.avisoDetalle.currentValue != undefined) && (changes.avisoDetalle.currentValue !== null)) {
       this.detallesAviso.nombre = this.avisoDetalle.nombreAviso;
@@ -53,11 +52,9 @@ export class DetalleAvisoHistorialComponent implements OnInit, OnChanges, OnDest
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    console.log('me activo');
   }
 
   cerrarModal(): void {
-    console.log('Cerrado');
     $('#modalDetalleHistorial').modal('hide');
     $('#modalDetalleHistorial').on('hidden.bs.modal', (e) => {
       // la e logea evento jquery.

@@ -26,13 +26,11 @@ export class TarjetaTrabajosActivosComponent implements OnInit, OnChanges {
 
   // tslint:disable-next-line: typedef
   emitirIndiceActivo(){
-    console.log('Emitir este indice tarjeta = ', this.indice);
     this.numeroIndiceEmisor.emit(this.indice);
   }
 
   // tslint:disable-next-line: typedef
   emitirIndiceFinalizar(){
-    console.log('Finalizar este trabajo = ', this.indice);
     this.indiceBajarActivo.emit(this.indice);
   }
 

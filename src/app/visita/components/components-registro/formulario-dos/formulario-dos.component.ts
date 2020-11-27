@@ -22,7 +22,6 @@ export class FormularioDosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   validacionFormularioDos() {
-    console.log(this.formDatosPersonales.value);
   }
 
 }

@@ -15,10 +15,8 @@ export class MapaDetalleTrabajosActivoComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     // tslint:disable-next-line: triple-equals
     if ((this.ubicacionActual != undefined) && (this.ubicacionActual != null)) {
-      console.log('Llegue ohana', this.ubicacionActual);
       if (this.mapaDetalleAvisoTrabajoActivo == null) {
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaDetalleAvisoTrabajoActivo = new Mapboxgl.Map({
@@ -34,7 +32,6 @@ export class MapaDetalleTrabajosActivoComponent implements OnInit, OnChanges {
         el.style.height = '40px';
         this.markJob = new Mapboxgl.Marker(el).setLngLat(this.ubicacionActual)
           .addTo(this.mapaDetalleAvisoTrabajoActivo); // cambiar
-        console.log(this.mapaDetalleAvisoTrabajoActivo);
       }
       else {
         this.mapaDetalleAvisoTrabajoActivo.flyTo({

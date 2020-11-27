@@ -21,7 +21,6 @@ export class TarjetaListaHistorialComponent implements OnInit, OnChanges {
   constructor(private usuarioColleSvc: CollecionUsuariosService) {   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if ((changes.aviso.currentValue !== null) && (changes.aviso.currentValue !== undefined)){
       this.usuario$ = this.usuarioColleSvc.getUsuario(this.aviso.idUsuarioPosteador);
     }

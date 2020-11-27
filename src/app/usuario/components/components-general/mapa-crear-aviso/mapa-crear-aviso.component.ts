@@ -31,7 +31,6 @@ export class MapaCrearAvisoComponent implements OnInit, OnChanges {
           .addTo(this.mapaCreacion); // cambiar
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes.centroEnviado.currentValue);
     if (
       (changes.centroEnviado.currentValue.length != 0)
       && (changes.centroEnviado.currentValue != null)

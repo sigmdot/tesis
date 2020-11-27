@@ -20,14 +20,12 @@ export class TarjetaAvisosActivosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   emitirIndice(){
-    console.log('emitido = ', this.indice);
     this.emisorIndice.emit(this.indice);
   }
 
   // tslint:disable-next-line: typedef
   emitirIndiceParaBorrar(){
     this.emisorIndiceParaBorrar.emit(this.indice);
-    console.log('Borrar', this.indice);
   }
 
 }

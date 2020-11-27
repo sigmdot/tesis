@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   mapboxKey: 'pk.eyJ1Ijoic2lnbWRvdCIsImEiOiJja2Z0d3V6aHEwbWV0MnNxcWlmc3Y0eGlnIn0.Vxw5oue-Z9_ia3tW1zifkA',
   firebase: {
     apiKey: 'AIzaSyAVzmtnZyI_oO5ZAch9YvwgVmJ1m5xi4oE',

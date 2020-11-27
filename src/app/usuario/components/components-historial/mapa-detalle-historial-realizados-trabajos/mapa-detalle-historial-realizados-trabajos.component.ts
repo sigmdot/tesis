@@ -13,11 +13,9 @@ export class MapaDetalleHistorialRealizadosTrabajosComponent implements OnInit, 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes, 'Hola :3');
     // tslint:disable-next-line: triple-equals
     if ((changes.mapaCenter.currentValue != undefined) && (changes.mapaCenter.currentValue != null)) {
       if (this.mapaDetalleHistorialRealizados === null) {
-        console.log('hola weh');
         Mapboxgl.accessToken = environment.mapboxKey;
         this.mapaDetalleHistorialRealizados = new Mapboxgl.Map({
           container: 'mapaHistorialBoxRealizados',
@@ -25,7 +23,6 @@ export class MapaDetalleHistorialRealizadosTrabajosComponent implements OnInit, 
           center: this.mapaCenter,
           zoom: 18
         });
-        console.log(this.mapaDetalleHistorialRealizados, ' LOG MAPIUÑA');
         const el = document.createElement('marker');
         el.className = 'marker';
         el.style.backgroundImage = 'url(https://i.ibb.co/DzHgDmg/workIcon.png)';

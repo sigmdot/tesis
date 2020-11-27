@@ -38,7 +38,6 @@ export class FormularioUnoComponent implements OnInit {
     const pass = this.formularioRegistro.value.pass;
     const passConf = this.formularioRegistro.value.passConf;
 
-    console.log(this.formularioRegistro);
 
     if (this.formularioRegistro.invalid) {
       if (correo === '') {
@@ -73,7 +72,6 @@ export class FormularioUnoComponent implements OnInit {
     if (!this.validarut(rut)) {
       this.toastr.warning('Rut inválido');
     }
-    console.log(correo, correoConf, rut, pass, passConf);
   }
   // tslint:disable-next-line: typedef
   validarut(rut: string) {

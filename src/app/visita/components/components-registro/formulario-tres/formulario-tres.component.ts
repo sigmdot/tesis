@@ -22,7 +22,7 @@ export class FormularioTresComponent implements OnInit {
       const booleanVal = this.validation(event.target.files[0].name);
       if (!booleanVal){
         this.toastr.warning('Sube un archivo de imagen permitido porfavor');
-        this._elementRef.nativeElement.querySelector(`#upload`).value = '';
+        this._elementRef.nativeElement.querySelector(`#upload`).value = null;
         this.formFoto.patchValue({
           foto: null
         });

@@ -6,8 +6,8 @@ import { CollecionUsuariosService } from '@core/service-providers/collecion-usua
 import {PostulacionesCollecionService} from '@core/service-providers/postulaciones-collecion/postulaciones-collecion.service'
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
-
+import { Router } from '@angular/router';
+declare var $: any;
 @Component({
   selector: 'app-detalle-aviso',
   templateUrl: './detalle-aviso.component.html',
@@ -22,7 +22,8 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     private avisoTrabajoSvc: AvisosTrabajosService,
     private authSvc: FireauthService,
     private postulacionSvc: PostulacionesCollecionService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
     ) {
     this.getUserFnc().then(e => {
       this.usuarioid = e.uid;
@@ -56,5 +57,10 @@ export class DetalleAvisoComponent implements OnInit, OnChanges {
     return usuario;
   }
 
+  // tslint:disable-next-line: typedef
+  llevarPerfilUsuario(){
+    $('#modalDetalleAviso').modal('toggle');
+    this.router.navigate(['desktop', 'trabajador', this.seleccionado.idUsuarioPosteador]);
+  }
 
 }

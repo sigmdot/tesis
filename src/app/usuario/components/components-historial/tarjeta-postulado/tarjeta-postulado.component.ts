@@ -5,10 +5,12 @@ import { Trabajo } from '@core/model/trabajo.model';
 import { Usuario } from '@core/model/usuario.model';
 import { AvisosTrabajosService } from '@core/service-providers/avisos-trabajos/avisos-trabajos.service';
 import { CollecionUsuariosService } from '@core/service-providers/collecion-usuarios/collecion-usuarios.service';
+import { NotificacionesBasicasService } from '@core/service-providers/notificaciones-basicas/notificaciones-basicas.service';
 import { TrabajosCollecionService } from '@core/service-providers/trabajos-collecion/trabajos-collecion.service';
 import { FireauthService } from '@core/services/fireauth/fireauth.service';
 import {faCheck, faTimes, faIdBadge, faStreetView, faStar } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import {NotiBasica} from '@core/model/notifi-basica.model'
 import { Observable } from 'rxjs';
 declare var $: any;
 @Component({
@@ -34,6 +36,7 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
     private avisoSvc: AvisosTrabajosService,
     private trabajoSvc: TrabajosCollecionService,
     private toastr: ToastrService,
+    private noti: NotificacionesBasicasService,
     private router: Router
     ) { }
   ngOnChanges(changes: SimpleChanges): void {
@@ -64,8 +67,14 @@ export class TarjetaPostuladoComponent implements OnInit, OnChanges {
       fechaInicio : new Date(),
       estado : 'activo'
     };
+    const notiBasica: NotiBasica = {
+      idAvisoAsoc: this.postuladoId.idAviso,
+      idUsuarioRecibir: this.postuladoId.idUsuarioPostulado,
+      mensaje: 'Fuiste aceptado en un trabajo, revisa tú historial'
+    }
     this.trabajoSvc.crearTrabajo(trabajAEnviar).then(() => {
       this.avisoSvc.setEstado(this.postuladoId.idAviso, 'Finalizado');
+      this.noti.crearNoti(notiBasica);
       this.toastr.success('El trabajador fue aceptado');
       $('#modalPostulados').modal('toggle');
     });

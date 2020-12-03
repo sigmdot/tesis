@@ -71,6 +71,7 @@ export class CrearAvisoComponent implements OnInit {
       avisoTrabajo.idUsuarioPosteador = this.usuario;
       avisoTrabajo.ubicacion = [this.mapa.obtenerLatLngMark().lng, this.mapa.obtenerLatLngMark().lat];
       this.avisoSvc.createAviso(avisoTrabajo);
+      this.formularioCreacion.reset();
       $('#modalCrearAviso').modal('toggle');
     }
   }
